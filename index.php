@@ -26,7 +26,16 @@
 
 <!-- Page Content -->
 <body>
-	<h1>Client Management Homepage</h1>
+	<?php
+
+	if ($logged_in) {
+		echo "<h1>User is logged in</h1>";
+	}
+	else {
+		echo "<h1>Please log in</h1>";
+	}
+
+	?>
 </body>
 
 </html>
