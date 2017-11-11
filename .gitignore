@@ -1,2 +1,6 @@
 
 desktop\.ini
+
+*.xml
+
+.idea/CMK-Marketing-CMS.iml
