@@ -1,9 +1,9 @@
 <!--
 	Application: CMK Marketing Customer Management System
-	Module: Main Page
+	Module: Users Page
 
 	Developers: Tusa Larkowski, Adeel Minhas, Ruowen Qin
-	Brief Description: The main page of system for logged-in users.
+	Brief Description: List the systems currently logged employee users.
 -->
 
 <!DOCTYPE html>
