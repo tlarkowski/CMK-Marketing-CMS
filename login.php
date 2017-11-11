@@ -26,12 +26,6 @@
 
 <!-- Page Content -->
 <body>
-	<nav class="nav nav-pills nav-justified">
-		<p>Welcome Caitlin!</p>
-		<a class="nav-link active" href="#">Active</a>
-		<a class="nav-link" href="#">Longer nav link</a>
-		<a class="nav-link" href="#">Link</a>
-	</nav>
 </body>
 
 </html>

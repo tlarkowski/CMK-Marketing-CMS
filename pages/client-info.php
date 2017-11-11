@@ -1,9 +1,9 @@
 <!--
 	Application: CMK Marketing Customer Management System
-	Module: Users Page
+	Module: Client Information Page
 
 	Developers: Tusa Larkowski, Adeel Minhas, Ruowen Qin
-	Brief Description: List the systems currently logged employee users.
+	Brief Description: Shows the details of the client being examined - including their subscriptions and projects.
 -->
 
 <!DOCTYPE html>
@@ -27,21 +27,6 @@
 <!-- Page Content -->
 <body>
 	<?php include '/include/navbar.html';?>
-
-	<!-- Page Content -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-				<p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-				<ul class="list-unstyled">
-					<li>Bootstrap 4.0.0-beta</li>
-					<li>jQuery 3.2.1</li>
-				</ul>
-			</div>
-		</div>
-	</div>
 </body>
-
 
 </html>
