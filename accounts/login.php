@@ -5,8 +5,8 @@
  * Date: 2017/11/8
  * Time: 14:38
  */
-require_once '../db/conn.php';
-require_once '../resources/Medoo.php';
+include_once $_SERVER["DOCUMENT_ROOT"]."/db/conn.php";
+//require_once '../resources/Medoo.php';
 date_default_timezone_set("EST");
 
 

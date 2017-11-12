@@ -1,8 +1,9 @@
 <?php
 
-require_once 'resources/Medoo.php';
+require_once $_SERVER["DOCUMENT_ROOT"]."/resources/Medoo.php";
 
 use Medoo\Medoo;
+
 
 /**
  * @return Medoo
