@@ -17,7 +17,7 @@
 
 require_once '../db/conn.php';
 
-function company_name($name)
+function search_company_Like($name)
 {
     $data_conn = connection();
     $data = $data_conn->select("CMK-Company", "*", [
@@ -25,6 +25,16 @@ function company_name($name)
     ]);
     return $data;
 }
+
+function search_company($name)
+{
+    $data_conn = connection();
+    $data = $data_conn->select("CMK_Company", "*", [
+        "Companyname" => "$name"
+    ]);
+    return $data;
+}
+
 
 /** Return all company in databases
  * @return array|bool
@@ -36,4 +46,4 @@ function all_company()
     return $data;
 }
 
-$test = company_name("lol");
+$test = search_company("lol");
