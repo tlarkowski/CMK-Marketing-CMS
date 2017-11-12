@@ -1,6 +1,6 @@
 <?php
 
-require_once '../resources/Medoo.php';
+require_once 'resources/Medoo.php';
 
 use Medoo\Medoo;
 
