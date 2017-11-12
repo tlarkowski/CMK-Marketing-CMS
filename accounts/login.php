@@ -5,10 +5,9 @@
  * Date: 2017/11/8
  * Time: 14:38
  */
-include_once $_SERVER["DOCUMENT_ROOT"]."/db/conn.php";
-//require_once '../resources/Medoo.php';
-date_default_timezone_set("EST");
+require_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
+date_default_timezone_set("EST");
 
 
 // Input: Username and Password
@@ -32,9 +31,9 @@ function login($username, $password)
     //todo update login time
     $_SESSION['user'] = $data[0];
     $data_con->update("CMK_User", [
-            "Last_Login_Time" => date('Y-m-d H:i:s')
-    ],[
-            "User_ID" => $data[0]['User_ID']
+        "Last_Login_Time" => date('Y-m-d H:i:s')
+    ], [
+        "User_ID" => $data[0]['User_ID']
     ]);
     echo $_SESSION['user']["Username"];
     return true;
@@ -56,23 +55,3 @@ try {
 } catch (Exception $e) {
     echo 'Message: ' . $e->getMessage();
 }
-
-
-?>
-
-
-<!doctype html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-<form method="post" action="login.php">
-    <label for="username">username</label>
-    <input type="text" name="username" id="username" value=""/>
-    <label for="password">password</label>
-    <input type="text" name="password" id="password" value=""/>
-    <!-- Only one of these will be set with their respective value at a time -->
-    <input type="submit" name="login" value="Login"/>
-</form>
-</body>
