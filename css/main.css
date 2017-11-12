@@ -5,3 +5,7 @@
 	Developers: Tusa Larkowski, Adeel Minhas, Ruowen Qin
 	Brief Description: Handles any general styles for the website.
 */
+
+body {
+	padding-top: 56px;
+}

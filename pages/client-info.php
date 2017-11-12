@@ -28,7 +28,7 @@
 
 
 <!-- Page Content -->
-<body style="padding-top:56px;">
+<body>
 	<?php include '../include/navbar.html';?>
 
 	<!-- Client Content -->
