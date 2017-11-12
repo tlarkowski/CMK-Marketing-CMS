@@ -29,7 +29,7 @@
 	<?php include '/include/navbar.html';?>
 
 	<div style="margin-top: 60px;">
-		<a href="/pages/client-info"><h2>Client Info</h2></a>
+		<a href="/pages/client-info.php"><h2>Client Info</h2></a>
 	</div>
 </body>
 
