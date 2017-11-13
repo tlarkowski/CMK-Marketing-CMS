@@ -43,7 +43,10 @@ try {
           href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
 
 
 </head>
@@ -52,11 +55,11 @@ try {
 
 <!-- Mixins-->
 <!-- Pen Title-->
-<div class="pen-title">
-    <h1>CMK Marketing Reminder System Login Form</h1>
+<!-- <div class="pen-title"> -->
+    <!-- <h1>CMK Marketing Reminder System Login Form</h1> -->
     <!-- <span>Pen <i class='fa fa-code'></i> by <a href='http://andytran.me'>Andy Tran</a></span> -->
-</div>
-<div class="container">
+<!-- </div> -->
+<!-- <div class="container">
     <div class="card"></div>
     <div class="card">
         <h1 class="title">Login</h1>
@@ -77,7 +80,23 @@ try {
             <div class="footer"><a href="#">Forgot your password?</a></div>
         </form>
     </div>
-</div>
+</div> -->
+
+<h1>CMK Marketing Reminder System Login</h1>
+<!-- Adapted from: https://codepen.io/anon/pen/POmxRB -->
+    <div id="login">
+      <form method="post" action="index.php" name='form-login'>
+        <span class="fontawesome-user"></span>
+          <input type="text" id="username" placeholder="Username" name="username" required="required">
+
+        <span class="fontawesome-lock"></span>
+          <input type="password" id="password" name="password" placeholder="Password" required="required">
+
+        <input type="submit" value="Login">
+
+      </div>
+
+</form>
 
 <!-- Portfolio-->
 <!-- <a id="portfolio" href="http://andytran.me/" title="View my portfolio!"><i class="fa fa-link"></i></a> -->
