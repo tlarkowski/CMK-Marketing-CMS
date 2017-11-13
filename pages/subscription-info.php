@@ -53,7 +53,7 @@
 
 				<button type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Subscription Information</button>
 
-				<button type="button" class="btn btn-primary btn-lg btn-block red-button">Delete Subscription Information</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information</button>
 			</div>
 
 			<!-- Right Column -->

@@ -53,7 +53,7 @@
 
 				<button type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</button>
 
-				<button type="button" class="btn btn-primary btn-lg btn-block red-button">Delete Project Information</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Project Information</button>
 			</div>
 
 			<!-- Right Column -->

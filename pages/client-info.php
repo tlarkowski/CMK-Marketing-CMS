@@ -51,7 +51,7 @@
 
 				<button type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</button>
 
-				<button type="button" class="btn btn-primary btn-lg btn-block red-button">Delete Client Information</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</button>
 			</div>
 
 			<!-- Right Column -->
