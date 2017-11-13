@@ -35,82 +35,86 @@
 	<div class="container">
 		<div class="row">
 			<!-- Left Column -->
-			<div class="col-md-8">
-				<h1 class="my-4">
-					Page Heading
-				</h1>
-
-				<!-- Description Text -->
+			<div id="left-column" class="col-md-5 my-4">
 				<div class="card mb-4">
-					<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
 					<div class="card-body">
-						<h2 class="card-title">Post Title</h2>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-						<a href="#" class="btn btn-primary">Read More &rarr;</a>
+						<h4 class="card-title" style="margin-bottom:0;">{Name of Company}</h4>
 					</div>
-					<div class="card-footer text-muted">
-						Posted on January 1, 2017 by
-						<a href="#">Start Bootstrap</a>
+
+					<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
+
+					<div class="card-body">
+						<h4 class="card-title">Description</h4>
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
 					</div>
 				</div>
+
+				<button type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</button>
+
+				<button type="button" class="btn btn-primary btn-lg btn-block red-button">Delete Client Information</button>
 			</div>
 
 			<!-- Right Column -->
-			<div class="col-md-4">
+			<div id="right-column" class="col-md-7 my-4">
 
-				<!-- Search Widget -->
-				<div class="card my-4">
-					<h5 class="card-header">Search</h5>
-					<div class="card-body">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search for...">
-							<span class="input-group-btn">
-								<button class="btn btn-secondary" type="button">Go!</button>
-							</span>
-						</div>
+				<!-- Main Contact Info -->
+				<div class="sidebar">
+					<h4 class="sidebar-header">Main Contact Info</h4>
+
+					<div class="sidebar-content">
+						<ul id="client-info" class="list-group">
+							<li class="client-name list-group-item">
+								<img src="../img/icons/person.png" alt="Person Icon" width="24" height="24">
+								<span class="name">Elizabeth Jones</span>
+							</li>
+							<li class="client-phone list-group-item">
+								<img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
+								<span class="phone">(555) 555-5555</span>
+							</li>
+							<li class="client-email list-group-item">
+								<img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
+								<span class="email">elizabeth.jones@email.com</span>
+							</li>
+						</ul>
 					</div>
 				</div>
 
-				<!-- Categories Widget -->
-				<div class="card my-4">
-					<h5 class="card-header">Categories</h5>
-					<div class="card-body">
-						<div class="row">
-							<div class="col-lg-6">
-								<ul class="list-unstyled mb-0">
-									<li>
-										<a href="#">Web Design</a>
-									</li>
-									<li>
-										<a href="#">HTML</a>
-									</li>
-									<li>
-										<a href="#">Freebies</a>
-									</li>
-								</ul>
+				<!-- Subscriptions -->
+				<div id="subscriptions" class="sidebar">
+					<button type="button" class="btn btn-primary add-subscription rounded-circle blue-button"><strong>&#43;</strong></button>
+					<h4 class="sidebar-header">Subscriptions</h4>
+
+					<div class="sidebar-content list-group">
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Name of Website</h5>
 							</div>
-							<div class="col-lg-6">
-								<ul class="list-unstyled mb-0">
-									<li>
-										<a href="#">JavaScript</a>
-									</li>
-									<li>
-										<a href="#">CSS</a>
-									</li>
-									<li>
-										<a href="#">Tutorials</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+							<p class="mb-1 text-muted">www.website-domain-name.com</p>
+							<small class="due-date"><strong>Deadline: Mar. 15, 2018</strong></small></span>
+						</a>
 					</div>
 				</div>
 
-				<!-- Side Widget -->
-				<div class="card my-4">
-					<h5 class="card-header">Side Widget</h5>
-					<div class="card-body">
-						You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+				<!-- Projects -->
+				<div id="projects" class="sidebar">
+					<button type="button" class="btn btn-primary add-project rounded-circle blue-button"><strong>&#43;</strong></button>
+					<h4 class="sidebar-header">Projects</h4>
+
+					<div class="sidebar-content list-group">
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Name of Project</h5>
+							</div>
+							<p class="mb-1 text-muted">https://basecamp.com/####/projects/####/</p>
+							<small class="due-date"><strong>Deadline: Mar. 10, 2018</strong></small></span>
+						</a>
+						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-between">
+								<h5 class="mb-1">Name of Project</h5>
+							</div>
+							<p class="mb-1 text-muted">https://basecamp.com/####/projects/####/</p>
+							<small class="due-date"><strong>Deadline: Mar. 15, 2018</strong></small></span>
+						</a>
 					</div>
 				</div>
 			</div>

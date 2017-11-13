@@ -9,3 +9,138 @@
 body {
 	padding-top: 56px;
 }
+
+nav {
+	background-color: #00A5C7;
+}
+
+#client-info .form-control {
+	display: inline-block !important;
+	width: 30rem !important;
+}
+
+#renewal-status, #subscription-info, #project-info {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#renewal-status.editing .col-3, #subscription-info.editing .col-3, #project-info.editing .col-3 {
+	padding: .375rem 10px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button.blue-button {
+	background-color: #4CC0D7;
+	border-color: #4CC0D7;
+}
+
+button.blue-button:hover, button.blue-button:active {
+	background-color: #37a2b7;
+	border-color: #37a2b7;
+}
+
+button.green-button {
+	background-color: #98BB53;
+	border-color: #98BB53;
+}
+
+button.green-button:hover, button.green-button:active {
+	background-color: #86a843;
+	border-color: #86a843;
+}
+
+button.red-button {
+	background-color: #FF7878;
+	border-color: #FF7878;
+}
+
+button.red-button:hover, button.red-button:active {
+	background-color: #e55b5b;
+	border-color: #e55b5b;
+}
+
+button.gray-button {
+	background-color: #CCCCCC;
+	border-color: #CCCCCC;
+}
+
+button.gray-button:hover, button.gray-button:active {
+	background-color: #969696;
+	border-color: #969696;
+}
+
+/* Client Info General Styling */
+div.sidebar {
+	margin-bottom: 60px;
+}
+
+div.sidebar h4.sidebar-header {
+	padding-left: 10px;
+	border-bottom: 2px solid #98BB53;
+	margin-bottom: 0;
+	line-height: 2em;
+}
+
+div.sidebar button.add-project, div.sidebar button.add-subscription {
+	float: right;
+}
+
+div.sidebar div.sidebar-content {
+	padding: 0 10px;
+}
+
+.sidebar-header+.list-group .list-group-item {
+	margin-top: 20px;
+	border-radius: 0;
+}
+
+.sidebar-header+.list-group .list-group-item:first-child {
+	border-top: 1px solid rgba(0,0,0,.125) !important;
+}
+
+.sidebar-content #client-info, .sidebar-content #content-notes, .sidebar-content #renewal-status, .sidebar-content #subscription-info, .sidebar-content #project-info {
+	margin-top: 20px;
+}
+
+#content-notes {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.sidebar-content #client-info .list-group-item {
+	border: 0;
+	margin-bottom: 10px;
+}
+
+.sidebar-content #client-info .list-group-item:last-child {
+	margin-bottom: 0;
+}
+
+.sidebar-content #client-info .list-group-item img {
+	margin-right: 10px;
+}
+
+.sidebar-content .list-group-item small.due-date {
+	float: right;
+	color: #ffffff;
+	background-color: #FF7878;
+	letter-spacing: 2px;
+	padding: 10px 20px;
+	margin: 0 -1.25rem -.75rem 0;
+}
+
+.sidebar-content small.due-date-btn {
+	letter-spacing: 2px;
+}
+
+.btn-group-lg > .btn, .due-date-button {
+	padding: 0 !important;
+	font-size: 1rem !important;
+}
+
+.sidebar-content #subscription-info .row, .sidebar-content #project-info .row {
+	margin-bottom: 20px;
+}
