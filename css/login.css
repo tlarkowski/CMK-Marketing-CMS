@@ -8,16 +8,16 @@
 }
 
 body {
-  background: #2c3338;
-  color: #606468;
-  font: 87.5%/1.5em 'Open Sans', sans-serif;
+  font-family: sans-serif;
+  background: #00A5C7;
   margin: 0;
 }
+
 h1{
-  font-family: 'FontAwesome', sans-serif;
-  font-size:36px;
+  font-size:23px;
   text-align: center;
-  padding-top:30px;
+  margin-top: 35px;
+  margin-bottom: 30px;
 }
 
 input {
@@ -33,66 +33,77 @@ p {
   line-height: 1.5em;
 }
 
-after { clear: both; }
+hr {
+  margin-bottom: 20px;
+}
 
 #login {
-  margin: 50px auto;
-  width: 320px;
+  margin: 75px auto;
+  width: 500px;
+  padding: 50px;
+  border-radius: 5px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.6);
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.6);
+}
+
+#login img {
+  margin: 0 auto;
+  display: block;
 }
 
 #login form {
   margin: auto;
   padding: 22px 22px 22px 22px;
-  width: 100%;
-  border-radius: 5px;
-  background: #282e33;
-  border-top: 3px solid #434a52;
-  border-bottom: 3px solid #434a52;
 }
 
 #login form span {
-  background-color: #363b41;
+  background-color: #ffffff;
   border-radius: 3px 0px 0px 3px;
-  border-right: 3px solid #434a52;
+  border-right: 0;
+  border: 1px solid #ccc;
   color: #606468;
   display: block;
   float: left;
-  line-height: 50px;
+  line-height: 48px;
   text-align: center;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
 }
 
 #login form input[type="text"] {
-  background-color: #3b4148;
+  background-color: #ffffff;
   border-radius: 0px 3px 3px 0px;
-  color: #a9a9a9;
+  color: #8e8d8d;
   margin-bottom: 1em;
   padding: 0 16px;
-  width: 235px;
+  width: 403px;
   height: 50px;
+  border: 1px solid #ccc;
+  border-left: 0;
 }
 
 #login form input[type="password"] {
-  background-color: #3b4148;
+  background-color: #ffffff;
   border-radius: 0px 3px 3px 0px;
-  color: #a9a9a9;
+  color: #8e8d8d;
   margin-bottom: 1em;
   padding: 0 16px;
-  width: 235px;
+  width: 403px;
   height: 50px;
+  border: 1px solid #ccc;
+  border-left: 0;
 }
 
 #login form input[type="submit"] {
-  background: #b5cd60;
   border: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   width: 100%;
   height: 40px;
   border-radius: 3px;
   color: white;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
-}
-#login form input[type="submit"]:hover {
-  background: #16aa56;
 }

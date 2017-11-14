@@ -121,42 +121,42 @@ a.dropdown-toggle:focus {
 }
 
 /* Client/Subscription/Project General Styling */
-button.blue-button {
+.blue-button {
 	background-color: #4CC0D7;
 	border-color: #4CC0D7;
 }
 
-button.blue-button:hover, button.blue-button:active {
+.blue-button:hover, .blue-button:active {
 	background-color: #37a2b7;
 	border-color: #37a2b7;
 }
 
-button.green-button {
+.green-button {
 	background-color: #98BB53;
 	border-color: #98BB53;
 }
 
-button.green-button:hover, button.green-button:active {
+.green-button:hover, .green-button:active {
 	background-color: #86a843;
 	border-color: #86a843;
 }
 
-button.red-button {
+.red-button {
 	background-color: #FF7878;
 	border-color: #FF7878;
 }
 
-button.red-button:hover, button.red-button:active {
+.red-button:hover, .red-button:active {
 	background-color: #e55b5b;
 	border-color: #e55b5b;
 }
 
-button.gray-button {
+.gray-button {
 	background-color: #9ea1a3;
 	border-color: #9ea1a3;
 }
 
-button.gray-button:hover, button.gray-button:active {
+.gray-button:hover, .gray-button:active {
 	background-color: #888a8c;
 	border-color: #888a8c;
 }
