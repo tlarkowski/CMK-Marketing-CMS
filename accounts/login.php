@@ -14,6 +14,9 @@ date_default_timezone_set("EST");
 // Output: Bool for whether successful and store the successful result to session
 function login($username, $password)
 {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $data_con = connection();
     $data = $data_con->select("CMK_User", "*", [
         "AND" => [
@@ -26,7 +29,6 @@ function login($username, $password)
         echo "Wrong password or Username doesn't exist";
         return false;
     }
-    session_start();
     // store session data
     //todo update login time
     $_SESSION['user'] = $data[0];
