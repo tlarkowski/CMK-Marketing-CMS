@@ -12,7 +12,7 @@
 <!-- Header Info -->
 <head>
 	<meta charset="UTF-8">
-	<title>Client Management Homepage</title>
+	<title>Add New Client</title>
 
 	<!-- Personal CSS -->
 	<link rel="stylesheet" href="/css/main.css">

@@ -12,7 +12,7 @@
 <!-- Header Info -->
 <head>
 	<meta charset="UTF-8">
-	<title>Client Management Homepage</title>
+	<title>List of System Users</title>
 
 	<!-- Personal CSS -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -33,11 +33,11 @@
 </head>
 
 <script>
-$(document).ready(function() {
-    $('#example').DataTable();
-    // $('select').addClass('mdb-select');
-    // $('.mdb-select').material_select();
-});
+	$(document).ready(function() {
+	    $('#example').DataTable();
+	    // $('select').addClass('mdb-select');
+	    // $('.mdb-select').material_select();
+	});
 </script>
 
 
@@ -46,64 +46,67 @@ $(document).ready(function() {
 	<?php include '../include/navbar.html';?>
 
 	<!-- Page Content -->
-	<div class="container">
-
-		<table id="example" class="table table-striped table-bordered " cellspacing="0" width=auto>
-				<thead>
-						<tr>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>User Email</th>
-								<!-- <th>Age</th>
-								<th>Start date</th>
-								<th>Salary</th> -->
-						</tr>
-				</thead>
-				<tfoot>
-						<tr>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>User Email</th>
-								<!-- <th>Age</th>
-								<th>Start date</th>
-								<th>Salary</th> -->
-						</tr>
-				</tfoot>
-				<tbody>
-						<tr>
-								<td>Tiger</td>
-								<td>Nixon</td>
-								<td>tnixon@gmail.com</td>
-								<!-- <td>61</td>
-								<td>2011/04/25</td>
-								<td>$320,800</td> -->
-						</tr>
-						<tr>
-								<td>Garrett</td>
-								<td>Winters</td>
-								<td>gwinters@gmail.com</td>
-								<!-- <td>63</td>
-								<td>2011/07/25</td>
-								<td>$170,750</td> -->
-						</tr>
-						<tr>
-								<td>Ashton</td>
-								<td>Cox</td>
-								<td>acox@gmail.com</td>
-								<!-- <td>66</td>
-								<td>2009/01/12</td>
-								<td>$86,000</td> -->
-						</tr>
-						<tr>
-								<td>Cedric</td>
-								<td>Kelly</td>
-								<td>ckelly@gmail.com</td>
-								<!-- <td>22</td>
-								<td>2012/03/29</td>
-								<td>$433,060</td> -->
-						</tr>
-					</tbody>
-				</table>
+	<div class="container my-4">
+		<div class="row">
+			<div class="col">
+				<table id="example" class="table table-striped table-bordered " cellspacing="0" width=auto>
+						<thead>
+								<tr>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>User Email</th>
+										<!-- <th>Age</th>
+										<th>Start date</th>
+										<th>Salary</th> -->
+								</tr>
+						</thead>
+						<tfoot>
+								<tr>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>User Email</th>
+										<!-- <th>Age</th>
+										<th>Start date</th>
+										<th>Salary</th> -->
+								</tr>
+						</tfoot>
+						<tbody>
+								<tr>
+										<td>Tiger</td>
+										<td>Nixon</td>
+										<td>tnixon@gmail.com</td>
+										<!-- <td>61</td>
+										<td>2011/04/25</td>
+										<td>$320,800</td> -->
+								</tr>
+								<tr>
+										<td>Garrett</td>
+										<td>Winters</td>
+										<td>gwinters@gmail.com</td>
+										<!-- <td>63</td>
+										<td>2011/07/25</td>
+										<td>$170,750</td> -->
+								</tr>
+								<tr>
+										<td>Ashton</td>
+										<td>Cox</td>
+										<td>acox@gmail.com</td>
+										<!-- <td>66</td>
+										<td>2009/01/12</td>
+										<td>$86,000</td> -->
+								</tr>
+								<tr>
+										<td>Cedric</td>
+										<td>Kelly</td>
+										<td>ckelly@gmail.com</td>
+										<!-- <td>22</td>
+										<td>2012/03/29</td>
+										<td>$433,060</td> -->
+								</tr>
+							</tbody>
+						</table>
+			</div>
+		</div>
 	</div>
 </body>
 

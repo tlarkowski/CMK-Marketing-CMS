@@ -32,6 +32,12 @@ button:hover {
 	cursor: pointer;
 }
 
+/* Main Page Styling */
+.entity-list {
+	margin-bottom: 50px;
+}
+
+/* Client/Subscription/Project General Styling */
 button.blue-button {
 	background-color: #4CC0D7;
 	border-color: #4CC0D7;
@@ -72,7 +78,6 @@ button.gray-button:hover, button.gray-button:active {
 	border-color: #969696;
 }
 
-/* Client Info General Styling */
 div.sidebar {
 	margin-bottom: 60px;
 }
