@@ -58,10 +58,31 @@
 	?>
 
 	<div class="container my-4">
+		<div class="row" id="main-search">
+			<div class="col-md-2">
+				<button type="button" class="btn btn-primary btn-block gray-button search-btn">Graphic View</button>
+			</div>
+
+			<div class="col-md-2">
+				<button type="button" class="btn btn-primary btn-block green-button search-btn">Add New Client</button>
+			</div>
+
+			<div class="col-md-8">
+				<div class="input-group stylish-input-group">
+					<span class="input-group-addon">
+						<button type="submit">
+							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
+						</button>  
+					</span>
+					<input type="text" class="form-control"  placeholder="Search Clients" >
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container my-4">
 		<div class="row">
 			<div class="col">
-				<a href="/pages/client-info.php"><h2>Client Info</h2></a>
-
 				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 					<thead>
 						<tr>

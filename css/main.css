@@ -33,8 +33,31 @@ button:hover {
 }
 
 /* Main Page Styling */
-.entity-list {
+.dataTables_wrapper.container-fluid.dt-bootstrap4, #main-search {
 	margin-bottom: 50px;
+}
+
+.dataTables_wrapper.container-fluid.dt-bootstrap4:last-child {
+	margin-bottom: 50px;
+}
+
+.stylish-input-group .input-group-addon{
+	background: white !important; 
+}
+
+.stylish-input-group .form-control{
+	border-left:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+
+.stylish-input-group button{
+	border:0;
+	background:transparent;
+}
+
+#main-search button.search-btn {
+	padding: 8px 12px;
 }
 
 /* Client/Subscription/Project General Styling */
@@ -69,13 +92,13 @@ button.red-button:hover, button.red-button:active {
 }
 
 button.gray-button {
-	background-color: #CCCCCC;
-	border-color: #CCCCCC;
+	background-color: #9ea1a3;
+	border-color: #9ea1a3;
 }
 
 button.gray-button:hover, button.gray-button:active {
-	background-color: #969696;
-	border-color: #969696;
+	background-color: #888a8c;
+	border-color: #888a8c;
 }
 
 div.sidebar {
