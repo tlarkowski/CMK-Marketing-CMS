@@ -103,7 +103,17 @@ a.dropdown-toggle:focus {
 }
 
 .category-list .category-entry .row:hover {
-	background-color: #ccc;
+	background-color: #e2e2e2;
+}
+
+.category-list .category-entry .date-field {
+	background-color: #FF7878;
+	text-align: center;
+	color: #ffffff;
+	font-size: smaller;
+	padding: 4px 20px;
+	font-weight: 500;
+	letter-spacing: 1px;
 }
 
 /* Client/Subscription/Project General Styling */

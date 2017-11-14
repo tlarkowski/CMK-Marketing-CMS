@@ -112,7 +112,9 @@
 								<div class="col col-3">7-R058 Year-End Sale Email</div>
 								<div class="col col-5">https://basecamp.com/####/projects/####/</div>
 								<div class="col col-2">Client</div>
-								<div class="col col-2">Due in: 2 Weeks v</div>
+								<div class="col col-2 date-field">
+									<span>Mar. 15, 2018</span>
+								</div>
 							</div>
 						</div></a>
 					</div>
@@ -153,8 +155,8 @@
 								<div class="col col-2">sunshine-pocket.com</div>
 								<div class="col col-3">https://www.link.com/</div>
 								<div class="col col-2">Wolters Kluwer</div>
-								<div class="col col-2">
-									<span class="due-date">Mar. 15, 2018</span>
+								<div class="col col-2 date-field">
+									<span>Mar. 15, 2018</span>
 								</div>
 							</div>
 						</div></a>
@@ -164,7 +166,9 @@
 								<div class="col col-2">nerdz-super-eme.com</div>
 								<div class="col col-3">https://www.link.com/</div>
 								<div class="col col-2">Addam's Company Matters</div>
-								<div class="col col-2">Mar. 20, 2018</div>
+								<div class="col col-2 date-field">
+									<span>Mar. 20, 2018</span>
+								</div>
 							</div>
 						</div></a>
 					</div>
