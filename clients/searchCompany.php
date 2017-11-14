@@ -15,12 +15,12 @@
  */
 
 
-require_once '../db/conn.php';
+include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
 function search_company_Like($name)
 {
     $data_conn = connection();
-    $data = $data_conn->select("CMK-Company", "*", [
+    $data = $data_conn->select("Client_Company", "*", [
         "Companyname[~]" => "%$name%"
     ]);
     return $data;
@@ -29,12 +29,20 @@ function search_company_Like($name)
 function search_company($name)
 {
     $data_conn = connection();
-    $data = $data_conn->select("CMK_Company", "*", [
+    $data = $data_conn->select("Client_Company", "*", [
         "Companyname" => "$name"
     ]);
     return $data;
 }
 
+function search_company_subscription($company)
+{
+    $data_conn = connection();
+    $data = $data_conn->select("Client_Website", "*", [
+        "Company_ID" => $company['Company_ID']
+    ]);
+    return $data;
+}
 
 /** Return all company in databases
  * @return array|bool
@@ -42,8 +50,6 @@ function search_company($name)
 function all_company()
 {
     $data_conn = connection();
-    $data = $data_conn->select("CMK-Company", "*");
+    $data = $data_conn->select("Client_Company", "*");
     return $data;
 }
-
-$test = search_company("lol");
