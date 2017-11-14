@@ -106,6 +106,10 @@ a.dropdown-toggle:focus {
 	background-color: #e2e2e2;
 }
 
+#user-category .user-entry .row:hover {
+	background-color: transparent;
+}
+
 .category-list .category-entry .date-field {
 	background-color: #FF7878;
 	text-align: center;
