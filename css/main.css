@@ -33,22 +33,22 @@ button:hover {
 }
 
 /* Main Page Styling */
-.dataTables_wrapper.container-fluid.dt-bootstrap4, #main-search {
-	margin-bottom: 50px;
-}
-
-.dataTables_wrapper.container-fluid.dt-bootstrap4:last-child {
+#main-search {
 	margin-bottom: 50px;
 }
 
 .stylish-input-group .input-group-addon{
 	background: white !important; 
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
 }
 
 .stylish-input-group .form-control{
 	border-left:0; 
 	box-shadow:0 0 0; 
 	border-color:#ccc;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
 }
 
 .stylish-input-group button{
@@ -58,6 +58,52 @@ button:hover {
 
 #main-search button.search-btn {
 	padding: 8px 12px;
+	letter-spacing: 1px;
+}
+
+.category-list {
+	margin-bottom: 50px;
+}
+
+a.dropdown-toggle {
+	padding: 0;
+	text-align: left;
+	color: inherit;
+}
+
+a.dropdown-toggle:focus {
+	box-shadow: none;
+}
+
+.category-list .col {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.category-list .dropdown-elem {
+	white-space: unset;
+	overflow: unset;
+	text-overflow: unset;
+}
+
+.category-list .entry-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.category-list .category-header .row .col {
+	border-bottom: 2px solid #98BB53;
+	padding: 0.575rem 0.75rem;
+}
+
+.category-list .category-entry .row {
+	padding-top: 0.575rem;
+	padding-bottom: 0.575rem;
+}
+
+.category-list .category-entry .row:hover {
+	background-color: #ccc;
 }
 
 /* Client/Subscription/Project General Styling */

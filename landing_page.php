@@ -26,7 +26,7 @@
 
 	<!-- Bootstrap CDN Additions -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-		  integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+			integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
 			integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
 			crossorigin="anonymous"></script>
@@ -59,22 +59,18 @@
 
 	<div class="container my-4">
 		<div class="row" id="main-search">
-			<div class="col-md-2">
-				<button type="button" class="btn btn-primary btn-block gray-button search-btn">Graphic View</button>
-			</div>
-
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<button type="button" class="btn btn-primary btn-block green-button search-btn">Add New Client</button>
 			</div>
 
-			<div class="col-md-8">
+			<div class="col-md-9">
 				<div class="input-group stylish-input-group">
 					<span class="input-group-addon">
 						<button type="submit">
 							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
-						</button>  
+						</button>	
 					</span>
-					<input type="text" class="form-control"  placeholder="Search Clients" >
+					<input type="text" class="form-control"	placeholder="Search Clients" >
 				</div>
 			</div>
 		</div>
@@ -83,149 +79,151 @@
 	<div class="container my-4">
 		<div class="row">
 			<div class="col">
-				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>Project</th>
-							<th>Planning URL</th>
-							<th>Client</th>
-							<th>Due Date</th>
-							<!-- <th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th> -->
-						</tr>
-					</thead>
-					
-					<tfoot>
-						<tr>
-							<th>Project</th>
-							<th>Planning URL</th>
-							<th>Client</th>
-							<th>Due Date</th>
-							<!-- <th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th> -->
-						</tr>
-					</tfoot>
-					
-					<tbody>
-						<tr>
-							<td>End Sale Email</td>
-							<td>basecamp.com</td>
-							<td>Joe Smith</td>
-							<td>2011/04/25</td>
-							<!-- <td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td> -->
-						</tr>
-					</tbody>
-				</table>
 
-				<table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>Website</th>
-							<th>Domain</th>
-							<th>URL</th>
-							<th>Client</th>
-							<!-- <th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th> -->
-						</tr>
-					</thead>
+				<!-- Project List -->
+				<div class="category-list" id="project-category">
 
-					<tfoot>
-						<tr>
-							<th>Website</th>
-							<th>Domain</th>
-							<th>URL</th>
-							<th>Client</th>
-							<!-- <th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th> -->
-						</tr>
-					</tfoot>
+					<div class="category-header">
+						<div class="row">
+							<div class="col col-3">Project</div>
+							<div class="col col-5">Planning URL</div>
+							<div class="col col-2">Client</div>
+							<div class="col col-2 dropdown-elem">
+								<div class="dropdown show">
+									<a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Due in: 2 Weeks
+									</a>
 
-					<tbody>
-						<tr>
-							<td>Pocket of Sunshine</td>
-							<td>sunshine-pocket.com</td>
-							<td>http://www.link.com</td>
-							<td>Winters Klower</td>
-							<!-- <td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td> -->
-						</tr>
-						<tr>
-							<td>Pocket of Sunshine</td>
-							<td>sunshine-pocket.com</td>
-							<td>http://www.link.com</td>
-							<td>Winters Klower</td>
-							<!-- <td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td> -->
-						</tr>
-					</tbody>
-				</table>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+										<a class="dropdown-item" href="#">2 Weeks</a>
+										<a class="dropdown-item" href="#">1 Month</a>
+										<a class="dropdown-item" href="#">3 Months</a>
+										<a class="dropdown-item" href="#">6 Months</a>
+										<a class="dropdown-item" href="#">1 Year</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-				<table id="example5" class="table table-striped table-bordered" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>Client</th>
-							<th>Main Contact</th>
-							<th>Contact Email</th>
-							<!-- <th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th> -->
-						</tr>
-					</thead>
+					<div class="entry-wrapper">
+						<a href="#" class="entry-link"><div class="project-entry category-entry">
+							<div class="row">
+								<div class="col col-3">7-R058 Year-End Sale Email</div>
+								<div class="col col-5">https://basecamp.com/####/projects/####/</div>
+								<div class="col col-2">Client</div>
+								<div class="col col-2">Due in: 2 Weeks v</div>
+							</div>
+						</div></a>
+					</div>
 
-					<tfoot>
-						<tr>
-							<th>Client</th>
-							<th>Main Contact</th>
-							<th>Contact Email</th>
-							<!-- <th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th> -->
-						</tr>
-					</tfoot>
+				</div>
 
-					<tbody>
-						<tr>
-							<td>Addam's Company Matters</td>
-							<td>John Smith</td>
-							<td>contact-email@gmail.com</td>
-							<!-- <td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td> -->
-						</tr>
-						<tr>
-							<td>Addam's Company Matters</td>
-							<td>John Smith</td>
-							<td>contact-email@gmail.com</td>
-							<!-- <td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td> -->
-						</tr>
-						<tr>
-							<td>Addam's Company Matters</td>
-							<td>John Smith</td>
-							<td>contact-email@gmail.com</td>
-							<!-- <td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td> -->
-						</tr>
-						<tr>
-							<td>Addam's Company Matters</td>
-							<td>John Smith</td>
-							<td>contact-email@gmail.com</td>
-							<!-- <td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td> -->
-						</tr>
-					</tbody>
-				</table>
+				<!-- Subscriptions List -->
+				<div class="category-list" id="subscription-category">
+
+					<div class="category-header">
+						<div class="row">
+							<div class="col col-3">Website</div>
+							<div class="col col-2">Domain</div>
+							<div class="col col-3">URL</div>
+							<div class="col col-2">Client</div>
+							<div class="col col-2 dropdown-elem">
+								<div class="dropdown show">
+									<a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Due in: 2 Weeks
+									</a>
+
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+										<a class="dropdown-item" href="#">2 Weeks</a>
+										<a class="dropdown-item" href="#">1 Month</a>
+										<a class="dropdown-item" href="#">3 Months</a>
+										<a class="dropdown-item" href="#">6 Months</a>
+										<a class="dropdown-item" href="#">1 Year</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="entry-wrapper">
+						<a href="#" class="entry-link"><div class="subscription-entry category-entry">
+							<div class="row">
+								<div class="col col-3">Pocket of Sunshine</div>
+								<div class="col col-2">sunshine-pocket.com</div>
+								<div class="col col-3">https://www.link.com/</div>
+								<div class="col col-2">Wolters Kluwer</div>
+								<div class="col col-2">
+									<span class="due-date">Mar. 15, 2018</span>
+								</div>
+							</div>
+						</div></a>
+						<a href="#" class="entry-link"><div class="subscription-entry category-entry">
+							<div class="row">
+								<div class="col col-3">Nerdy Supreme</div>
+								<div class="col col-2">nerdz-super-eme.com</div>
+								<div class="col col-3">https://www.link.com/</div>
+								<div class="col col-2">Addam's Company Matters</div>
+								<div class="col col-2">Mar. 20, 2018</div>
+							</div>
+						</div></a>
+					</div>
+
+				</div>
+
+				<!-- Client List -->
+				<div class="category-list" id="client-category">
+
+					<div class="category-header">
+						<div class="row">
+							<div class="col col-3">Client</div>
+							<div class="col col-2">Main Contact</div>
+							<div class="col col-3">Contact Email</div>
+							<div class="col col-2">Subscriptions</div>
+							<div class="col col-2">Projects</div>
+						</div>
+					</div>
+
+					<div class="entry-wrapper">
+						<a href="#" class="entry-link"><div class="client-entry category-entry">
+							<div class="row">
+								<div class="col col-3">Addam's Company Matters</div>
+								<div class="col col-2">Billy Joel</div>
+								<div class="col col-3">contact-email@aol.com</div>
+								<div class="col col-2">1</div>
+								<div class="col col-2">0</div>
+							</div>
+						</div></a>
+						<a href="#" class="entry-link"><div class="client-entry category-entry">
+							<div class="row">
+								<div class="col col-3">Barron's Family Matters</div>
+								<div class="col col-2">Rory Supler</div>
+								<div class="col col-3">contact-email1@aol.com</div>
+								<div class="col col-2">0</div>
+								<div class="col col-2">0</div>
+							</div>
+						</div></a>
+						<a href="#" class="entry-link"><div class="client-entry category-entry">
+							<div class="row">
+								<div class="col col-3">Country Rabbit Inc.</div>
+								<div class="col col-2">Karin Gotch</div>
+								<div class="col col-3">contact-email2@aol.com</div>
+								<div class="col col-2">0</div>
+								<div class="col col-2">0</div>
+							</div>
+						</div></a>
+						<a href="#" class="entry-link"><div class="client-entry category-entry">
+							<div class="row">
+								<div class="col col-3">Wolters Kluwer</div>
+								<div class="col col-2">Sally Goldberg</div>
+								<div class="col col-3">email.address@gmail.com</div>
+								<div class="col col-2">1</div>
+								<div class="col col-2">1</div>
+							</div>
+						</div></a>
+					</div>
+
+				</div>
 			</div>
 		</div>
 	</div>
