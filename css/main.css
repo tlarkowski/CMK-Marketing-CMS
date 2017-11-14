@@ -122,43 +122,43 @@ a.dropdown-toggle:focus {
 
 /* Client/Subscription/Project General Styling */
 .blue-button {
-	background-color: #4CC0D7;
-	border-color: #4CC0D7;
+	background-color: #4CC0D7 !important;
+	border-color: #4CC0D7 !important;
 }
 
 .blue-button:hover, .blue-button:active {
-	background-color: #37a2b7;
-	border-color: #37a2b7;
+	background-color: #37a2b7 !important;
+	border-color: #37a2b7 !important;
 }
 
 .green-button {
-	background-color: #98BB53;
-	border-color: #98BB53;
+	background-color: #98BB53 !important;
+	border-color: #98BB53 !important;
 }
 
 .green-button:hover, .green-button:active {
-	background-color: #86a843;
-	border-color: #86a843;
+	background-color: #86a843 !important;
+	border-color: #86a843 !important;
 }
 
 .red-button {
-	background-color: #FF7878;
-	border-color: #FF7878;
+	background-color: #FF7878 !important;
+	border-color: #FF7878 !important;
 }
 
 .red-button:hover, .red-button:active {
-	background-color: #e55b5b;
-	border-color: #e55b5b;
+	background-color: #e55b5b !important;
+	border-color: #e55b5b !important;
 }
 
 .gray-button {
-	background-color: #9ea1a3;
-	border-color: #9ea1a3;
+	background-color: #9ea1a3 !important;
+	border-color: #9ea1a3 !important;
 }
 
 .gray-button:hover, .gray-button:active {
-	background-color: #888a8c;
-	border-color: #888a8c;
+	background-color: #888a8c !important;
+	border-color: #888a8c !important;
 }
 
 div.sidebar {
