@@ -124,7 +124,7 @@
 					<h4 class="sidebar-header">Notes on Project</h4>
 
 					<div class="sidebar-content">
-						<p id="content-notes">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+						<p id="content-notes"><?php echo $project['Notes'];?></p>
 					</div>
 				</div>
 

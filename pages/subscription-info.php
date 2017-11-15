@@ -29,7 +29,16 @@
 
 <!-- Page Content -->
 <body>
-	<?php include '../include/navbar.html';?>
+	<?php 
+		include '../include/navbar.html';
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/subscription.php";
+
+
+		$subscription = $_GET['subscription']; // get from param
+		$subscription = search_subscription($subscription)[0];
+		$client = find_subscription_client($subscription)[0];
+	?>
 
 	<!-- Subscription Content -->
 	<div class="container">
@@ -38,14 +47,14 @@
 			<div id="left-column" class="col-md-5 my-4">
 				<div class="card mb-4">
 					<div class="card-body">
-						<h4 class="card-title" style="margin-bottom:0;">Website Domain Name</h4>
+						<h4 class="card-title" style="margin-bottom:0;"><?php echo $subscription['Site_Name'];?></h4>
 					</div>
 
 					<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
 					<div class="card-body">
 						<h4 class="card-title">Description</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+						<p class="card-text"><?php echo $subscription['Description'];?></p>
 					</div>
 				</div>
 
@@ -67,35 +76,45 @@
 						<div id="subscription-info" class="container">
 							<div class="row">
 								<div class="col-3">Domain Name</div>
-								<div class="col-9"><a href="#" target="_blank">sunshine-pocket.com</a></div>
+								<div class="col-9"><?php
+			                        '<a href="' . $subscription['Domain'] . '" target="_blank">' . $subscription['Domain'] . '</a>';?>
+				                </div>
 							</div>
 							<div class="row">
 								<div class="col-3">Hosted Location</div>
-								<div class="col-9">GoDaddy.com</div>
+								<div class="col-9"><?php echo $subscription['Host_Location'];?></div>
 							</div>
 							<div class="row">
 								<div class="col-3">Cost</div>
-								<div class="col-9">$180.00</div>
+								<div class="col-9"><?php echo '$' . $subscription['Project_Cost_Billed'];?></div>
 							</div>
 							<div class="row">
 								<div class="col-3">Go Live Date</div>
-								<div class="col-9">Mar. 10, 2018</div>
+								<div class="col-9"><?php
+				                        $go_live_time = new DateTime($subscription['GoLive_Date']);
+
+										echo $go_live_time->format('M. d, Y');
+									?></div>
 							</div>
 							<div class="row">
 								<div class="col-3">Start Date</div>
-								<div class="col-9">Feb. 15, 2018</div>
+								<div class="col-9"><?php
+				                        $start_time = new DateTime($subscription['Project_Start']);
+
+										echo $start_time->format('M. d, Y');
+									?></div>
 							</div>
 							<div class="row">
 								<div class="col-3">Website Type</div>
-								<div class="col-9">Commerce</div>
+								<div class="col-9"><?php echo $subscription['Type'];?></div>
 							</div>
 							<div class="row">
 								<div class="col-3">Hours Planned</div>
-								<div class="col-9">48</div>
+								<div class="col-9"><?php echo $subscription['Hours_Planned'];?></div>
 							</div>
 							<div class="row">
 								<div class="col-3">Hours Tracked</div>
-								<div class="col-9">25</div>
+								<div class="col-9"><?php echo $subscription['Hours_Tracked'];?></div>
 							</div>
 						</div>
 					</div>
@@ -109,7 +128,11 @@
 						<div id="renewal-status" class="container">
 							<div class="row">
 								<div class="col-3">Renewal Date</div>
-								<div class="col-3">Mar. 15, 2018</div>
+								<div class="col-3"><?php
+				                        $renewal_time = new DateTime($subscription['Annual_Renewal']);
+
+										echo $renewal_time->format('M. d, Y');
+									?></div>
 								<div class="col-6">
 									<button type="button" class="btn btn-primary btn-lg btn-block red-button due-date-button"><small class="due-date-btn"><strong>Payment Due</strong></small></button>
 								</div>
@@ -123,7 +146,7 @@
 					<h4 class="sidebar-header">Notes on Subscription</h4>
 
 					<div class="sidebar-content">
-						<p id="content-notes">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+						<p id="content-notes"><?php echo $subscription['Notes'];?></p>
 					</div>
 				</div>
 
