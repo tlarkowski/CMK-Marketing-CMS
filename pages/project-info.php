@@ -84,7 +84,13 @@
 							</div>
 							<div class="row">
 								<div class="col-3">Start Date</div>
-								<div class="col-9"><?php echo $project['Start_Date'];?></div>
+								<div class="col-9">
+									<?php
+				                        $start_time = new DateTime($project['Start_Date']);
+
+										echo $start_time->format('M. d, Y');
+									?>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -98,7 +104,13 @@
 						<div id="renewal-status" class="container">
 							<div class="row">
 								<div class="col-3">Finish Date</div>
-								<div class="col-3">Mar. 15, 2018</div>
+								<div class="col-3">
+									<?php
+				                        $end_time = new DateTime($project['End_Date']);
+
+										echo $end_time->format('M. d, Y');
+									?>
+								</div>
 								<div class="col-6">
 									<button type="button" class="btn btn-primary btn-lg btn-block red-button due-date-button"><small class="due-date-btn"><strong>Upcoming Deadline</strong></small></button>
 								</div>
