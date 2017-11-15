@@ -67,62 +67,6 @@
 								<div class="col col-4">caitlin@cmkmarketing.com</div>
 							</div>
 						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
-							</div>
-						</div>
 					</div>
 
 				</div>
