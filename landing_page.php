@@ -60,7 +60,8 @@
 <div class="container my-4">
     <div class="row" id="main-search">
         <div class="col-md-3">
-            <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New Client</a>
+            <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New
+                Client</a>
         </div>
 
         <div class="col-md-9">
@@ -108,7 +109,7 @@
                 </div>
 
                 <div class="entry-wrapper">
-                	<?php
+                    <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/project.php";
                     $all_projects = all_project();
 
@@ -121,8 +122,11 @@
                         echo '<div class="col col-5">' . $project['Basecamp_URL'] . '</div>';
 
                         $name_of_client = find_project_client($project)[0];
+                        $time = new DateTime($name_of_client['Reg_Date']);
+
+
                         echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
-                        echo '<div class="col col-2 date-field"><span>' . $project['End_Date'] . '</span></div>';
+                        echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y'). '</span></div>';
                         echo '</div>';
                         echo '</div>';
                         echo '</a>';
@@ -173,9 +177,11 @@
                 </div>
 
                 <div class="entry-wrapper">
-                	<?php
+                    <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/subscription.php";
                     $all_subscriptions = all_subscription();
+
+
 
                     foreach ($all_subscriptions as $subscription) {
                         echo '<a href="' . "/pages/subscription-info.php?subscription=" .
@@ -187,8 +193,10 @@
                         echo '<div class="col col-3">' . $subscription['Host_Location'] . '</div>';
 
                         $name_of_client = find_subscription_client($subscription)[0];
+                        $time = new DateTime($subscription['Annual_Renewal']);
+
                         echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
-                        echo '<div class="col col-2 date-field"><span>' . $subscription['Annual_Renewal'] . '</span></div>';
+                        echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y') . '</span></div>';
                         echo '</div>';
                         echo '</div>';
                         echo '</a>';

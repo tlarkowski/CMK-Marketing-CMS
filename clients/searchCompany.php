@@ -14,6 +14,8 @@
  * @return array|bool
  */
 
+//todo: add status check, so we could filter the results
+
 
 include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 

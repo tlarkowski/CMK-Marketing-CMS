@@ -27,7 +27,6 @@ function login($username, $password)
         return false;
     }
     // store session data
-    //todo update login time
     $_SESSION['user'] = $data[0];
     $data_con->update("CMK_User", [
         "Last_Login_Time" => date('Y-m-d H:i:s')

@@ -29,7 +29,16 @@
 
 <!-- Page Content -->
 <body>
-	<?php include '../include/navbar.html';?>
+	<?php 
+		include '../include/navbar.html';
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/project.php";
+
+
+		$project = $_GET['project']; // get from param
+		$project = search_project($project)[0];
+		$client = find_project_client($project)[0];
+	?>
 
 	<!-- Project Content -->
 	<div class="container">
@@ -38,14 +47,14 @@
 			<div id="left-column" class="col-md-5 my-4">
 				<div class="card mb-4">
 					<div class="card-body">
-						<h4 class="card-title" style="margin-bottom:0;">Project Name</h4>
+						<h4 class="card-title" style="margin-bottom:0;"><?php echo $project['ProjectName'];?></h4>
 					</div>
 
 					<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
 					<div class="card-body">
 						<h4 class="card-title">Description</h4>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+						<p class="card-text"><?php echo $project['Description'];?></p>
 					</div>
 				</div>
 
@@ -67,11 +76,15 @@
 						<div id="project-info" class="container">
 							<div class="row">
 								<div class="col-3">Tracking Location</div>
-								<div class="col-9"><a href="#" target="_blank">https://basecamp.com/####/projects/####/</a></div>
+								<div class="col-9">
+									<?php
+										echo '<a href="' . $project['Basecamp_URL'] . '" target="_blank">' . $project['Basecamp_URL'] . '</a>';
+									?>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-3">Start Date</div>
-								<div class="col-9">Feb. 15, 2018</div>
+								<div class="col-9"><?php echo $project['Start_Date'];?></div>
 							</div>
 						</div>
 					</div>

@@ -15,6 +15,15 @@ function all_project()
     return $data;
 }
 
+function search_project($project)
+{
+	$data_conn = connection();
+    $data = $data_conn->select("Client_Project", "*", [
+        "Project_ID" => $project['Project_ID']
+    ]);
+    return $data;
+}
+
 function find_project_client($project)
 {
     $data_conn = connection();
