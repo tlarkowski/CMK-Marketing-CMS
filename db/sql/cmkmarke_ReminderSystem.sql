@@ -11,7 +11,7 @@
  Target Server Version : 50556
  File Encoding         : 65001
 
- Date: 14/11/2017 16:52:17
+ Date: 15/11/2017 13:37:52
 */
 
 SET NAMES utf8mb4;
@@ -36,7 +36,7 @@ CREATE TABLE `CMK_User` (
 -- Records of CMK_User
 -- ----------------------------
 BEGIN;
-INSERT INTO `CMK_User` VALUES (1, 'chin39', 'chin39', '1', '2017-11-10 15:55:17', 'chinqrw@gmail.com', '2017-11-14 16:50:47');
+INSERT INTO `CMK_User` VALUES (1, 'chin39', 'chin39', '1', '2017-11-10 15:55:17', 'chinqrw@gmail.com', '2017-11-15 13:34:47');
 COMMIT;
 
 -- ----------------------------
@@ -48,19 +48,22 @@ CREATE TABLE `Client_Company` (
   `Companyname` varchar(45) NOT NULL,
   `Status` char(1) NOT NULL,
   `Contactname` varchar(40) NOT NULL,
+  `Phone` varchar(20) NOT NULL,
   `Description` varchar(200) NOT NULL,
   `Reg_Date` datetime NOT NULL,
   `Email` varchar(40) NOT NULL,
   `Image_URL` varchar(100) DEFAULT NULL,
   `Website` varchar(100) NOT NULL,
   PRIMARY KEY (`Company_ID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of Client_Company
 -- ----------------------------
 BEGIN;
-INSERT INTO `Client_Company` VALUES (1, 'lol', '1', 'er', 'erere', '2017-11-11 15:36:12', 'adf', 'sdfsf', 'adf');
+INSERT INTO `Client_Company` VALUES (1, '2333', '1', 'dfasdf', '', 'asdfasdf', '2017-11-11 15:36:12', 'asdf@gmail.com', '', 'www.23232323.com');
+INSERT INTO `Client_Company` VALUES (2, 'Agelessone', '1', 'Jack', '2503093049', 'Just a look', '2017-11-14 17:14:54', 'test@example.com', 'asdf', 'www.example.com');
+INSERT INTO `Client_Company` VALUES (3, 'Test', '1', 'Test', '2342322323', 'Test', '2017-11-15 13:28:52', 'test@gmail.com', '', 'www.google.com');
 COMMIT;
 
 -- ----------------------------
@@ -80,6 +83,13 @@ CREATE TABLE `Client_Project` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of Client_Project
+-- ----------------------------
+BEGIN;
+INSERT INTO `Client_Project` VALUES (1, 1, 'GANDAMU', 'www.example.com', '2017-11-15 12:06:33', '2017-11-15 12:06:38', 'test', NULL);
+COMMIT;
+
+-- ----------------------------
 -- Table structure for Client_Website
 -- ----------------------------
 DROP TABLE IF EXISTS `Client_Website`;
@@ -88,10 +98,11 @@ CREATE TABLE `Client_Website` (
   `Company_ID` int(11) NOT NULL,
   `Site_Name` varchar(100) NOT NULL,
   `Domain` varchar(100) NOT NULL,
+  `Description` varchar(100) DEFAULT NULL,
   `Status` char(1) NOT NULL,
   `GoLive_Date` datetime NOT NULL,
   `Project_Start` datetime NOT NULL,
-  `Project_Cost_Biled` varchar(20) NOT NULL,
+  `Project_Cost_Billed` varchar(20) NOT NULL,
   `Hours_Tracked` int(11) NOT NULL,
   `Hours_Planned` int(11) DEFAULT NULL,
   `Type` varchar(20) NOT NULL,
@@ -101,6 +112,14 @@ CREATE TABLE `Client_Website` (
   `Notes` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Website_ID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of Client_Website
+-- ----------------------------
+BEGIN;
+INSERT INTO `Client_Website` VALUES (1, 1, 'WorldPara', 'www.worldpara.com', NULL, '1', '2017-11-14 18:02:01', '2017-11-14 18:02:14', '10000', 10000, 10000, 'adsf', '1', '1', '2017-11-14 18:02:38', 'lol');
+INSERT INTO `Client_Website` VALUES (2, 2, 'Change the World', 'test.com', NULL, '1', '2017-11-14 18:12:16', '2017-11-14 18:12:19', '2312', 123123, 123123, '123', '1', '123', '2017-11-14 18:12:27', 'test');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for ReminderMessage
