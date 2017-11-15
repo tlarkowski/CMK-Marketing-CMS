@@ -45,7 +45,7 @@
             <div id="left-column" class="col-md-5 my-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <input type="text" name="Name" class="form-control" id="company-name" placeholder="Enter Name">
+                        <input type="text" name="Companyname" class="form-control" id="company-name" placeholder="Enter Name">
                     </div>
 
                     <img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
@@ -93,14 +93,13 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
 $array = array(
-    "Companyname" => "Test",
+    "Companyname" => $_POST['Companyname'],
     "Status" => "1",
-    "Contactname" => "Test",
-    "Description" => "Test",
-    "Email" => "test@gmail.com",
+    "Contactname" => $_POST['contact-name'],
+    "Description" => $_POST['company-description'],
+    "Email" => $_POST['contact-email'],
     "Image_URL" => "",
-    "Phone" => 2342322323,
-    "Website" => "www.google.com",
+    "Phone" => $_POST['contact-number'],
 );
 addCompany($array);
 ?>

@@ -29,8 +29,7 @@ function addCompany($company)
             "Phone" => $company['Phone'],
             "Reg_Date" => date('Y-m-d H:i:s'),
             "Email" => $company['Email'],
-            "Image_URL" => $company['Image_URL'],
-            "Website" => $company['Website']
+            "Image_URL" => $company['Image_URL']
         ]);
         return $data_conn->id();
     }
@@ -52,8 +51,7 @@ function modCompany($company)
         "Description" => $company['Description'],
         "Phone" => $company['Phone'],
         "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL'],
-        "Website" => $company['Website']
+        "Image_URL" => $company['Image_URL']
     ], [
         "Company_ID" => $company['Company_ID']
     ]);
