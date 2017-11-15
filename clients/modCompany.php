@@ -25,6 +25,7 @@ function addCompany($company)
             "Status" => "1",
             "Contactname" => $company['Contactname'],
             "Description" => $company['Description'],
+            "Phone" => $company['Phone'],
             "Reg_Date" => date('Y-m-d H:i:s'),
             "Email" => $company['Email'],
             "Image_URL" => $company['Image_URL'],
@@ -48,6 +49,7 @@ function modCompany($company)
         "Status" => "1",
         "Contactname" => $company['Contactname'],
         "Description" => $company['Description'],
+        "Phone" => $company['Phone'],
         "Email" => $company['Email'],
         "Image_URL" => $company['Image_URL'],
         "Website" => $company['Website']
