@@ -131,7 +131,7 @@
                     <div class="row">
                         <div class="col col-3">Website</div>
                         <div class="col col-2">Domain</div>
-                        <div class="col col-3">URL</div>
+                        <div class="col col-3">Hosted Location</div>
                         <div class="col col-2">Client</div>
                         <div class="col col-2 dropdown-elem">
                             <div class="dropdown show">
@@ -153,7 +153,28 @@
                 </div>
 
                 <div class="entry-wrapper">
-                    <a href="#" class="entry-link">
+                	<?php
+                    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/subscription.php";
+                    $all_subscriptions = all_subscription();
+
+                    foreach ($all_subscriptions as $subscription) {
+                        echo '<a href="' . "/pages/subscription-info.php?subscription=" .
+                            $subscription['Website_ID'] . '"class="entry-link">';
+                        echo '<div class="subscription-entry category-entry">';
+                        echo '<div class="row">';
+                        echo '<div class="col col-3">' . $subscription['Site_Name'] . '</div>';
+                        echo '<div class="col col-2">' . $subscription['Domain'] . '</div>';
+                        echo '<div class="col col-3">' . $subscription['Host_Location'] . '</div>';
+
+                        $name_of_client = find_subscription_client($subscription);
+                        echo '<div class="col col-2">' . $name_of_client . '</div>';
+                        echo '<div class="col col-2 date-field"><span>' . $subscription['Annual_Renewal'] . '</span></div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</a>';
+                    }
+                    ?>
+                    <!-- <a href="#" class="entry-link">
                         <div class="subscription-entry category-entry">
                             <div class="row">
                                 <div class="col col-3">Pocket of Sunshine</div>
@@ -165,20 +186,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
-                    <a href="#" class="entry-link">
-                        <div class="subscription-entry category-entry">
-                            <div class="row">
-                                <div class="col col-3">Nerdy Supreme</div>
-                                <div class="col col-2">nerdz-super-eme.com</div>
-                                <div class="col col-3">https://www.link.com/</div>
-                                <div class="col col-2">Addam's Company Matters</div>
-                                <div class="col col-2 date-field">
-                                    <span>Mar. 20, 2018</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    </a> -->
                 </div>
 
             </div>
