@@ -32,3 +32,7 @@ function find_project_client($project)
     ]);
     return $data;
 }
+
+function add_new_project($project){
+
+}

@@ -86,11 +86,14 @@ $subscription = search_company_subscription($company[0]);
                         </li>
                         <li class="client-phone list-group-item">
                             <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
-                            <span class="phone">(555) 555-5555</span>
+                            <span class="phone"><?php echo '(' . substr($company[0]['Phone'], 0, 3) . ')-'
+                                    . substr($company[0]['Phone'], 3, 3) .
+                                    '-' . substr($company[0]['Phone'], 6, 3) ?></span>
                         </li>
                         <li class="client-email list-group-item">
                             <img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
-                            <span class="email"><?php echo $company[0]['Email'] ?></span>
+                            <span class="email"><?php echo $company[0]['Email'] ?>
+                            </span>
                         </li>
                     </ul>
                 </div>

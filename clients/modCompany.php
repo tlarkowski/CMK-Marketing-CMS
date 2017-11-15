@@ -7,8 +7,8 @@
  * @param $company
  */
 date_default_timezone_set("EST");
-require_once '../clients/searchCompany.php';
-require_once '../db/conn.php';
+include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
 /** add new company info
  * @param $company
@@ -18,8 +18,9 @@ require_once '../db/conn.php';
 function addCompany($company)
 {
     $data_conn = connection();
-    $company = search_company($company['Companyname']);
-    if (count($company) == 0) {
+    $temp = search_company($company['Companyname']);
+
+    if (count($temp) == 0) {
         $data_conn->insert("Client_Company", [
             "Companyname" => $company['Companyname'],
             "Status" => "1",
