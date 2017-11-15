@@ -31,26 +31,26 @@
 <body>
 	<?php include '../include/navbar.html';?>
 
-	<form>
+	<form name ="form" action="" method="post">
 		<div class="container">
 			<div class="row">
 				<!-- Left Column -->
 				<div id="left-column" class="col-md-5 my-4">
 					<div class="card mb-4">
 						<div class="card-body">
-							<input type="text" class="form-control" id="company-name" placeholder="Enter Name">
+							<input type="text" name="Name" class="form-control" id="company-name" placeholder="Enter Name">
 						</div>
 
 						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
 						<div class="card-body">
 							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="company-description" rows="3"></textarea>
+							<textarea class="form-control" name="company-description" id="company-description" rows="3"></textarea>
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-primary btn-lg btn-block green-button">Add Client Info</button>
 				</div>
+
 
 				<!-- Right Column -->
 				<div id="right-column" class="col-md-7 my-4">
@@ -62,20 +62,39 @@
 							<ul id="client-info" class="list-group">
 								<li class="client-name list-group-item">
 									<img src="../img/icons/person.png" alt="Person Icon" width="24" height="24">
-									<input type="text" class="form-control" id="contact-name" placeholder="Enter Name">
+									<input type="text" class="form-control" name="contact-name" id="contact-name" placeholder="Enter Name">
 								</li>
 								<li class="client-phone list-group-item">
 									<img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
-									<input type="phone" class="form-control" id="contact-number" placeholder="Enter Phone Number">
+									<input type="phone" class="form-control" name="contact-number" id="contact-number" placeholder="Enter Phone Number">
 								</li>
 								<li class="client-email list-group-item">
 									<img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
-									<input type="email" class="form-control" id="contact-email" placeholder="Enter Email">
+									<input type="email" class="form-control" name="contact-email" id="contact-email" placeholder="Enter Email">
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
+			</form>
+				<button type="submit" class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
+
+				<?php
+				require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
+				$array = array(
+				    "Companyname" => "Test",
+				    "Status" => "1",
+				    "Contactname" => "Test",
+				    "Description" => "Test",
+				    "Email" => "test@gmail.com",
+				    "Image_URL" => "",
+				    "Website" => "www.google.com",
+				    "Company_ID" => 1
+
+				);
+				$addcompany = addCompany($array);
+				?>
+
 			</div>
 		</div>
 	</form>
