@@ -61,19 +61,3 @@ function modCompany($company)
     return $data_conn->id();
 
 }
-
-$array = array(
-    "Companyname" => "2333",
-    "Status" => "1",
-    "Contactname" => "dfasdf",
-    "Description" => "asdfasdf",
-    "Reg_Date" => date('Y-m-d H:i:s'),
-    "Email" => "asdf@gmail.com",
-    "Image_URL" => "",
-    "Website" => "www.23232323.com",
-    "Company_ID" => 1
-
-);
-
-modCompany($array);
-
