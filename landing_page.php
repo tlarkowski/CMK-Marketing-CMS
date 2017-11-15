@@ -60,7 +60,7 @@
 <div class="container my-4">
     <div class="row" id="main-search">
         <div class="col-md-3">
-            <button type="button" class="btn btn-primary btn-block green-button search-btn">Add New Client</button>
+            <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New Client</a>
         </div>
 
         <div class="col-md-9">
@@ -68,7 +68,7 @@
 					<span class="input-group-addon">
 						<button type="submit">
 							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
-						</button>	
+						</button>
 					</span>
                 <input type="text" class="form-control" placeholder="Search Clients">
             </div>
