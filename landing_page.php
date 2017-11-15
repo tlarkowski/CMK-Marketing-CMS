@@ -108,7 +108,27 @@
                 </div>
 
                 <div class="entry-wrapper">
-                    <a href="#" class="entry-link">
+                	<?php
+                    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/subscription.php";
+                    $all_projects = all_project();
+
+                    foreach ($all_projects as $project) {
+                        echo '<a href="' . "/pages/subscription-info.php?subscription=" .
+                            $project['Project_ID'] . '"class="entry-link">';
+                        echo '<div class="subscription-entry category-entry">';
+                        echo '<div class="row">';
+                        echo '<div class="col col-3">' . $project['ProjectName'] . '</div>';
+                        echo '<div class="col col-5">' . $project['Basecamp_URL'] . '</div>';
+
+                        $name_of_client = find_project_client($project)[0];
+                        echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
+                        echo '<div class="col col-2 date-field"><span>' . $project['End_Date'] . '</span></div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</a>';
+                    }
+                    ?>
+                    <!-- <a href="#" class="entry-link">
                         <div class="project-entry category-entry">
                             <div class="row">
                                 <div class="col col-3">7-R058 Year-End Sale Email</div>
@@ -119,7 +139,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </a> -->
                 </div>
 
             </div>
