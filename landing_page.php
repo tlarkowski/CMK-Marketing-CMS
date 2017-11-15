@@ -109,13 +109,13 @@
 
                 <div class="entry-wrapper">
                 	<?php
-                    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/subscription.php";
+                    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/project.php";
                     $all_projects = all_project();
 
                     foreach ($all_projects as $project) {
-                        echo '<a href="' . "/pages/subscription-info.php?subscription=" .
+                        echo '<a href="' . "/pages/project-info.php?project=" .
                             $project['Project_ID'] . '"class="entry-link">';
-                        echo '<div class="subscription-entry category-entry">';
+                        echo '<div class="project-entry category-entry">';
                         echo '<div class="row">';
                         echo '<div class="col col-3">' . $project['ProjectName'] . '</div>';
                         echo '<div class="col col-5">' . $project['Basecamp_URL'] . '</div>';
