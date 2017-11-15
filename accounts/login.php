@@ -14,9 +14,6 @@ date_default_timezone_set("EST");
 // Output: Bool for whether successful and store the successful result to session
 function login($username, $password)
 {
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
     $data_con = connection();
     $data = $data_con->select("CMK_User", "*", [
         "AND" => [

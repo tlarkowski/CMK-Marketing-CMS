@@ -8,6 +8,14 @@
 
 function auth_check()
 {
-    return false;
-    return true;
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+        return false;
+    }
+    if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
