@@ -167,7 +167,7 @@
                         echo '<div class="col col-3">' . $subscription['Host_Location'] . '</div>';
 
                         $name_of_client = find_subscription_client($subscription);
-                        echo '<div class="col col-2">' . $name_of_client . '</div>';
+                        echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
                         echo '<div class="col col-2 date-field"><span>' . $subscription['Annual_Renewal'] . '</span></div>';
                         echo '</div>';
                         echo '</div>';
