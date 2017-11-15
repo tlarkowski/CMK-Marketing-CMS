@@ -108,7 +108,10 @@ $subscription = search_company_subscription($company[0]);
                                 <h5 class="mb-1"><?php echo $subscription[0]['Site_Name'] ?></h5>
                             </div>
                             <p class="mb-1 text-muted"><?php echo $subscription[0]['Domain'] ?></p>
-                            <small class="due-date"><strong><?php echo $subscription[0]['Annual_Renewal'] ?></strong>
+                            <small class="due-date"><strong><?php
+                                    $time = new DateTime($subscription[0]['Annual_Renewal']);
+
+                                    echo $time->format('M. d, Y') ?></strong>
                             </small>
                         </a>
                     </div>
