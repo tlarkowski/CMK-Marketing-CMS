@@ -216,7 +216,7 @@
                         echo '</a>';
                     }
                     ?>
-                    <a href="#" class="entry-link">
+                    <!-- <a href="#" class="entry-link">
                         <div class="client-entry category-entry">
                             <div class="row">
                                 <div class="col col-3">Wolters Kluwer</div>
@@ -226,7 +226,7 @@
                                 <div class="col col-2">1</div>
                             </div>
                         </div>
-                    </a>
+                    </a> -->
                 </div>
 
             </div>
