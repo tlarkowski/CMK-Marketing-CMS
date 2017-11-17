@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"]."/resources/Medoo.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/resources/vendor/autoload.php";
 
 use Medoo\Medoo;
 
