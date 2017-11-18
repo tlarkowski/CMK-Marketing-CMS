@@ -10,14 +10,14 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
 function all_subscription()
 {
-	$data_conn = connection();
+    $data_conn = connection();
     $data = $data_conn->select("Client_Website", "*");
     return $data;
 }
 
 function search_subscription($subscription)
 {
-	$data_conn = connection();
+    $data_conn = connection();
     $data = $data_conn->select("Client_Website", "*", [
         "Website_ID" => $subscription['Website_ID']
     ]);
@@ -42,7 +42,8 @@ function find_subscription_client($subscription)
     return $data;
 }
 
-function add_new_subscription($subscription){
+function add_new_subscription($subscription)
+{
     $data_conn = connection();
     $data = $data_conn->select("Client_Company", "*", [
         "Company_ID" => $subscription['Company_ID']
