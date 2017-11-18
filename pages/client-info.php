@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block blue-button" onclick="">Edit Client Information</button>
 
             <button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information
             </button>
@@ -153,7 +153,6 @@
                         </div>
                         <p class="mb-1 text-muted">https://basecamp.com/####/projects/####/</p>
                         <small class="due-date"><strong>Deadline: Mar. 10, 2018</strong></small>
-                        </span>
                     </a>
                 </div>
             </div>
