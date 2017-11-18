@@ -109,7 +109,7 @@
 
                 <div class="sidebar-content list-group">
                     <?php foreach ($all_subscriptions as $subscription):?>
-                        <a <?php echo 'href="/pages/subscription-info.php?subscription="' . $subscription['Website_ID'] . '"';?> class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a <?php echo 'href="/pages/subscription-info.php?subscription=' . $subscription['Website_ID'] . '"';?> class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1"><?php echo $subscription['Site_Name']; ?></h5>
                             </div>
