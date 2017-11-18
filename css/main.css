@@ -172,7 +172,7 @@ div.sidebar h4.sidebar-header {
 	line-height: 2em;
 }
 
-div.sidebar button.add-project, div.sidebar button.add-subscription {
+div.sidebar a.add-project, div.sidebar a.add-subscription {
 	float: right;
 }
 
