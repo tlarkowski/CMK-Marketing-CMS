@@ -40,18 +40,6 @@
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 </head>
 
-<!-- Taken from: https://mdbootstrap.com/content/tables/ -->
-<!-- Inline Javascript for now, change it later -->
-<script>
-    $(document).ready(function () {
-        $('#example').DataTable();
-        $('#example1').DataTable();
-        $('#example5').DataTable();
-        // $('select').addClass('mdb-select');
-        // $('.mdb-select').material_select();
-    });
-</script>
-
 <!-- Page Content -->
 <body>
 <?php include 'include/navbar.html';
