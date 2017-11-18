@@ -102,14 +102,14 @@
 
             <!-- Subscriptions -->
             <div id="subscriptions" class="sidebar">
-                <a <?php echo 'href="pages/add-new-subscription.php?client="' . $company['Companyname'] . '"';?> class="btn btn-primary add-subscription rounded-circle blue-button">
+                <a <?php echo 'href="/pages/add-new-subscription.php?client="' . $company['Companyname'] . '"';?> class="btn btn-primary add-subscription rounded-circle blue-button">
                     <strong>&#43;</strong></a>
 
                 <h4 class="sidebar-header">Subscriptions</h4>
 
                 <div class="sidebar-content list-group">
                     <?php foreach ($all_subscriptions as $subscription):?>
-                        <a <?php echo 'href="pages/subscription-info.php?subscription="' . $subscription['Website_ID'] . '"';?> class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a <?php echo 'href="/pages/subscription-info.php?subscription="' . $subscription['Website_ID'] . '"';?> class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1"><?php echo $subscription['Site_Name']; ?></h5>
                             </div>
@@ -126,7 +126,7 @@
 
             <!-- Projects -->
             <div id="projects" class="sidebar">
-                <a <?php echo 'href="pages/add-new-project.php?client="' . $company['Companyname'] . '"';?> class="btn btn-primary add-project rounded-circle blue-button">
+                <a <?php echo 'href="/pages/add-new-project.php?client="' . $company['Companyname'] . '"';?> class="btn btn-primary add-project rounded-circle blue-button">
                     <strong>&#43;</strong></a>
 
                 <h4 class="sidebar-header">Projects</h4>
