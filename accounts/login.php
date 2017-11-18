@@ -15,6 +15,7 @@ date_default_timezone_set("EST");
 function login($username, $password)
 {
     $data_con = connection();
+    $password = hash('sha256', $password);
     $data = $data_con->select("CMK_User", "*", [
         "AND" => [
             "Username" => $username,
