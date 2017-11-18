@@ -43,7 +43,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/subscription.php";
 
 
 $subscription = $_GET['subscription']; // get from param
-$subscription = search_subscription($subscription)[0];
+$subscription = search_subscription_ID($subscription)[0];
 $client = find_subscription_client($subscription)[0];
 ?>
 

@@ -24,6 +24,15 @@ function search_subscription($subscription)
     return $data;
 }
 
+function search_subscription_ID($subscription_ID)
+{
+    $data_conn = connection();
+    $data = $data_conn->select("Client_Website", "*", [
+        "Website_ID" => $subscription_ID
+    ]);
+    return $data;
+}
+
 function find_subscription_client($subscription)
 {
     $data_conn = connection();
