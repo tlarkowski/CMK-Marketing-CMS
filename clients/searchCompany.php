@@ -46,6 +46,15 @@ function search_company_subscription($company)
     return $data;
 }
 
+function search_company_project($company)
+{
+    $data_conn = connection();
+    $data = $data_conn->select("Client_Project", "*", [
+        "Company_ID" => $company['Company_ID']
+    ]);
+    return $data;
+}
+
 /** Return all company in databases
  * @return array|bool
  */

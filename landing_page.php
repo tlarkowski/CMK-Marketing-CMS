@@ -60,8 +60,7 @@
 <div class="container my-4">
     <div class="row" id="main-search">
         <div class="col-md-3">
-            <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New
-                Client</a>
+            <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New Client</a>
         </div>
 
         <div class="col-md-9">

@@ -98,7 +98,7 @@ $array = array(
     "Contactname" => $_POST['contact-name'],
     "Description" => $_POST['company-description'],
     "Email" => $_POST['contact-email'],
-    "Image_URL" => "",
+    "Image_URL" => "Companyname.jpg",
     "Phone" => $_POST['contact-number'],
 );
 addCompany($array);
