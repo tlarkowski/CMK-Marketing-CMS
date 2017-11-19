@@ -13,6 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Client</title>
+    <link rel="shortcut icon" href="/favicon.ico">
 
     <!-- Personal CSS -->
     <link rel="stylesheet" href="/css/main.css">

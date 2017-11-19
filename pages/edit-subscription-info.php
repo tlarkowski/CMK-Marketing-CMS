@@ -13,6 +13,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Edit Subscription Information</title>
+    <link rel="shortcut icon" href="/favicon.ico">
 
 	<!-- Personal CSS -->
 	<link rel="stylesheet" href="/css/main.css">

@@ -35,6 +35,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>CMK Marketing Reminder System Login Form</title>
+    <link rel="shortcut icon" href="/favicon.ico">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
