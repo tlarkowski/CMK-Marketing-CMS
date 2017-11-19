@@ -36,7 +36,7 @@
 
 
 		$project = $_GET['project']; // get from param
-		$project = search_project($project)[0];
+		$project = search_project_ID($project)[0];
 		$client = find_project_client($project)[0];
 	?>
 

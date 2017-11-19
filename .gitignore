@@ -3,3 +3,5 @@
 *.xml
 
 .idea/CMK-Marketing-CMS.iml
+
+/db/db.conf
