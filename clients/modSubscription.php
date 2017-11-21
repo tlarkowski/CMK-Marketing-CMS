@@ -18,7 +18,7 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 function addSubscription($subscription)
 {
     $data_conn = connection();
-    $temp = search_company($company['Companyname']);
+    $temp = search_company($subscription['Companyname']);
 
     if (count($temp) == 0) {
         $data_conn->insert("Client_Company", [

@@ -59,7 +59,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
+                <button type="submit" onclick="document.location.href='/landing_page.php';"
+                        class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
             </div>
 
 
@@ -105,8 +106,15 @@ if (isset($_POST['Companyname'])) {
         "Image_URL" => "Companyname.jpg",
         "Phone" => $_POST['contact-number'],
     );
-    addCompany($array);
+    try {
+        addCompany($array);
+    } catch (Exception $e) {
+        echo '<script language="javascript">';
+        echo 'alert("' . $e->getMessage() . '")';
+        echo '</script>';
+    }
 }
+
 ?>
 
 </body>
