@@ -46,7 +46,8 @@
             <div id="left-column" class="col-md-5 my-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <input type="text" name="Companyname" class="form-control" id="company-name" placeholder="Enter Name">
+                        <input type="text" name="Companyname" class="form-control" id="company-name"
+                               placeholder="Enter Name">
                     </div>
 
                     <img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
@@ -58,7 +59,7 @@
                     </div>
                 </div>
 
-				<button type="submit" class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
+                <button type="submit" class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
             </div>
 
 
@@ -92,18 +93,20 @@
 </form>
 
 <?php
-	require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
 
-	$array = array(
-	    "Companyname" => $_POST['Companyname'],
-	    "Status" => "1",
-	    "Contactname" => $_POST['contact-name'],
-	    "Description" => $_POST['company-description'],
-	    "Email" => $_POST['contact-email'],
-	    "Image_URL" => "Companyname.jpg",
-	    "Phone" => $_POST['contact-number'],
-	);
-	addCompany($array);
+if (isset($_POST['Companyname'])) {
+    $array = array(
+        "Companyname" => $_POST['Companyname'],
+        "Status" => "1",
+        "Contactname" => $_POST['contact-name'],
+        "Description" => $_POST['company-description'],
+        "Email" => $_POST['contact-email'],
+        "Image_URL" => "Companyname.jpg",
+        "Phone" => $_POST['contact-number'],
+    );
+    addCompany($array);
+}
 ?>
 
 </body>
