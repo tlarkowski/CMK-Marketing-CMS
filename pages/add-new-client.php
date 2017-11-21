@@ -58,6 +58,7 @@
                     </div>
                 </div>
 
+				<button type="submit" class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
             </div>
 
 
@@ -89,20 +90,19 @@
                 </div>
             </div>
 </form>
-<button type="submit" class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
 
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
-$array = array(
-    "Companyname" => $_POST['Companyname'],
-    "Status" => "1",
-    "Contactname" => $_POST['contact-name'],
-    "Description" => $_POST['company-description'],
-    "Email" => $_POST['contact-email'],
-    "Image_URL" => "Companyname.jpg",
-    "Phone" => $_POST['contact-number'],
-);
-addCompany($array);
+	require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
+	$array = array(
+	    "Companyname" => $_POST['Companyname'],
+	    "Status" => "1",
+	    "Contactname" => $_POST['contact-name'],
+	    "Description" => $_POST['company-description'],
+	    "Email" => $_POST['contact-email'],
+	    "Image_URL" => "Companyname.jpg",
+	    "Phone" => $_POST['contact-number'],
+	);
+	addCompany($array);
 ?>
 
 </body>
