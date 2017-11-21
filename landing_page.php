@@ -108,11 +108,11 @@
                             echo '<div class="col col-3">' . $project['ProjectName'] . '</div>';
                             echo '<div class="col col-5">' . $project['Basecamp_URL'] . '</div>';
 
-                            $name_of_client = find_project_client($project)[0];
-                            $time = new DateTime($name_of_client['Reg_Date']);
+                            $client = all_project_client_info($project)[0];
+                            $time = new DateTime($client['Reg_Date']);
 
 
-                            echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
+                            echo '<div class="col col-2">' . $client['Companyname'] . '</div>';
                             echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y'). '</span></div>';
                             echo '</div>';
                             echo '</div>';
@@ -176,10 +176,10 @@
                             echo '<div class="col col-2">' . $subscription['Domain'] . '</div>';
                             echo '<div class="col col-3">' . $subscription['Host_Location'] . '</div>';
 
-                            $name_of_client = find_subscription_client($subscription)[0];
+                            $client = all_subscription_client_info($subscription)[0];
                             $time = new DateTime($subscription['Annual_Renewal']);
 
-                            echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
+                            echo '<div class="col col-2">' . $client['Companyname'] . '</div>';
                             echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y') . '</span></div>';
                             echo '</div>';
                             echo '</div>';

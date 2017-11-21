@@ -123,42 +123,54 @@ a.dropdown-toggle:focus {
 }
 
 /* Client/Subscription/Project General Styling */
+[type=reset], [type=submit], button, html [type=button] {
+	-webkit-appearance: unset !important;
+}
+
 .blue-button {
+	color: #ffffff !important;
 	background-color: #4CC0D7 !important;
 	border-color: #4CC0D7 !important;
 }
 
 .blue-button:hover, .blue-button:active {
+	color: #ffffff !important;
 	background-color: #37a2b7 !important;
 	border-color: #37a2b7 !important;
 }
 
 .green-button {
+	color: #ffffff !important;
 	background-color: #98BB53 !important;
 	border-color: #98BB53 !important;
 }
 
 .green-button:hover, .green-button:active {
+	color: #ffffff !important;
 	background-color: #86a843 !important;
 	border-color: #86a843 !important;
 }
 
 .red-button {
+	color: #ffffff !important;
 	background-color: #FF7878 !important;
 	border-color: #FF7878 !important;
 }
 
 .red-button:hover, .red-button:active {
+	color: #ffffff !important;
 	background-color: #e55b5b !important;
 	border-color: #e55b5b !important;
 }
 
 .gray-button {
+	color: #ffffff !important;
 	background-color: #9ea1a3 !important;
 	border-color: #9ea1a3 !important;
 }
 
 .gray-button:hover, .gray-button:active {
+	color: #ffffff !important;
 	background-color: #888a8c !important;
 	border-color: #888a8c !important;
 }

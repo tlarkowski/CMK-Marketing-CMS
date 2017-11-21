@@ -41,7 +41,6 @@
         include '../include/navbar.html';
         require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
 
-
         $subscription = $_GET['subscription']; // get from param
         $subscription = search_subscription($subscription)[0];
         $client_name = find_subscription_client($subscription)[0];
@@ -65,13 +64,13 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block green-button">Back to Client Page</button>
+                <a href="/pages/client-info.php?client=<?php echo $client_name;?>" type="button" class="btn btn-primary btn-lg btn-block green-button">Back to Client Page</a>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Subscription Information
-                </button>
+                <a type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Subscription Information
+                </a>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information
-                </button>
+                <a type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information
+                </a>
             </div>
 
             <!-- Right Column -->

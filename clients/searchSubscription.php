@@ -32,8 +32,18 @@ function search_subscription($subscription_ID)
 function find_subscription_client($subscription)
 {
     $data_conn = connection();
-    $data = $data_conn->select("Client_Company", "*", [
+    $data = $data_conn->select("Client_Company", "Companyname", [
         "Company_ID" => $subscription['Company_ID'],
+        "Status" => "1"
+    ]);
+    return $data;
+}
+
+function all_subscription_client_info($project)
+{
+    $data_conn = connection();
+    $data = $data_conn->select("Client_Company", "*", [
+        "Company_ID" => $project['Company_ID'],
         "Status" => "1"
     ]);
     return $data;

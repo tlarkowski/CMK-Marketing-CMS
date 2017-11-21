@@ -132,7 +132,7 @@
 
                     <div class="sidebar-content list-group">
                         <?php foreach ($all_projects as $project):?>
-                            <a href="/pages/subscription-info.php?subscription=<?php echo $project['Project_ID'] ?>" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="/pages/project-info.php?project=<?php echo $project['Project_ID'] ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1"><?php echo $project['ProjectName']; ?></h5>
                                 </div>

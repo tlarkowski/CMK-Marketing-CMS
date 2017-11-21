@@ -32,6 +32,16 @@ function search_project($project_ID)
 function find_project_client($project)
 {
     $data_conn = connection();
+    $data = $data_conn->select("Client_Company", "Companyname", [
+        "Company_ID" => $project['Company_ID'],
+        "Status" => "1"
+    ]);
+    return $data;
+}
+
+function all_project_client_info($project)
+{
+    $data_conn = connection();
     $data = $data_conn->select("Client_Company", "*", [
         "Company_ID" => $project['Company_ID'],
         "Status" => "1"
