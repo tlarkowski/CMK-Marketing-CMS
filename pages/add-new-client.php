@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-md btn-block green-button">Add Client Info</button>
+                <button type="submit" class="btn btn-primary btn-md btn-block green-button" onclick="">Add Client Info</button>
             </div>
 
 

@@ -40,6 +40,7 @@
     <?php
         include '../include/navbar.html';
         require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
+        require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
 
         $subscription = $_GET['subscription']; // get from param
         $subscription = search_subscription($subscription)[0];
