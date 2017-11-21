@@ -105,8 +105,15 @@ if (isset($_POST['Companyname'])) {
         "Image_URL" => "Companyname.jpg",
         "Phone" => $_POST['contact-number'],
     );
-    addCompany($array);
+    try {
+        addCompany($array);
+    } catch (Exception $e) {
+        echo '<script language="javascript">';
+        echo 'alert("' . $e->getMessage() . '")';
+        echo '</script>';
+    }
 }
+
 ?>
 
 </body>
