@@ -33,7 +33,7 @@ function addCompany($company)
         ]);
         return $data_conn->id();
     }
-    throw new Exception("Company Exist");
+    throw new Exception("Company Exists");
 }
 
 

@@ -93,6 +93,7 @@
 
 <?php
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
+
 	$array = array(
 	    "Companyname" => $_POST['Companyname'],
 	    "Status" => "1",
