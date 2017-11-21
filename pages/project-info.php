@@ -32,13 +32,12 @@
 <body>
 	<?php 
 		include '../include/navbar.html';
-		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
-		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/project.php";
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
 
 
 		$project = $_GET['project']; // get from param
-		$project = search_project_ID($project)[0];
-		$client = find_project_client($project)[0];
+		$project = search_project($project)[0];
+		$client_name = find_project_client($project)[0];
 	?>
 
 	<!-- Project Content -->

@@ -57,14 +57,14 @@ function modCompany($company)
     ]);
 
     return $data_conn->id();
+
 }
 
-
-/** archive company info and propagate the archive across all of its projects and subscriptions
+/** archive subscription info
  * @param $company
  * @return int|mixed|"ID of Archived record"
  */
-function archiveCompany($company)
+function archiveSubscription($company)
 {
     $data_conn = connection();
     $data_conn->update("Client_Company", [

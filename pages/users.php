@@ -33,15 +33,6 @@
 	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 </head>
 
-<script>
-	$(document).ready(function() {
-	    $('#example').DataTable();
-	    // $('select').addClass('mdb-select');
-	    // $('.mdb-select').material_select();
-	});
-</script>
-
-
 <!-- Page Content -->
 <body>
 	<?php include '../include/navbar.html';?>

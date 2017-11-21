@@ -43,220 +43,214 @@
 
 <!-- Page Content -->
 <body>
-<?php include 'include/navbar.html';
-?>
+    <?php include 'include/navbar.html';?>
 
-<div class="container my-4">
-    <div class="row" id="main-search">
-        <div class="col-md-3">
-            <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New Client</a>
-        </div>
+    <div class="container my-4">
+        <div class="row" id="main-search">
+            <div class="col-md-3">
+                <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New Client</a>
+            </div>
 
-        <div class="col-md-9">
-            <div class="input-group stylish-input-group">
-					<span class="input-group-addon">
-						<button type="submit">
-							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
-						</button>
-					</span>
-                <input type="text" class="form-control" placeholder="Search Clients">
+            <div class="col-md-9">
+                <div class="input-group stylish-input-group">
+    					<span class="input-group-addon">
+    						<button type="submit">
+    							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
+    						</button>
+    					</span>
+                    <input type="text" class="form-control" placeholder="Search Clients">
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container my-4">
-    <div class="row">
-        <div class="col">
+    <div class="container my-4">
+        <div class="row">
+            <div class="col">
 
-            <!-- Project List -->
-            <div class="category-list" id="project-category">
+                <!-- Project List -->
+                <div class="category-list" id="project-category">
 
-                <div class="category-header">
-                    <div class="row">
-                        <div class="col col-3">Project</div>
-                        <div class="col col-5">Planning URL</div>
-                        <div class="col col-2">Client</div>
-                        <div class="col col-2 dropdown-elem">
-                            <div class="dropdown show">
-                                <a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Due in: 2 Weeks
-                                </a>
+                    <div class="category-header">
+                        <div class="row">
+                            <div class="col col-3">Project</div>
+                            <div class="col col-5">Planning URL</div>
+                            <div class="col col-2">Client</div>
+                            <div class="col col-2 dropdown-elem">
+                                <div class="dropdown show">
+                                    <a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Due in: 2 Weeks
+                                    </a>
 
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">2 Weeks</a>
-                                    <a class="dropdown-item" href="#">1 Month</a>
-                                    <a class="dropdown-item" href="#">3 Months</a>
-                                    <a class="dropdown-item" href="#">6 Months</a>
-                                    <a class="dropdown-item" href="#">1 Year</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">2 Weeks</a>
+                                        <a class="dropdown-item" href="#">1 Month</a>
+                                        <a class="dropdown-item" href="#">3 Months</a>
+                                        <a class="dropdown-item" href="#">6 Months</a>
+                                        <a class="dropdown-item" href="#">1 Year</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="entry-wrapper">
-                    <?php
-                    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/project.php";
-                    $all_projects = all_project();
+                    <div class="entry-wrapper">
+                        <?php
+                        require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
+                        $all_projects = all_projects();
 
-                    foreach ($all_projects as $project) {
-                        echo '<a href="' . "/pages/project-info.php?project=" .
-                            $project['Project_ID'] . '"class="entry-link">';
-                        echo '<div class="project-entry category-entry">';
-                        echo '<div class="row">';
-                        echo '<div class="col col-3">' . $project['ProjectName'] . '</div>';
-                        echo '<div class="col col-5">' . $project['Basecamp_URL'] . '</div>';
+                        foreach ($all_projects as $project) {
+                            echo '<a href="' . "/pages/project-info.php?project=" .
+                                $project['Project_ID'] . '"class="entry-link">';
+                            echo '<div class="project-entry category-entry">';
+                            echo '<div class="row">';
+                            echo '<div class="col col-3">' . $project['ProjectName'] . '</div>';
+                            echo '<div class="col col-5">' . $project['Basecamp_URL'] . '</div>';
 
-                        $name_of_client = find_project_client($project)[0];
-                        $time = new DateTime($name_of_client['Reg_Date']);
+                            $name_of_client = find_project_client($project)[0];
+                            $time = new DateTime($name_of_client['Reg_Date']);
 
 
-                        echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
-                        echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y'). '</span></div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</a>';
-                    }
-                    ?>
-                    <!-- <a href="#" class="entry-link">
-                        <div class="project-entry category-entry">
-                            <div class="row">
-                                <div class="col col-3">7-R058 Year-End Sale Email</div>
-                                <div class="col col-5">https://basecamp.com/####/projects/####/</div>
-                                <div class="col col-2">Client</div>
-                                <div class="col col-2 date-field">
-                                    <span>Mar. 15, 2018</span>
+                            echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
+                            echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y'). '</span></div>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</a>';
+                        }
+                        ?>
+                        <!-- <a href="#" class="entry-link">
+                            <div class="project-entry category-entry">
+                                <div class="row">
+                                    <div class="col col-3">7-R058 Year-End Sale Email</div>
+                                    <div class="col col-5">https://basecamp.com/####/projects/####/</div>
+                                    <div class="col col-2">Client</div>
+                                    <div class="col col-2 date-field">
+                                        <span>Mar. 15, 2018</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a> -->
+                        </a> -->
+                    </div>
                 </div>
 
-            </div>
+                <!-- Subscriptions List -->
+                <div class="category-list" id="subscription-category">
 
-            <!-- Subscriptions List -->
-            <div class="category-list" id="subscription-category">
+                    <div class="category-header">
+                        <div class="row">
+                            <div class="col col-3">Website</div>
+                            <div class="col col-2">Domain</div>
+                            <div class="col col-3">Hosted Location</div>
+                            <div class="col col-2">Client</div>
+                            <div class="col col-2 dropdown-elem">
+                                <div class="dropdown show">
+                                    <a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Due in: 2 Weeks
+                                    </a>
 
-                <div class="category-header">
-                    <div class="row">
-                        <div class="col col-3">Website</div>
-                        <div class="col col-2">Domain</div>
-                        <div class="col col-3">Hosted Location</div>
-                        <div class="col col-2">Client</div>
-                        <div class="col col-2 dropdown-elem">
-                            <div class="dropdown show">
-                                <a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Due in: 2 Weeks
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">2 Weeks</a>
-                                    <a class="dropdown-item" href="#">1 Month</a>
-                                    <a class="dropdown-item" href="#">3 Months</a>
-                                    <a class="dropdown-item" href="#">6 Months</a>
-                                    <a class="dropdown-item" href="#">1 Year</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">2 Weeks</a>
+                                        <a class="dropdown-item" href="#">1 Month</a>
+                                        <a class="dropdown-item" href="#">3 Months</a>
+                                        <a class="dropdown-item" href="#">6 Months</a>
+                                        <a class="dropdown-item" href="#">1 Year</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="entry-wrapper">
-                    <?php
-                    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/subscription.php";
-                    $all_subscriptions = all_subscription();
+                    <div class="entry-wrapper">
+                        <?php
+                        require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
+                        $all_subscriptions = all_subscriptions();
 
+                        foreach ($all_subscriptions as $subscription) {
+                            echo '<a href="' . "/pages/subscription-info.php?subscription=" .
+                                $subscription['Website_ID'] . '"class="entry-link">';
+                            echo '<div class="subscription-entry category-entry">';
+                            echo '<div class="row">';
+                            echo '<div class="col col-3">' . $subscription['Site_Name'] . '</div>';
+                            echo '<div class="col col-2">' . $subscription['Domain'] . '</div>';
+                            echo '<div class="col col-3">' . $subscription['Host_Location'] . '</div>';
 
+                            $name_of_client = find_subscription_client($subscription)[0];
+                            $time = new DateTime($subscription['Annual_Renewal']);
 
-                    foreach ($all_subscriptions as $subscription) {
-                        echo '<a href="' . "/pages/subscription-info.php?subscription=" .
-                            $subscription['Website_ID'] . '"class="entry-link">';
-                        echo '<div class="subscription-entry category-entry">';
-                        echo '<div class="row">';
-                        echo '<div class="col col-3">' . $subscription['Site_Name'] . '</div>';
-                        echo '<div class="col col-2">' . $subscription['Domain'] . '</div>';
-                        echo '<div class="col col-3">' . $subscription['Host_Location'] . '</div>';
-
-                        $name_of_client = find_subscription_client($subscription)[0];
-                        $time = new DateTime($subscription['Annual_Renewal']);
-
-                        echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
-                        echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y') . '</span></div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</a>';
-                    }
-                    ?>
-                    <!-- <a href="#" class="entry-link">
-                        <div class="subscription-entry category-entry">
-                            <div class="row">
-                                <div class="col col-3">Pocket of Sunshine</div>
-                                <div class="col col-2">sunshine-pocket.com</div>
-                                <div class="col col-3">https://www.link.com/</div>
-                                <div class="col col-2">Wolters Kluwer</div>
-                                <div class="col col-2 date-field">
-                                    <span>Mar. 15, 2018</span>
+                            echo '<div class="col col-2">' . $name_of_client['Companyname'] . '</div>';
+                            echo '<div class="col col-2 date-field"><span>' . $time->format('M. d, Y') . '</span></div>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</a>';
+                        }
+                        ?>
+                        <!-- <a href="#" class="entry-link">
+                            <div class="subscription-entry category-entry">
+                                <div class="row">
+                                    <div class="col col-3">Pocket of Sunshine</div>
+                                    <div class="col col-2">sunshine-pocket.com</div>
+                                    <div class="col col-3">https://www.link.com/</div>
+                                    <div class="col col-2">Wolters Kluwer</div>
+                                    <div class="col col-2 date-field">
+                                        <span>Mar. 15, 2018</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a> -->
-                </div>
-
-            </div>
-
-            <!-- Client List -->
-            <div class="category-list" id="client-category">
-
-                <div class="category-header">
-                    <div class="row">
-                        <div class="col col-3">Client</div>
-                        <div class="col col-2">Main Contact</div>
-                        <div class="col col-3">Contact Email</div>
-                        <div class="col col-2">Subscriptions</div>
-                        <div class="col col-2">Projects</div>
+                        </a> -->
                     </div>
                 </div>
 
-                <div class="entry-wrapper">
-                    <?php
-                    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
-                    $all_companies = all_company();
+                <!-- Client List -->
+                <div class="category-list" id="client-category">
 
-                    foreach ($all_companies as $company) {
-                        echo '<a href="' . "/pages/client-info.php?client=" .
-                            $company['Companyname'] . '"class="entry-link">';
-                        echo '<div class="client-entry category-entry">';
-                        echo '<div class="row">';
-                        echo '<div class="col col-3">' . $company['Companyname'] . '</div>';
-                        echo '<div class="col col-2">' . $company['Contactname'] . '</div>';
-                        echo '<div class="col col-3">' . $company['Email'] . '</div>';
-                        echo '<div class="col col-2">1</div>';
-                        echo '<div class="col col-2">0</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</a>';
-                    }
-                    ?>
-                    <!-- <a href="#" class="entry-link">
-                        <div class="client-entry category-entry">
-                            <div class="row">
-                                <div class="col col-3">Wolters Kluwer</div>
-                                <div class="col col-2">Sally Goldberg</div>
-                                <div class="col col-3">email.address@gmail.com</div>
-                                <div class="col col-2">1</div>
-                                <div class="col col-2">1</div>
-                            </div>
+                    <div class="category-header">
+                        <div class="row">
+                            <div class="col col-3">Client</div>
+                            <div class="col col-2">Main Contact</div>
+                            <div class="col col-3">Contact Email</div>
+                            <div class="col col-2">Subscriptions</div>
+                            <div class="col col-2">Projects</div>
                         </div>
-                    </a> -->
-                </div>
+                    </div>
 
+                    <div class="entry-wrapper">
+                        <?php
+                        require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+                        $all_companies = all_companies();
+
+                        foreach ($all_companies as $company) {
+                            echo '<a href="' . "/pages/client-info.php?client=" .
+                                $company['Companyname'] . '"class="entry-link">';
+                            echo '<div class="client-entry category-entry">';
+                            echo '<div class="row">';
+                            echo '<div class="col col-3">' . $company['Companyname'] . '</div>';
+                            echo '<div class="col col-2">' . $company['Contactname'] . '</div>';
+                            echo '<div class="col col-3">' . $company['Email'] . '</div>';
+                            echo '<div class="col col-2">1</div>';
+                            echo '<div class="col col-2">0</div>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</a>';
+                        }
+                        ?>
+                        <!-- <a href="#" class="entry-link">
+                            <div class="client-entry category-entry">
+                                <div class="row">
+                                    <div class="col col-3">Wolters Kluwer</div>
+                                    <div class="col col-2">Sally Goldberg</div>
+                                    <div class="col col-3">email.address@gmail.com</div>
+                                    <div class="col col-2">1</div>
+                                    <div class="col col-2">1</div>
+                                </div>
+                            </div>
+                        </a> -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

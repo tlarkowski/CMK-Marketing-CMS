@@ -8,27 +8,23 @@
 
 include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
-function all_project()
-{
-	$data_conn = connection();
-    $data = $data_conn->select("Client_Project", "*");
-    return $data;
-}
-
-function search_project($project)
+/* Return all projects in database */
+function all_projects()
 {
 	$data_conn = connection();
     $data = $data_conn->select("Client_Project", "*", [
-        "Project_ID" => $project['Project_ID']
+        "Status" => "1"
     ]);
     return $data;
 }
 
-function search_project_ID($project_ID)
+/* Search through project-related data */
+function search_project($project_ID)
 {
     $data_conn = connection();
     $data = $data_conn->select("Client_Project", "*", [
-        "Project_ID" => $project_ID
+        "Project_ID" => $project_ID,
+        "Status" => "1"
     ]);
     return $data;
 }
@@ -37,11 +33,8 @@ function find_project_client($project)
 {
     $data_conn = connection();
     $data = $data_conn->select("Client_Company", "*", [
-        "Company_ID" => $project['Company_ID']
+        "Company_ID" => $project['Company_ID'],
+        "Status" => "1"
     ]);
     return $data;
-}
-
-function add_new_project($project){
-
 }

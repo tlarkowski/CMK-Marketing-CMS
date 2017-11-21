@@ -40,117 +40,115 @@
     <?php include '../include/navbar.html';
         require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
 
-
         $company = $_GET['client']; // get from param
         $company = search_company($company)[0];
         $all_subscriptions = search_company_subscription($company);
         $all_projects = search_company_project($company);
     ?>
 
+    <!-- Client Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Left Column -->
+            <div id="left-column" class="col-md-5 my-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title" style="margin-bottom:0;"> <?php echo $company['Companyname'] ?></h4>
+                    </div>
 
-<!-- Client Content -->
-<div class="container">
-    <div class="row">
-        <!-- Left Column -->
-        <div id="left-column" class="col-md-5 my-4">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h4 class="card-title" style="margin-bottom:0;"> <?php echo $company['Companyname'] ?></h4>
+                    <img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
+
+                    <div class="card-body">
+                        <h4 class="card-title">Description</h4>
+                        <p class="card-text"><?php echo $company['Description'] ?>
+                        </p>
+                    </div>
                 </div>
 
-                <img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
+                <button type="button" class="btn btn-primary btn-lg btn-block blue-button" onclick="">Edit Client Information</button>
 
-                <div class="card-body">
-                    <h4 class="card-title">Description</h4>
-                    <p class="card-text"><?php echo $company['Description'] ?>
-                    </p>
-                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information
+                </button>
             </div>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block blue-button" onclick="">Edit Client Information</button>
+            <!-- Right Column -->
+            <div id="right-column" class="col-md-7 my-4">
 
-            <button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information
-            </button>
-        </div>
+                <!-- Main Contact Info -->
+                <div class="sidebar">
+                    <h4 class="sidebar-header">Main Contact Info</h4>
 
-        <!-- Right Column -->
-        <div id="right-column" class="col-md-7 my-4">
-
-            <!-- Main Contact Info -->
-            <div class="sidebar">
-                <h4 class="sidebar-header">Main Contact Info</h4>
-
-                <div class="sidebar-content">
-                    <ul id="client-info" class="list-group">
-                        <li class="client-name list-group-item">
-                            <img src="../img/icons/person.png" alt="Person Icon" width="24" height="24">
-                            <span class="name"><?php echo $company['Contactname'] ?></span>
-                        </li>
-                        <li class="client-phone list-group-item">
-                            <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
-                            <span class="phone"><?php echo '(' . substr($company['Phone'], 0, 3) . ')-'
-                                    . substr($company['Phone'], 3, 3) .
-                                    '-' . substr($company['Phone'], 6, 3) ?></span>
-                        </li>
-                        <li class="client-email list-group-item">
-                            <img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
-                            <span class="email"><?php echo $company['Email'] ?>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Subscriptions -->
-            <div id="subscriptions" class="sidebar">
-                <a href="/pages/add-new-subscription.php?client=<?php echo $company['Companyname'] ?>" class="btn btn-primary add-subscription rounded-circle blue-button">
-                    <strong>&#43;</strong></a>
-
-                <h4 class="sidebar-header">Subscriptions</h4>
-
-                <div class="sidebar-content list-group">
-                    <?php foreach ($all_subscriptions as $subscription):?>
-                        <a href="/pages/subscription-info.php?subscription=<?php echo $subscription['Website_ID'] ?>" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1"><?php echo $subscription['Site_Name']; ?></h5>
-                            </div>
-                            <p class="mb-1 text-muted"><?php echo $subscription['Domain']; ?></p>
-                            <small class="due-date"><strong>Deadline: <?php
-                                $time = new DateTime($subscription['Annual_Renewal']);
-                                echo $time->format('M. d, Y'); ?>
-                            </strong></small>
-                        </a>
-                    <?php endforeach;?>
+                    <div class="sidebar-content">
+                        <ul id="client-info" class="list-group">
+                            <li class="client-name list-group-item">
+                                <img src="../img/icons/person.png" alt="Person Icon" width="24" height="24">
+                                <span class="name"><?php echo $company['Contactname'] ?></span>
+                            </li>
+                            <li class="client-phone list-group-item">
+                                <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
+                                <span class="phone"><?php echo '(' . substr($company['Phone'], 0, 3) . ')-'
+                                        . substr($company['Phone'], 3, 3) .
+                                        '-' . substr($company['Phone'], 6, 3) ?></span>
+                            </li>
+                            <li class="client-email list-group-item">
+                                <img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
+                                <span class="email"><?php echo $company['Email'] ?>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-            </div>
+                <!-- Subscriptions -->
+                <div id="subscriptions" class="sidebar">
+                    <a href="/pages/add-new-subscription.php?client=<?php echo $company['Companyname'] ?>" class="btn btn-primary add-subscription rounded-circle blue-button">
+                        <strong>&#43;</strong></a>
 
-            <!-- Projects -->
-            <div id="projects" class="sidebar">
-                <a href="/pages/add-new-project.php?client=<?php echo $company['Companyname'] ?>" class="btn btn-primary add-project rounded-circle blue-button">
-                    <strong>&#43;</strong></a>
+                    <h4 class="sidebar-header">Subscriptions</h4>
 
-                <h4 class="sidebar-header">Projects</h4>
+                    <div class="sidebar-content list-group">
+                        <?php foreach ($all_subscriptions as $subscription):?>
+                            <a href="/pages/subscription-info.php?subscription=<?php echo $subscription['Website_ID'] ?>" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><?php echo $subscription['Site_Name']; ?></h5>
+                                </div>
+                                <p class="mb-1 text-muted"><?php echo $subscription['Domain']; ?></p>
+                                <small class="due-date"><strong>Deadline: <?php
+                                    $time = new DateTime($subscription['Annual_Renewal']);
+                                    echo $time->format('M. d, Y'); ?>
+                                </strong></small>
+                            </a>
+                        <?php endforeach;?>
+                    </div>
 
-                <div class="sidebar-content list-group">
-                    <?php foreach ($all_projects as $project):?>
-                        <a href="/pages/subscription-info.php?subscription=<?php echo $project['Project_ID'] ?>" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1"><?php echo $project['ProjectName']; ?></h5>
-                            </div>
-                            <p class="mb-1 text-muted"><?php echo $project['Basecamp_URL']; ?></p>
-                            <small class="due-date"><strong>Deadline: <?php
-                                $time = new DateTime($project['End_Date']);
-                                echo $time->format('M. d, Y'); ?>
-                            </strong></small>
-                        </a>
-                    <?php endforeach;?>
+                </div>
+
+                <!-- Projects -->
+                <div id="projects" class="sidebar">
+                    <a href="/pages/add-new-project.php?client=<?php echo $company['Companyname'] ?>" class="btn btn-primary add-project rounded-circle blue-button">
+                        <strong>&#43;</strong></a>
+
+                    <h4 class="sidebar-header">Projects</h4>
+
+                    <div class="sidebar-content list-group">
+                        <?php foreach ($all_projects as $project):?>
+                            <a href="/pages/subscription-info.php?subscription=<?php echo $project['Project_ID'] ?>" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><?php echo $project['ProjectName']; ?></h5>
+                                </div>
+                                <p class="mb-1 text-muted"><?php echo $project['Basecamp_URL']; ?></p>
+                                <small class="due-date"><strong>Deadline: <?php
+                                    $time = new DateTime($project['End_Date']);
+                                    echo $time->format('M. d, Y'); ?>
+                                </strong></small>
+                            </a>
+                        <?php endforeach;?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- End Client Content -->
+    <!-- End Client Content -->
 </body>
 
 </html>

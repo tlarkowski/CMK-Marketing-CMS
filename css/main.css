@@ -94,7 +94,9 @@ a.dropdown-toggle:focus {
 
 .category-list .category-header .row .col {
 	border-bottom: 2px solid #98BB53;
+	background-color: rgba(152, 187, 83, 0.2);
 	padding: 0.575rem 0.75rem;
+	margin-bottom: 10px;
 }
 
 .category-list .category-entry .row {
