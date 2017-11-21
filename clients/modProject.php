@@ -7,15 +7,15 @@
  * @param $company
  */
 date_default_timezone_set("EST");
-include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
-/** add new company info
- * @param $company
+/** add new project info
+ * @param $project
  * @return int|mixed "Id of add record"|
  * @throws Exception
  */
-function addCompany($company)
+function addProject($project)
 {
     $data_conn = connection();
     $temp = search_company($company['Companyname']);
@@ -37,11 +37,11 @@ function addCompany($company)
 }
 
 
-/**  update company info
- * @param $company
+/**  update project info
+ * @param $project
  * @return int|mixed|"ID of Mod record"
  */
-function modCompany($company)
+function modProject($project)
 {
     $data_conn = connection();
     $data_conn->update("Client_Company", [
@@ -57,26 +57,19 @@ function modCompany($company)
     ]);
 
     return $data_conn->id();
-
 }
 
 /** archive project info
- * @param $company
+ * @param $project
  * @return int|mixed|"ID of Archived record"
  */
-function archiveProject($company)
+function archiveProject($project)
 {
     $data_conn = connection();
-    $data_conn->update("Client_Company", [
-        "Companyname" => $company['Companyname'],
-        "Status" => "1",
-        "Contactname" => $company['Contactname'],
-        "Description" => $company['Description'],
-        "Phone" => $company['Phone'],
-        "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL']
+    $data_conn->update("Client_Project", [
+        "Status" => "1"
     ], [
-        "Company_ID" => $company['Company_ID']
+        "Project_ID" => $company['Project_ID']
     ]);
 
     return $data_conn->id();

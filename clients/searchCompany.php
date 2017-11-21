@@ -49,6 +49,12 @@ function search_company_subscription($company)
     return $data;
 }
 
+function company_subscription_count($company)
+{
+    $data = search_company_subscription($company);
+    return count($data);
+}
+
 function search_company_project($company)
 {
     $data_conn = connection();
@@ -57,6 +63,12 @@ function search_company_project($company)
         "Status" => "1"
     ]);
     return $data;
+}
+
+function company_project_count($company)
+{
+    $data = search_company_subscription($company);
+    return count($data);
 }
 
 ?>

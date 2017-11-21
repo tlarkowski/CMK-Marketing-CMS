@@ -33,6 +33,7 @@
 	<?php 
 		include '../include/navbar.html';
 		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modProject.php";
 
 		$project = $_GET['project']; // get from param
 		$project = search_project($project)[0];
@@ -61,7 +62,7 @@
 
 				<a href="/pages/edit-project-info.php?project=<?php echo $_GET['project'];?>" type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</a>
 
-				<a href="" type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Project Information</a>
+				<a href="/pages/client-info.php?client=<?php echo $client_name;?>" type="button" onclick="<?php archiveProject($project);?>" class="btn btn-primary btn-lg btn-block red-button">Archive Project Information</a>
 			</div>
 
 			<!-- Right Column -->

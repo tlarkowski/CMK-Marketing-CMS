@@ -39,6 +39,7 @@
 <body>
     <?php include '../include/navbar.html';
         require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+        require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
 
         $company = $_GET['client']; // get from param
         $company = search_company($company)[0];
@@ -67,7 +68,7 @@
 
                 <a href="/pages/edit-client-info.php?client=<?php echo $_GET['client'];?>" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</a>
 
-                <a href="" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</a>
+                <a href="/landing_page.php" onclick="<?php archiveCompany($company);?>" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</a>
             </div>
 
             <!-- Right Column -->

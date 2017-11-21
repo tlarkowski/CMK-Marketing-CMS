@@ -7,15 +7,15 @@
  * @param $company
  */
 date_default_timezone_set("EST");
-include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
-/** add new company info
- * @param $company
+/** add new subscription info
+ * @param $subscription
  * @return int|mixed "Id of add record"|
  * @throws Exception
  */
-function addCompany($company)
+function addSubscription($subscription)
 {
     $data_conn = connection();
     $temp = search_company($company['Companyname']);
@@ -37,11 +37,11 @@ function addCompany($company)
 }
 
 
-/**  update company info
- * @param $company
+/**  update subscription info
+ * @param $subscription
  * @return int|mixed|"ID of Mod record"
  */
-function modCompany($company)
+function modSubscription($subscription)
 {
     $data_conn = connection();
     $data_conn->update("Client_Company", [
@@ -61,22 +61,16 @@ function modCompany($company)
 }
 
 /** archive subscription info
- * @param $company
+ * @param $subscription
  * @return int|mixed|"ID of Archived record"
  */
-function archiveSubscription($company)
+function archiveSubscription($subscription)
 {
     $data_conn = connection();
-    $data_conn->update("Client_Company", [
-        "Companyname" => $company['Companyname'],
-        "Status" => "1",
-        "Contactname" => $company['Contactname'],
-        "Description" => $company['Description'],
-        "Phone" => $company['Phone'],
-        "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL']
+    $data_conn->update("Client_Website", [
+        "Status" => "1"
     ], [
-        "Company_ID" => $company['Company_ID']
+        "Website_ID" => $subscription['Website_ID']
     ]);
 
     return $data_conn->id();

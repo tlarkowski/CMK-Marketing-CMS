@@ -69,7 +69,7 @@
                 <a href="/pages/edit-subscription-info.php?subscription=<?php echo $_GET['subscription'];?>" class="btn btn-primary btn-lg btn-block blue-button">Edit Subscription Information
                 </a>
 
-                <a href="" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information
+                <a href="/pages/client-info.php?client=<?php echo $client_name;?>" onclick="<?php archiveSubscription($subscription);?>" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information
                 </a>
             </div>
 

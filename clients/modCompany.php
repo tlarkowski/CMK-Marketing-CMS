@@ -67,14 +67,19 @@ function modCompany($company)
 function archiveCompany($company)
 {
     $data_conn = connection();
+
     $data_conn->update("Client_Company", [
-        "Companyname" => $company['Companyname'],
-        "Status" => "1",
-        "Contactname" => $company['Contactname'],
-        "Description" => $company['Description'],
-        "Phone" => $company['Phone'],
-        "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL']
+        "Status" => "0"
+    ], [
+        "Company_ID" => $company['Company_ID']
+    ]);
+    $data_conn->update("Client_Website", [
+        "Status" => "0"
+    ], [
+        "Company_ID" => $company['Company_ID']
+    ]);
+    $data_conn->update("Client_Project", [
+        "Status" => "0"
     ], [
         "Company_ID" => $company['Company_ID']
     ]);

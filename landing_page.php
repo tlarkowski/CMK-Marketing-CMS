@@ -228,8 +228,12 @@
                             echo '<div class="col col-3">' . $company['Companyname'] . '</div>';
                             echo '<div class="col col-2">' . $company['Contactname'] . '</div>';
                             echo '<div class="col col-3">' . $company['Email'] . '</div>';
-                            echo '<div class="col col-2">1</div>';
-                            echo '<div class="col col-2">0</div>';
+
+                            $subscription_count = company_subscription_count($company);
+                            $project_count = company_project_count($company);
+
+                            echo '<div class="col col-2">' . $subscription_count . '</div>';
+                            echo '<div class="col col-2">' . $project_count . '</div>';
                             echo '</div>';
                             echo '</div>';
                             echo '</a>';
