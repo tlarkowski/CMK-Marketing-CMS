@@ -30,7 +30,22 @@
 
 <!-- Page Content -->
 <body>
-	<?php include '../include/navbar.html';?>
+	<?php 
+		include '../include/navbar.html';
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
+
+		$subscription = $_GET['subscription']; // get from param
+		$subscription = search_subscription($subscription)[0];
+
+		$go_live_time = new DateTime($subscription['GoLive_Date']);
+		$go_live_time = $go_live_time->format('Y-m-d');
+
+		$start_time = new DateTime($subscription['Project_Start']);
+		$start_time = $start_time->format('Y-m-d');
+
+		$renewal_time = new DateTime($subscription['Annual_Renewal']);
+		$renewal_time = $renewal_time->format('Y-m-d');
+	?>
 
 	<form>
 		<div class="container">
@@ -39,14 +54,14 @@
 				<div id="left-column" class="col-md-5 my-4">
 					<div class="card mb-4">
 						<div class="card-body">
-							<input type="text" class="form-control" id="website-name" placeholder="Enter Website Name">
+							<input type="text" class="form-control" id="website-name" placeholder="Enter Website Name" value="<?php echo $subscription['Site_Name'];?>">
 						</div>
 
 						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
 						<div class="card-body">
 							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="subscription-description" rows="3">Current Description Text</textarea>
+							<textarea class="form-control" id="subscription-description" rows="3"><?php echo $subscription['Description'];?></textarea>
 						</div>
 					</div>
 
@@ -64,35 +79,35 @@
 							<div id="subscription-info" class="editing" class="container">
 								<div class="row">
 									<div class="col-3">Domain Name</div>
-									<div class="col-9"><input type="text" class="form-control" id="domain-name" placeholder="Enter Domain Name"></div>
+									<div class="col-9"><input type="text" class="form-control" id="domain-name" placeholder="Enter Domain Name" value="<?php echo $subscription['Domain'];?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hosted Location</div>
-									<div class="col-9"><input type="text" class="form-control" id="hosted-loc" placeholder="Enter Hosted Location"></div>
+									<div class="col-9"><input type="text" class="form-control" id="hosted-loc" placeholder="Enter Hosted Location" value="<?php echo $subscription['Host_Location'];?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Cost</div>
-									<div class="col-9"><input type="number" class="form-control" id="cost"></div>
+									<div class="col-9"><input type="number" class="form-control" id="cost" value="<?php echo $subscription['Project_Cost_Billed'];?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Go Live Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="go-live-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="go-live-date" value="<?php echo $go_live_time;?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Start Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="start-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="start-date" value="<?php echo $start_time;?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Website Type</div>
-									<div class="col-9"><input type="text" class="form-control" id="web-type" placeholder="Enter Website Type"></div>
+									<div class="col-9"><input type="text" class="form-control" id="web-type" placeholder="Enter Website Type" value="<?php echo $subscription['Type'];?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hours Planned</div>
-									<div class="col-9"><input type="number" class="form-control" id="planned-hours"></div>
+									<div class="col-9"><input type="number" class="form-control" id="planned-hours" value="<?php echo $subscription['Hours_Planned'];?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hours Tracked</div>
-									<div class="col-9"><input type="number" class="form-control" id="tracked-hours"></div>
+									<div class="col-9"><input type="number" class="form-control" id="tracked-hours" value="<?php echo $subscription['Hours_Tracked'];?>"></div>
 								</div>
 							</div>
 						</div>
@@ -106,7 +121,7 @@
 							<div id="renewal-status" class="container editing">
 								<div class="row">
 									<div class="col-3">Renewal Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="payment-due-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="payment-due-date" value="<?php echo $renewal_time;?>"></div>
 								</div>
 							</div>
 						</div>
@@ -117,7 +132,7 @@
 						<h4 class="sidebar-header">Notes on Subscription</h4>
 
 						<div class="sidebar-content">
-							<textarea class="form-control" id="content-notes" rows="3">Current Note Text</textarea>
+							<textarea class="form-control" id="content-notes" rows="3"><?php echo $subscription['Notes'];?></textarea>
 						</div>
 					</div>
 

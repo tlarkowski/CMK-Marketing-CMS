@@ -59,7 +59,7 @@
 
 				<a href="/pages/client-info.php?client=<?php echo $client_name;?>" class="btn btn-primary btn-lg btn-block green-button">Back to Client Page</a>
 
-				<a href="" type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</a>
+				<a href="/pages/edit-project-info.php?project=<?php echo $_GET['project'];?>" type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</a>
 
 				<a href="" type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Project Information</a>
 			</div>

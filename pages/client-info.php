@@ -65,10 +65,9 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block blue-button" onclick="">Edit Client Information</button>
+                <a href="/pages/edit-client-info.php?client=<?php echo $_GET['client'];?>" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</a>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information
-                </button>
+                <a href="" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</a>
             </div>
 
             <!-- Right Column -->

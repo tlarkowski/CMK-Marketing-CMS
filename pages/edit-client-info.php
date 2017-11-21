@@ -30,7 +30,13 @@
 
 <!-- Page Content -->
 <body>
-	<?php include '../include/navbar.html';?>
+	<?php 
+		include '../include/navbar.html';
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+
+        $company = $_GET['client']; // get from param
+        $company = search_company($company)[0];
+	?>
 
 	<form>
 		<div class="container">
@@ -39,14 +45,14 @@
 				<div id="left-column" class="col-md-5 my-4">
 					<div class="card mb-4">
 						<div class="card-body">
-							<input type="text" class="form-control" id="company-name" placeholder="Enter Name">
+							<input type="text" class="form-control" id="company-name" placeholder="Enter Name" value="<?php echo $company['Companyname'];?>">
 						</div>
 
 						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
 						<div class="card-body">
 							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="company-description" rows="3">Current Description Text</textarea>
+							<textarea class="form-control" id="company-description" rows="3"><?php echo $company['Description'];?></textarea>
 						</div>
 					</div>
 
@@ -63,15 +69,15 @@
 							<ul id="client-info" class="list-group">
 								<li class="client-name list-group-item">
 									<img src="../img/icons/person.png" alt="Person Icon" width="24" height="24">
-									<input type="text" class="form-control" id="contact-name" placeholder="Enter Name">
+									<input type="text" class="form-control" id="contact-name" placeholder="Enter Name" value="<?php echo $company['Contactname'];?>">
 								</li>
 								<li class="client-phone list-group-item">
 									<img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
-									<input type="phone" class="form-control" id="contact-number" placeholder="Enter Phone Number">
+									<input type="phone" class="form-control" id="contact-number" placeholder="Enter Phone Number (digits only)" value="<?php echo $company['Phone'];?>">
 								</li>
 								<li class="client-email list-group-item">
 									<img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
-									<input type="email" class="form-control" id="contact-email" placeholder="Enter Email">
+									<input type="email" class="form-control" id="contact-email" placeholder="Enter Email" value="<?php echo $company['Email'];?>">
 								</li>
 							</ul>
 						</div>

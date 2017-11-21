@@ -30,7 +30,19 @@
 
 <!-- Page Content -->
 <body>
-	<?php include '../include/navbar.html';?>
+	<?php 
+		include '../include/navbar.html';
+		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
+
+		$project = $_GET['project']; // get from param
+		$project = search_project($project)[0];
+
+		$start_time = new DateTime($project['Start_Date']);
+		$start_time = $start_time->format('Y-m-d');
+
+		$finish_time = new DateTime($project['End_Date']);
+		$finish_time = $finish_time->format('Y-m-d');
+	?>
 
 	<form>
 		<div class="container">
@@ -39,14 +51,14 @@
 				<div id="left-column" class="col-md-5 my-4">
 					<div class="card mb-4">
 						<div class="card-body">
-							<input type="text" class="form-control" id="project-name" placeholder="Enter Project Name">
+							<input type="text" class="form-control" id="project-name" placeholder="Enter Project Name" value="<?php echo $project['ProjectName'];?>">
 						</div>
 
 						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
 						<div class="card-body">
 							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="subscription-description" rows="3">Current Description Text</textarea>
+							<textarea class="form-control" id="subscription-description" rows="3"><?php echo $project['Description'];?></textarea>
 						</div>
 					</div>
 
@@ -64,11 +76,11 @@
 							<div id="project-info" class="editing" class="container">
 								<div class="row">
 									<div class="col-3">Tracking Location</div>
-									<div class="col-9"><input type="text" class="form-control" id="tracking-loc" placeholder="Enter Tracking URL"></div>
+									<div class="col-9"><input type="text" class="form-control" id="tracking-loc" placeholder="Enter Tracking URL" value="<?php echo $project['Basecamp_URL'];?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Start Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="start-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="start-date" value="<?php echo $start_time;?>"></div>
 								</div>
 							</div>
 						</div>
@@ -82,7 +94,7 @@
 							<div id="renewal-status" class="container editing">
 								<div class="row">
 									<div class="col-3">Finish Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="finish-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="finish-date" value="<?php echo $finish_time;?>"></div>
 								</div>
 							</div>
 						</div>
@@ -93,7 +105,7 @@
 						<h4 class="sidebar-header">Notes on Subscription</h4>
 
 						<div class="sidebar-content">
-							<textarea class="form-control" id="content-notes" rows="3">Current Note Text</textarea>
+							<textarea class="form-control" id="content-notes" rows="3"><?php echo $project['Notes'];?></textarea>
 						</div>
 					</div>
 
