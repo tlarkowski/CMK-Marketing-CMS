@@ -46,7 +46,7 @@
             <div id="left-column" class="col-md-5 my-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <input type="text" name="Companyname" class="form-control" id="company-name"
+                        <input type="text" name="company-name" class="form-control" id="company-name"
                                placeholder="Enter Name">
                     </div>
 
@@ -95,9 +95,9 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
 
-if (isset($_POST['Companyname'])) {
+if (isset($_POST['company-name'])) {
     $array = array(
-        "Companyname" => $_POST['Companyname'],
+        "Companyname" => $_POST['company-name'],
         "Status" => "1",
         "Contactname" => $_POST['contact-name'],
         "Description" => $_POST['company-description'],
