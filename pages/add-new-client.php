@@ -47,7 +47,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <input type="text" name="company-name" class="form-control" id="company-name"
-                               placeholder="Enter Name">
+                               placeholder="Enter Name" required>
                     </div>
 
                     <img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
@@ -74,17 +74,17 @@
                             <li class="client-name list-group-item">
                                 <img src="../img/icons/person.png" alt="Person Icon" width="24" height="24">
                                 <input type="text" class="form-control" name="contact-name" id="contact-name"
-                                       placeholder="Enter Name">
+                                       placeholder="Enter Name" required>
                             </li>
                             <li class="client-phone list-group-item">
                                 <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
                                 <input type="phone" class="form-control" name="contact-number" id="contact-number"
-                                       placeholder="Enter Phone Number (digits only)">
+                                       placeholder="Enter Phone Number (digits only)" required>
                             </li>
                             <li class="client-email list-group-item">
                                 <img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
                                 <input type="email" class="form-control" name="contact-email" id="contact-email"
-                                       placeholder="Enter Email">
+                                       placeholder="Enter Email" required>
                             </li>
                         </ul>
                     </div>
