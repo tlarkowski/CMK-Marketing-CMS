@@ -28,7 +28,11 @@ function login($username, $password)
         return false;
     }
     // store session data
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $_SESSION['user'] = $data[0];
+    echo $_SESSION['user'];
     $data_con->update("CMK_User", [
         "Last_Login_Time" => date('Y-m-d H:i:s')
     ], [
@@ -38,29 +42,28 @@ function login($username, $password)
     return true;
 }
 
-
-try {
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $password = $_POST['password'];
-        $username = $_POST['username'];
-        // check database record
-        if (login($username, $password)) {
-            echo "login successful";
-        } else {
-            echo "login fail";
-        }
-    }
-
-} catch (Exception $e) {
-    echo 'Message: ' . $e->getMessage();
-}
+//
+//try {
+//    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//        $password = $_POST['password'];
+//        $username = $_POST['username'];
+//        // check database record
+//        if (login($username, $password)) {
+//            echo "login successful";
+//        } else {
+//            echo "login fail";
+//        }
+//    }
+//
+//} catch (Exception $e) {
+//    echo 'Message: ' . $e->getMessage();
+//}
 
 
 function auth_check()
 {
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
-        return false;
     }
     if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
         return true;

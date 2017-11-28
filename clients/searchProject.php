@@ -6,7 +6,7 @@
  * Time: 11:01
  */
 
-include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
 /* Return all projects in database */
 function all_projects()

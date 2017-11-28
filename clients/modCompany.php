@@ -66,7 +66,7 @@ function modCompany($company)
  */
 function archiveCompany($company)
 {
-    // $data_conn = connection();
+    sleep(3);    // $data_conn = connection();
 
     // $data_conn->update("Client_Company", [
     //     "Status" => "0"

@@ -14,7 +14,7 @@ date_default_timezone_set("EST");
 //echo hash('sha256', 'test');
 try {
     if (auth_check()) {
-        header('Location:' . $_SERVER['DOCUMENT_ROOT'] . 'location:landing_page.php');
+        header('Location: landing_page.php');
 
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

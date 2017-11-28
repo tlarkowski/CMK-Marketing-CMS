@@ -6,7 +6,13 @@
  * Time: 16:17
  */
 
-require_once 'login.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/login.php";
+
 
 if (!auth_check()) {
+    $message = "Please login";
+
+    echo "<script>alert('$message');
+        window.location.href='/index.php';
+        </script>";
 }
