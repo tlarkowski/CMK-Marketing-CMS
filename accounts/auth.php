@@ -6,16 +6,8 @@
  * Time: 16:17
  */
 
-function auth_check()
-{
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-        return false;
-    }
-    if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
-        return true;
-    } else {
-        return false;
-    }
+require_once 'login.php';
 
+if (!auth_check()) {
+    header('Location:' . $_SERVER['DOCUMENT_ROOT'] . '/index.php');
 }

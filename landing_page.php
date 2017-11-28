@@ -5,6 +5,7 @@
 	Developers: Tusa Larkowski, Adeel Minhas, Ruowen Qin
 	Brief Description: The main page of system for logged-in users.
 -->
+<?php require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/auth.php"; ?>
 
 <!DOCTYPE html>
 <html>

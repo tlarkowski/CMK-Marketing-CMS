@@ -1,32 +1,36 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: chin39
-     * Date: 2017/11/8
-     * Time: 14:38
-     */
-    require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/login.php";
-    date_default_timezone_set("EST");
+/**
+ * Created by PhpStorm.
+ * User: chin39
+ * Date: 2017/11/8
+ * Time: 14:38
+ */
+require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/login.php";
+date_default_timezone_set("EST");
 
 
-    // Input: Username and Password
-    // Output: Bool for whether successful and store the successful result to session
-    //echo hash('sha256', 'test');
-    try {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $password = $_POST['password'];
-            $username = $_POST['username'];
-            // check database record
-            if (login($username, $password)) {
-                header("location:landing_page.php");
-            } else {
-                echo "login fail";
-            }
-        }
+// Input: Username and Password
+// Output: Bool for whether successful and store the successful result to session
+//echo hash('sha256', 'test');
+try {
+    if (auth_check()) {
+        header('Location:' . $_SERVER['DOCUMENT_ROOT'] . 'location:landing_page.php');
 
-    } catch (Exception $e) {
-        echo 'Message: ' . $e->getMessage();
     }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $password = $_POST['password'];
+        $username = $_POST['username'];
+        // check database record
+        if (login($username, $password)) {
+            header("location:landing_page.php");
+        } else {
+            echo "login fail";
+        }
+    }
+
+} catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();
+}
 ?>
 
 <html>
@@ -50,21 +54,23 @@
 </head>
 
 <body>
-    <!-- Adapted from: https://codepen.io/anon/pen/POmxRB -->
-    <div id="login">
-        <img src="/img/logo.png" alt="Company Logo">
-        <h1>Reminder Customer Management System</h1>
-        <hr/>
+<!-- Adapted from: https://codepen.io/anon/pen/POmxRB -->
+<div id="login">
+    <img src="/img/logo.png" alt="Company Logo">
+    <h1>Reminder Customer Management System</h1>
+    <hr/>
 
-        <form method="post" action="index.php" name='form-login'>
-            <span class="fontawesome-user"></span><input type="text" id="username" placeholder="Username" name="username" required="required">
+    <form method="post" action="index.php" name='form-login'>
+        <span class="fontawesome-user"></span><input type="text" id="username" placeholder="Username" name="username"
+                                                     required="required">
 
-            <span class="fontawesome-lock"></span><input type="password" id="password" name="password" placeholder="Password" required="required">
+        <span class="fontawesome-lock"></span><input type="password" id="password" name="password"
+                                                     placeholder="Password" required="required">
 
-            <input type="submit" value="Sign In" class="green-button">
-        </form>
-    </div>
+        <input type="submit" value="Sign In" class="green-button">
+    </form>
+</div>
 
-    <script src="js/index.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
