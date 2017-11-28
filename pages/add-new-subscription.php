@@ -39,7 +39,7 @@
 				<div id="left-column" class="col-md-5 my-4">
 					<div class="card mb-4">
 						<div class="card-body">
-							<input type="text" class="form-control" id="website-name" placeholder="Enter Website Name">
+							<input type="text" class="form-control" id="website-name" placeholder="Enter Website Name" required>
 						</div>
 
 						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
@@ -64,35 +64,35 @@
 							<div id="subscription-info" class="editing" class="container">
 								<div class="row">
 									<div class="col-3">Domain Name</div>
-									<div class="col-9"><input type="text" class="form-control" id="domain-name" placeholder="Enter Domain Name"></div>
+									<div class="col-9"><input type="text" class="form-control" id="domain-name" placeholder="Enter Domain Name" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hosted Location</div>
-									<div class="col-9"><input type="text" class="form-control" id="hosted-loc" placeholder="Enter Hosted Location"></div>
+									<div class="col-9"><input type="text" class="form-control" id="hosted-loc" placeholder="Enter Hosted Location" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Cost</div>
-									<div class="col-9"><input type="number" class="form-control" id="cost"></div>
+									<div class="col-9"><input type="number" class="form-control" id="cost" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Go Live Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="go-live-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="go-live-date" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Start Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="start-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="start-date" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Website Type</div>
-									<div class="col-9"><input type="text" class="form-control" id="web-type" placeholder="Enter Website Type"></div>
+									<div class="col-9"><input type="text" class="form-control" id="web-type" placeholder="Enter Website Type" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hours Planned</div>
-									<div class="col-9"><input type="number" class="form-control" id="planned-hours"></div>
+									<div class="col-9"><input type="number" class="form-control" id="planned-hours" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hours Tracked</div>
-									<div class="col-9"><input type="number" class="form-control" id="tracked-hours"></div>
+									<div class="col-9"><input type="number" class="form-control" id="tracked-hours" required></div>
 								</div>
 							</div>
 						</div>
@@ -106,7 +106,7 @@
 							<div id="renewal-status" class="container editing">
 								<div class="row">
 									<div class="col-3">Renewal Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="payment-due-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="payment-due-date" required></div>
 								</div>
 							</div>
 						</div>

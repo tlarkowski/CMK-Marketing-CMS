@@ -39,14 +39,14 @@
 				<div id="left-column" class="col-md-5 my-4">
 					<div class="card mb-4">
 						<div class="card-body">
-							<input type="text" class="form-control" id="project-name" placeholder="Enter Project Name">
+							<input type="text" class="form-control" id="project-name" placeholder="Enter Project Name" required >
 						</div>
 
 						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
 						<div class="card-body">
 							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="subscription-description" rows="3">Current Description Text</textarea>
+							<textarea class="form-control" id="subscription-description" rows="3" placeholder="Current Description Text"></textarea>
 						</div>
 					</div>
 
@@ -64,11 +64,11 @@
 							<div id="project-info" class="editing" class="container">
 								<div class="row">
 									<div class="col-3">Tracking Location</div>
-									<div class="col-9"><input type="text" class="form-control" id="tracking-loc" placeholder="Enter Tracking URL"></div>
+									<div class="col-9"><input type="text" class="form-control" id="tracking-loc" placeholder="Enter Tracking URL" required ></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Start Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="start-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="start-date" required></div>
 								</div>
 							</div>
 						</div>
@@ -82,7 +82,7 @@
 							<div id="renewal-status" class="container editing">
 								<div class="row">
 									<div class="col-3">Finish Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="finish-date"></div>
+									<div class="col-9"><input type="date" class="form-control" id="finish-date" required></div>
 								</div>
 							</div>
 						</div>
@@ -93,7 +93,7 @@
 						<h4 class="sidebar-header">Notes on Subscription</h4>
 
 						<div class="sidebar-content">
-							<textarea class="form-control" id="content-notes" rows="3">Current Note Text</textarea>
+							<textarea class="form-control" id="content-notes" placeholder="Current Note Text" rows="3"></textarea>
 						</div>
 					</div>
 
