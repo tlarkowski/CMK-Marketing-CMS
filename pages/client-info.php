@@ -68,7 +68,7 @@
 
                 <a href="/pages/edit-client-info.php?client=<?php echo $_GET['client'];?>" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</a>
 
-                <button type="button" onclick="<?php archiveCompany($company);?>;window.location.href = <?php echo $_SERVER['DOCUMENT_ROOT'];?>;" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</button>
+                <button type="button" onclick="<?php archiveCompany($company);?>" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</button>
             </div>
 
             <!-- Right Column -->
