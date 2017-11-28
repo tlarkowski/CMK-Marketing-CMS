@@ -54,3 +54,18 @@ try {
 } catch (Exception $e) {
     echo 'Message: ' . $e->getMessage();
 }
+
+
+function auth_check()
+{
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+        return false;
+    }
+    if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+        return true;
+    } else {
+        return false;
+    }
+
+}

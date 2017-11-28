@@ -24,7 +24,10 @@ try {
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
     $mail->Username = 'cmapp';                 // SMTP username
     $mail->Password = 'mitr2017';                           // SMTP password
-    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->SMTPSecure = false;
+    $mail->SMTPAutoTLS = false;
+    $mail->SMTPDebug = 2;
+//    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 26;                                    // TCP port to connect to
 
     //Recipients
