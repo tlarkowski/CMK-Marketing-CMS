@@ -36,8 +36,7 @@
 <!-- Page Content -->
 <body>
 	<?php include_once $_SERVER["DOCUMENT_ROOT"]. '/include/navbar.html';?>
-
-	<div class="container my-4">
+    <div class="container my-4">
 		<div class="row">
 			<div class="col">
 				<!-- Client List -->

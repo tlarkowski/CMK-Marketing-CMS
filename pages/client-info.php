@@ -6,6 +6,7 @@
 	Brief Description: Shows the details of the client being examined - including their subscriptions and projects.
 -->
 
+
 <!DOCTYPE html>
 <html>
 
