@@ -175,6 +175,10 @@ if (isset($_POST['website-name'])) {
     );
     try {
         addSubscription($array);
+        echo '<script language="javascript">';
+        echo 'alert("' . 'add successful' . '")';
+        echo '</script>';
+
     } catch (Exception $e) {
         echo '<script language="javascript">';
         echo 'alert("' . $e->getMessage() . '")';
