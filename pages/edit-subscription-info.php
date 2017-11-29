@@ -37,7 +37,7 @@
 		$renewal_time = $renewal_time->format('Y-m-d');
 	?>
 
-	<form name="form" action="" method="post">
+	<form id="edit-form" name="form" action="" method="post">
 		<div class="container">
 			<div class="row">
 				<!-- Left Column -->
@@ -151,9 +151,6 @@
 		    );
 		    try {
 		        modSubscription($array);
-		        echo '<script language="javascript">';
-		        echo 'alert("successfully updated")';
-		        echo '</script>';
 		    } catch (Exception $e) {
 		        echo '<script language="javascript">';
 		        echo 'alert("' . $e->getMessage() . '")';

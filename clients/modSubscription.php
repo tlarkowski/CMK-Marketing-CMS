@@ -39,7 +39,7 @@ function addSubscription($subscription)
         ]);
         return $data_conn->id();
     }
-    throw new Exception("Subscription Exist");
+    throw new Exception("Subscription Exists");
 }
 
 
