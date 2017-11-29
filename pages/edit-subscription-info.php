@@ -23,7 +23,6 @@
 		include '../include/navbar.php';
 		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
 		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
-		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
 
 		$subscription = $_GET['subscription']; // get from param
 		$subscription = search_subscription($subscription)[0];
@@ -82,7 +81,7 @@
 								</div>
 								<div class="row">
 									<div class="col-3">Go Live Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="go-live-date" name="cost" value="<?php echo $go_live_time;?>"></div>
+									<div class="col-9"><input type="date" class="form-control" id="go-live-date" name="go-live-date" value="<?php echo $go_live_time;?>"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Start Date</div>
@@ -132,41 +131,34 @@
 		</div>
 	</form>
 
-<?php
-$company = search_company($_GET['client'])[0];
-if (isset($_POST['website-name'])) {
-
-    $array = array(
-        "Site_Name" => $_POST['website-name'],
-        "Status" => "1",
-        "Domain" => $_POST['domain-name'],
-        "Company_ID" => $company['Company_ID'],
-        "GoLive_Date" => $_POST['go-live-date'],
-        "Project_Start" => $_POST['start-date'],
-        "Hours_Tracked" => $_POST['tracked-hours'],
-        "Hours_Planned" => $_POST['planned-hours'],
-        "Type" => $_POST['web-type'],
-        "Pay" => $_POST['cost'],
-        "Host_Location" => $_POST['hosted-loc'],
-        "Annual_Renewal" => $_POST['payment-due-date'],
-        "Notes" => $_POST['content-notes']
-    );
-    try {
-        modSubscription($array);
-    } catch (Exception $e) {
-        echo '<script language="javascript">';
-        echo 'alert("' . $e->getMessage() . '")';
-        echo '</script>';
-    }
-}
-echo '<script language="javascript">';
-echo 'alert("' . 'not a valid string' . '")';
-echo '</script>';
-
-
-
-?>
-
+	<?php
+		if (isset($_POST['website-name'])) {
+		    $array = array(
+		    	"Website_ID" => $_GET['subscription'],
+		        "Site_Name" => $_POST['website-name'],
+		        "Domain" => $_POST['domain-name'],
+		        "GoLive_Date" => $_POST['go-live-date'],
+		        "Project_Start" => $_POST['start-date'],
+		        "Hours_Tracked" => $_POST['tracked-hours'],
+		        "Hours_Planned" => $_POST['planned-hours'],
+		        "Type" => $_POST['web-type'],
+		        "Pay" => $_POST['cost'],
+		        "Host_Location" => $_POST['hosted-loc'],
+		        "Annual_Renewal" => $_POST['payment-due-date'],
+		        "Notes" => $_POST['content-notes']
+		    );
+		    try {
+		        modSubscription($array);
+		        echo '<script language="javascript">';
+		        echo 'alert("successfully updated")';
+		        echo '</script>';
+		    } catch (Exception $e) {
+		        echo '<script language="javascript">';
+		        echo 'alert("' . $e->getMessage() . '")';
+		        echo '</script>';
+		    }
+		}
+	?>
 </body>
 
 </html>

@@ -50,10 +50,9 @@ function addSubscription($subscription)
 function modSubscription($subscription)
 {
     $data_conn = connection();
+    echo $subscription['Website_ID'];
     $data_conn->update("Client_Website", [
-        "Company_ID" => $subscription['Company_ID'],
         "Site_Name" => $subscription['Site_Name'],
-        "Status" => "1",
         "Domain" => $subscription['Domain'],
         "GoLive_Date" => $subscription['GoLive_Date'],
         "Project_Start" => $subscription['Project_Start'],
