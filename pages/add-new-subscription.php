@@ -46,7 +46,7 @@
 
 						<div class="card-body">
 							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="subscription-description" rows="3"></textarea>
+							<textarea class="form-control" id="subscription-description" name="subscription-description" rows="3"></textarea>
 						</div>
 					</div>
 
@@ -64,35 +64,35 @@
 							<div id="subscription-info" class="editing" class="container">
 								<div class="row">
 									<div class="col-3">Domain Name</div>
-									<div class="col-9"><input type="text" class="form-control" id="domain-name" placeholder="Enter Domain Name" required></div>
+									<div class="col-9"><input type="text" class="form-control" id="domain-name" name='domain-name' placeholder="Enter Domain Name" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hosted Location</div>
-									<div class="col-9"><input type="text" class="form-control" id="hosted-loc" placeholder="Enter Hosted Location" required></div>
+									<div class="col-9"><input type="text" class="form-control" id="hosted-loc" name="hosted-loc" placeholder="Enter Hosted Location" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Cost</div>
-									<div class="col-9"><input type="number" class="form-control" id="cost" required></div>
+									<div class="col-9"><input type="number" class="form-control" id="cost" name="cost" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Go Live Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="go-live-date" required></div>
+									<div class="col-9"><input type="date" class="form-control" id="go-live-date" name="go-live-date" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Start Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="start-date" required></div>
+									<div class="col-9"><input type="date" class="form-control" id="start-date" name="start-date" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Website Type</div>
-									<div class="col-9"><input type="text" class="form-control" id="web-type" placeholder="Enter Website Type" required></div>
+									<div class="col-9"><input type="text" class="form-control" id="web-type" name="web-type" placeholder="Enter Website Type" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hours Planned</div>
-									<div class="col-9"><input type="number" class="form-control" id="planned-hours" required></div>
+									<div class="col-9"><input type="number" class="form-control" id="planned-hours" name="planned-hours" required></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Hours Tracked</div>
-									<div class="col-9"><input type="number" class="form-control" id="tracked-hours" required></div>
+									<div class="col-9"><input type="number" class="form-control" id="tracked-hours" name="tracked-hours" required></div>
 								</div>
 							</div>
 						</div>
@@ -106,7 +106,7 @@
 							<div id="renewal-status" class="container editing">
 								<div class="row">
 									<div class="col-3">Renewal Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="payment-due-date" required></div>
+									<div class="col-9"><input type="date" class="form-control" id="payment-due-date" name="payment-due-date" required></div>
 								</div>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 						<h4 class="sidebar-header">Notes on Subscription</h4>
 
 						<div class="sidebar-content">
-							<textarea class="form-control" id="content-notes" rows="3"></textarea>
+							<textarea class="form-control" id="content-notes" name="content-notes" rows="3"></textarea>
 						</div>
 					</div>
 
