@@ -21,7 +21,7 @@ function addProject($project)
     $temp = search_duplicate_project($project['Company_ID'], $project['ProjectName']);
 
     if (count($temp) == 0) {
-        $data_conn->insert("Client_Website", [
+        $data_conn->insert("Client_Project", [
             "Company_ID" => $project['Company_ID'],
             "ProjectName" => $project['ProjectName'],
             "Description" => $project['Description'],
