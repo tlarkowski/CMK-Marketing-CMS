@@ -11,9 +11,9 @@
 
 <!-- Header Info -->
 <head>
-	<meta charset="UTF-8">
-	<title>Edit Project Information</title>
-    <?php include '../include/header-files.php';?>
+    <meta charset="UTF-8">
+    <title>Edit Project Information</title>
+    <?php include '../include/header-files.php'; ?>
 </head>
 
 
@@ -109,6 +109,37 @@ $finish_time = $finish_time->format('Y-m-d');
         </div>
     </div>
 </form>
+<?php
+
+
+require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modProject.php";
+
+$project = search_project($_GET['project'])[0];
+if (isset($_POST['project-name'])) {
+    $array = array(
+        "Project_ID" => $project['Project_ID'],
+        "Company_ID" => $project['Company_ID'],
+        "ProjectName" => $_POST['project-name'],
+        "Description" => $_POST['project-description'],
+        "Basecamp_URL" => $_POST['tracking-loc'],
+        "Start_Date" => $_POST['start-date'],
+        "End_Date" => $_POST['finish-date'],
+        "Notes" => $_POST['content-notes']
+    );
+    try {
+        modProject($array);
+        echo "<script>
+                window.location.href='/pages/project-info.php?project=$_GET[project]';
+                </script>";
+
+    } catch (Exception $e) {
+        echo '<script language="javascript">';
+        echo 'alert("' . $e->getMessage() . '")';
+        echo '</script>';
+    }
+}
+?>
+
 </body>
 
 </html>

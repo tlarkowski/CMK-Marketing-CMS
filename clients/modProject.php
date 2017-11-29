@@ -44,7 +44,6 @@ function addProject($project)
 function modProject($project)
 {
     $data_conn = connection();
-    
     $data_conn->update("Client_Project", [
         "Company_ID" => $project["Company_ID"],
         "ProjectName" => $project['ProjectName'],
@@ -55,7 +54,7 @@ function modProject($project)
         "Notes" => $project['Notes'],
         "Status" => "1"
     ], [
-        "Project_ID" => $project['project_ID']
+        "Project_ID" => $project['Project_ID']
     ]);
 
     return $data_conn->id();
