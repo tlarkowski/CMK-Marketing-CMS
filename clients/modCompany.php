@@ -64,25 +64,25 @@ function modCompany($company)
  * @param $company
  * @return int|mixed|"ID of Archived record"
  */
-function archiveCompany($company)
+function archiveCompany($company_ID)
 {
-    // $data_conn = connection();
+    $data_conn = connection();
 
-    // $data_conn->update("Client_Company", [
-    //     "Status" => "0"
-    // ], [
-    //     "Company_ID" => $company['Company_ID']
-    // ]);
-    // $data_conn->update("Client_Website", [
-    //     "Status" => "0"
-    // ], [
-    //     "Company_ID" => $company['Company_ID']
-    // ]);
-    // $data_conn->update("Client_Project", [
-    //     "Status" => "0"
-    // ], [
-    //     "Company_ID" => $company['Company_ID']
-    // ]);
+    $data_conn->update("Client_Company", [
+        "Status" => "0"
+    ], [
+        "Company_ID" => $company_ID
+    ]);
+    $data_conn->update("Client_Website", [
+        "Status" => "0"
+    ], [
+        "Company_ID" => $company_ID
+    ]);
+    $data_conn->update("Client_Project", [
+        "Status" => "0"
+    ], [
+        "Company_ID" => $company_ID
+    ]);
 
-    // return $data_conn->id();
+    return $data_conn->id();
 }
