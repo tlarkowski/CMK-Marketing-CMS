@@ -32,7 +32,7 @@ function addSubscription($subscription)
             "Hours_Tracked" => $subscription['Hours_Tracked'],
             "Hours_Planned" => $subscription['Hours_Planned'],
             "Type" => $subscription['Type'],
-            "Pay" => $subscription['Pay'],
+            "Project_Cost_Billed" => $subscription['Pay'],
             "Host_Location" => $subscription['Host_Location'],
             "Annual_Renewal" => $subscription['Annual_Renewal'],
             "Notes" => $subscription['Notes']
@@ -71,7 +71,6 @@ function modSubscription($subscription)
     ]);
 
     return $data_conn->id();
-
 }
 
 /** archive subscription info

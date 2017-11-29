@@ -29,6 +29,17 @@ function search_project($project_ID)
     return $data;
 }
 
+function search_duplicate_project($project_company_ID, $project_name)
+{
+    $data_conn = connection();
+    $data = $data_conn->select("Client_Project", "*", [
+        "Company_ID" => $project_company_ID,
+        "ProjectName" => $project_name,
+        "Status" => "1"
+    ]);
+    return $data;
+}
+
 function find_project_client($project)
 {
     $data_conn = connection();

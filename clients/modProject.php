@@ -18,22 +18,22 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 function addProject($project)
 {
     $data_conn = connection();
-    $temp = search_company($company['Companyname']);
+    $temp = search_duplicate_project($project['Company_ID'], $project['ProjectName']);
 
     if (count($temp) == 0) {
-        $data_conn->insert("Client_Company", [
-            "Companyname" => $company['Companyname'],
+        $data_conn->insert("Client_Website", [
+            "Company_ID" => $project['Company_ID'],
+            "ProjectName" => $project['ProjectName'],
+            "Description" => $project['Description'],
             "Status" => "1",
-            "Contactname" => $company['Contactname'],
-            "Description" => $company['Description'],
-            "Phone" => $company['Phone'],
-            "Reg_Date" => date('Y-m-d H:i:s'),
-            "Email" => $company['Email'],
-            "Image_URL" => $company['Image_URL']
+            "Basecamp_URL" => $project['Basecamp_URL'],
+            "Start_Date" => $project['Start_Date'],
+            "End_Date" => $project['End_Date'],
+            "Notes" => $project['Notes']
         ]);
         return $data_conn->id();
     }
-    throw new Exception("Company Exist");
+    throw new Exception("Project Exists");
 }
 
 
@@ -44,16 +44,16 @@ function addProject($project)
 function modProject($project)
 {
     $data_conn = connection();
-    $data_conn->update("Client_Company", [
-        "Companyname" => $company['Companyname'],
-        "Status" => "1",
-        "Contactname" => $company['Contactname'],
-        "Description" => $company['Description'],
-        "Phone" => $company['Phone'],
-        "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL']
+
+    $data_conn->update("Client_Website", [
+        "ProjectName" => $subscription['ProjectName'],
+        "Description" => $subscription['Description'],
+        "Basecamp_URL" => $subscription['Basecamp_URL'],
+        "Start_Date" => $subscription['Start_Date'],
+        "End_Date" => $subscription['End_Date'],
+        "Notes" => $subscription['Notes']
     ], [
-        "Company_ID" => $company['Company_ID']
+        "Website_ID" => $subscription['Website_ID']
     ]);
 
     return $data_conn->id();

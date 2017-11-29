@@ -14,3 +14,19 @@ function archiveClient(company_ID) {
 		data: {"action": "archive", "ID": company_ID}
 	});
 }
+
+function archiveSubscription(subscription_ID) {
+	$.ajax({
+		type: "POST",
+		url: "/clients/modSubscription.php",
+		data: {"action": "archive", "ID": subscription_ID}
+	});
+}
+
+function archiveProject(project_ID) {
+	$.ajax({
+		type: "POST",
+		url: "/clients/modProject.php",
+		data: {"action": "archive", "ID": project_ID}
+	});
+}

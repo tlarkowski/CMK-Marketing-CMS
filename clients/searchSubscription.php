@@ -28,6 +28,7 @@ function search_subscription($subscription_ID)
     ]);
     return $data;
 }
+
 function search_subscriptionByName($subscription_name)
 {
     $data_conn = connection();

@@ -139,7 +139,6 @@
         if (isset($_POST['website-name'])) {
             $array = array(
                 "Site_Name" => $_POST['website-name'],
-                "Status" => "1",
                 "Domain" => $_POST['domain-name'],
                 "Company_ID" => $company['Company_ID'],
                 "GoLive_Date" => $_POST['go-live-date'],
