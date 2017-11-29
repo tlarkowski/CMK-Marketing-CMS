@@ -19,89 +19,96 @@
 
 <!-- Page Content -->
 <body>
-	<?php 
-		include '../include/navbar.php';
-		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
+<?php
+include '../include/navbar.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
 
-		$project = $_GET['project']; // get from param
-		$project = search_project($project)[0];
+$project = $_GET['project']; // get from param
+$project = search_project($project)[0];
 
-		$start_time = new DateTime($project['Start_Date']);
-		$start_time = $start_time->format('Y-m-d');
+$start_time = new DateTime($project['Start_Date']);
+$start_time = $start_time->format('Y-m-d');
 
-		$finish_time = new DateTime($project['End_Date']);
-		$finish_time = $finish_time->format('Y-m-d');
-	?>
+$finish_time = new DateTime($project['End_Date']);
+$finish_time = $finish_time->format('Y-m-d');
+?>
 
-	<form>
-		<div class="container">
-			<div class="row">
-				<!-- Left Column -->
-				<div id="left-column" class="col-md-5 my-4">
-					<div class="card mb-4">
-						<div class="card-body">
-							<input type="text" class="form-control" id="project-name" placeholder="Enter Project Name" value="<?php echo $project['ProjectName'];?>">
-						</div>
+<form name="form" action="" method="post">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column -->
+            <div id="left-column" class="col-md-5 my-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <input type="text" class="form-control" id="project-name" name="project-name"
+                               placeholder="Enter Project Name" value="<?php echo $project['ProjectName']; ?>">
+                    </div>
 
-						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
+                    <img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
-						<div class="card-body">
-							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="subscription-description" rows="3"><?php echo $project['Description'];?></textarea>
-						</div>
-					</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Description</h4>
+                        <textarea class="form-control" id="project-description" name="project-description"
+                                  rows="3"><?php echo $project['Description']; ?></textarea>
+                    </div>
+                </div>
 
-					<button type="submit" class="btn btn-primary btn-lg btn-block green-button">Save Project Info</button>
-				</div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block green-button">Save Project Info</button>
+            </div>
 
-				<!-- Right Column -->
-				<div id="right-column" class="col-md-7 my-4">
+            <!-- Right Column -->
+            <div id="right-column" class="col-md-7 my-4">
 
-					<!-- Project Info -->
-					<div class="sidebar">
-						<h4 class="sidebar-header">Project Info</h4>
+                <!-- Project Info -->
+                <div class="sidebar">
+                    <h4 class="sidebar-header">Project Info</h4>
 
-						<div class="sidebar-content">
-							<div id="project-info" class="editing" class="container">
-								<div class="row">
-									<div class="col-3">Tracking Location</div>
-									<div class="col-9"><input type="text" class="form-control" id="tracking-loc" placeholder="Enter Tracking URL" value="<?php echo $project['Basecamp_URL'];?>"></div>
-								</div>
-								<div class="row">
-									<div class="col-3">Start Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="start-date" value="<?php echo $start_time;?>"></div>
-								</div>
-							</div>
-						</div>
-					</div>
+                    <div class="sidebar-content">
+                        <div id="project-info" class="editing" class="container">
+                            <div class="row">
+                                <div class="col-3">Tracking Location</div>
+                                <div class="col-9"><input type="text" class="form-control" id="tracking-loc"
+                                                          name="tracking-loc" placeholder="Enter Tracking URL"
+                                                          value="<?php echo $project['Basecamp_URL']; ?>"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">Start Date</div>
+                                <div class="col-9"><input type="date" class="form-control" id="start-date"
+                                                          name="start-date" value="<?php echo $start_time; ?>"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-					<!-- Renewal Status -->
-					<div class="sidebar">
-						<h4 class="sidebar-header">Due Date Status</h4>
+                <!-- Renewal Status -->
+                <div class="sidebar">
+                    <h4 class="sidebar-header">Due Date Status</h4>
 
-						<div class="sidebar-content">
-							<div id="renewal-status" class="container editing">
-								<div class="row">
-									<div class="col-3">Finish Date</div>
-									<div class="col-9"><input type="date" class="form-control" id="finish-date" value="<?php echo $finish_time;?>"></div>
-								</div>
-							</div>
-						</div>
-					</div>
+                    <div class="sidebar-content">
+                        <div id="renewal-status" class="container editing">
+                            <div class="row">
+                                <div class="col-3">Finish Date</div>
+                                <div class="col-9"><input type="date" class="form-control" id="finish-date"
+                                                          name="finish-date" value="<?php echo $finish_time; ?>"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-					<!-- Notes on Subscription -->
-					<div class="sidebar">
-						<h4 class="sidebar-header">Notes on Subscription</h4>
+                <!-- Notes on Subscription -->
+                <div class="sidebar">
+                    <h4 class="sidebar-header">Notes on Subscription</h4>
 
-						<div class="sidebar-content">
-							<textarea class="form-control" id="content-notes" rows="3"><?php echo $project['Notes'];?></textarea>
-						</div>
-					</div>
+                    <div class="sidebar-content">
+                        <textarea class="form-control" id="content-notes" name="content-notes"
+                                  rows="3"><?php echo $project['Notes']; ?></textarea>
+                    </div>
+                </div>
 
-				</div>
-			</div>
-		</div>
-	</form>
+            </div>
+        </div>
+    </div>
+</form>
 </body>
 
 </html>

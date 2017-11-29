@@ -4,7 +4,7 @@
  * User: chin39
  * Date: 2017/11/11
  * Time: 15:59
- * @param $company
+ * @param $project
  */
 date_default_timezone_set("EST");
 include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
@@ -44,16 +44,18 @@ function addProject($project)
 function modProject($project)
 {
     $data_conn = connection();
-
-    $data_conn->update("Client_Website", [
-        "ProjectName" => $subscription['ProjectName'],
-        "Description" => $subscription['Description'],
-        "Basecamp_URL" => $subscription['Basecamp_URL'],
-        "Start_Date" => $subscription['Start_Date'],
-        "End_Date" => $subscription['End_Date'],
-        "Notes" => $subscription['Notes']
+    
+    $data_conn->update("Client_Project", [
+        "Company_ID" => $project["Company_ID"],
+        "ProjectName" => $project['ProjectName'],
+        "Basecamp_URL" => $project['Basecamp_URL'],
+        "Start_Date" => $project['Start_Date'],
+        "End_Date" => $project['End_Date'],
+        "Description" => $project['Description'],
+        "Notes" => $project['Notes'],
+        "Status" => "1"
     ], [
-        "Website_ID" => $subscription['Website_ID']
+        "Project_ID" => $project['project_ID']
     ]);
 
     return $data_conn->id();
@@ -69,7 +71,7 @@ function archiveProject($project)
     // $data_conn->update("Client_Project", [
     //     "Status" => "1"
     // ], [
-    //     "Project_ID" => $company['Project_ID']
+    //     "Project_ID" => $project['Project_ID']
     // ]);
 
     // return $data_conn->id();
