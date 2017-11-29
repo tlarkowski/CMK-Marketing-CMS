@@ -153,6 +153,7 @@
             );
             try {
                 addSubscription($array);
+                echo "<script>window.location.href='/pages/client-info.php?client=$_GET[client]';</script>";
             } catch (Exception $e) {
                 echo '<script language="javascript">';
                 echo 'alert("' . $e->getMessage() . '")';

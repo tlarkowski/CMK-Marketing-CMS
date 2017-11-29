@@ -89,6 +89,7 @@ if (isset($_POST['company-name'])) {
     );
     try {
         addCompany($array);
+        echo "<script>window.location.href='/';</script>";
     } catch (Exception $e) {
         echo '<script language="javascript">';
         echo 'alert("' . $e->getMessage() . '")';

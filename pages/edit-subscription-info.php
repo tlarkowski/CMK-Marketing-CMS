@@ -171,12 +171,8 @@ if (isset($_POST['website-name'])) {
         "Notes" => $_POST['content-notes']
     );
     try {
-        echo "enter here";
         modSubscription($array);
-        header('Location: /pages/subscription-info.php?subscription=' . $_GET['subscription']);
-        echo "<script>
-                window.location.href='/pages/subscription-info.php?subscription=$_GET[subscription]';
-                </script>";
+        echo "<script>window.location.href='/pages/subscription-info.php?subscription=$_GET[subscription]';</script>";
     } catch (Exception $e) {
         echo '<script language="javascript">';
         echo 'alert("successfully updated")';
