@@ -31,7 +31,7 @@
 <!-- Page Content -->
 <body>
 	<?php 
-		include '../include/navbar.html';
+		include '../include/navbar.php';
 		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
 
 		$subscription = $_GET['subscription']; // get from param

@@ -35,7 +35,7 @@
 
 <!-- Page Content -->
 <body>
-	<?php include_once $_SERVER["DOCUMENT_ROOT"]. '/include/navbar.html';?>
+	<?php include_once $_SERVER["DOCUMENT_ROOT"] . '/include/navbar.php';?>
     <div class="container my-4">
 		<div class="row">
 			<div class="col">

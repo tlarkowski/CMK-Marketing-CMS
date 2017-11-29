@@ -31,7 +31,7 @@
 <!-- Page Content -->
 <body>
 	<?php 
-		include '../include/navbar.html';
+		include '../include/navbar.php';
 		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
 
         $company = $_GET['client']; // get from param

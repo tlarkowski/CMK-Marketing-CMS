@@ -38,7 +38,7 @@
 
 <!-- Page Content -->
 <body>
-    <?php include '../include/navbar.html';
+    <?php include '../include/navbar.php';
         require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
         require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
 
