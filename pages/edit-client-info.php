@@ -30,7 +30,7 @@
 
 <!-- Page Content -->
 <body>
-	<?php 
+	<?php
 		include '../include/navbar.php';
 		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
 
@@ -45,7 +45,7 @@
 				<div id="left-column" class="col-md-5 my-4">
 					<div class="card mb-4">
 						<div class="card-body">
-							<input type="text" class="form-control" id="company-name" placeholder="Enter Name" value="<?php echo $company['Companyname'];?>">
+							<input type="text" class="form-control" id="company-name" name="company-name" placeholder="Enter Name" value="<?php echo $company['Companyname'];?>">
 						</div>
 
 						<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
@@ -69,15 +69,15 @@
 							<ul id="client-info" class="list-group">
 								<li class="client-name list-group-item">
 									<img src="../img/icons/person.png" alt="Person Icon" width="24" height="24">
-									<input type="text" class="form-control" id="contact-name" placeholder="Enter Name" value="<?php echo $company['Contactname'];?>">
+									<input type="text" class="form-control" id="contact-name" placeholder="Enter Name" name=contact-name value="<?php echo $company['Contactname'];?>">
 								</li>
 								<li class="client-phone list-group-item">
 									<img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
-									<input type="phone" class="form-control" id="contact-number" placeholder="Enter Phone Number (digits only)" value="<?php echo $company['Phone'];?>">
+									<input type="phone" class="form-control" id="contact-number" placeholder="Enter Phone Number (digits only)" name="contact-number" value="<?php echo $company['Phone'];?>">
 								</li>
 								<li class="client-email list-group-item">
 									<img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
-									<input type="email" class="form-control" id="contact-email" placeholder="Enter Email" value="<?php echo $company['Email'];?>">
+									<input type="email" class="form-control" id="contact-email" placeholder="Enter Email" name="contact-email" value="<?php echo $company['Email'];?>">
 								</li>
 							</ul>
 						</div>
@@ -86,6 +86,30 @@
 			</div>
 		</div>
 	</form>
+	<?php
+	require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
+
+	if (isset($_POST['company-name'])) {
+	    $array = array(
+	        "Companyname" => $_POST['company-name'],
+	        "Status" => "1",
+	        "Contactname" => $_POST['contact-name'],
+	        "Description" => $_POST['company-description'],
+	        "Email" => $_POST['contact-email'],
+	        "Image_URL" => "Companyname.jpg",
+	        "Phone" => $_POST['contact-number'],
+	    );
+	    try {
+	        modCompany($array);
+	    } catch (Exception $e) {
+	        echo '<script language="javascript">';
+	        echo 'alert("' . $e->getMessage() . '")';
+	        echo '</script>';
+	    }
+	}
+
+	?>
+
 </body>
 
 </html>
