@@ -51,7 +51,7 @@
 
 						<div class="card-body">
 							<h4 class="card-title">Description</h4>
-							<textarea class="form-control" id="subscription-description" name="subscription-description" rows="3"><?php echo $subscription['Description'];?></textarea>
+							<textarea class="form-control" id="description" name="description" rows="3"><?php echo $subscription['Description'];?></textarea>
 						</div>
 					</div>
 
@@ -136,8 +136,10 @@
 		    $array = array(
 		    	"Website_ID" => $_GET['subscription'],
 		        "Site_Name" => $_POST['website-name'],
+		        "Description" => $_POST['description'],
 		        "Domain" => $_POST['domain-name'],
 		        "GoLive_Date" => $_POST['go-live-date'],
+		        "Project_Cost_Billed" => $_POST['cost'],
 		        "Project_Start" => $_POST['start-date'],
 		        "Hours_Tracked" => $_POST['tracked-hours'],
 		        "Hours_Planned" => $_POST['planned-hours'],
