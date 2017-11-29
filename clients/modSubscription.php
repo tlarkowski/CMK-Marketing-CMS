@@ -78,12 +78,12 @@ function modSubscription($subscription)
  */
 function archiveSubscription($subscription)
 {
-    $data_conn = connection();
-    $data_conn->update("Client_Website", [
-        "Status" => "1"
-    ], [
-        "Website_ID" => $subscription['Website_ID']
-    ]);
+    // $data_conn = connection();
+    // $data_conn->update("Client_Website", [
+    //     "Status" => "1"
+    // ], [
+    //     "Website_ID" => $subscription['Website_ID']
+    // ]);
 
-    return $data_conn->id();
+    // return $data_conn->id();
 }

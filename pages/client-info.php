@@ -19,6 +19,9 @@
     <!-- Personal CSS -->
     <link rel="stylesheet" href="/css/main.css">
 
+    <!-- Personal JS -->
+    <script src="/js/general.js"></script>
+
     <!-- General CDN Additions -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -69,7 +72,7 @@
 
                 <a href="/pages/edit-client-info.php?client=<?php echo $_GET['client'];?>" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</a>
 
-                <button type="button" onclick="alert(<?php archiveCompany($company);?>);" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</button>
+                <a href="/" onclick="" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</a>
             </div>
 
             <!-- Right Column -->
