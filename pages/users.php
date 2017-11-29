@@ -35,7 +35,12 @@
 
 <!-- Page Content -->
 <body>
-	<?php include_once $_SERVER["DOCUMENT_ROOT"] . '/include/navbar.php';?>
+	<?php include '../include/navbar.php';
+        require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchUser.php";
+
+        $all_users = all_users();
+    ?>
+
     <div class="container my-4">
 		<div class="row">
 			<div class="col">
@@ -51,13 +56,15 @@
 					</div>
 
 					<div class="entry-wrapper">
-						<div class="user-entry category-entry">
-							<div class="row">
-								<div class="col col-4">Caitlin</div>
-								<div class="col col-4">Sindoni</div>
-								<div class="col col-4">caitlin@cmkmarketing.com</div>
+						<?php foreach ($all_users as $user):?>
+							<div class="user-entry category-entry">
+								<div class="row">
+									<div class="col col-4"><?php echo $user["FirstName"];?></div>
+									<div class="col col-4"><?php echo $user["LastName"];?></div>
+									<div class="col col-4"><?php echo $user["Email_Address"];?></div>
+								</div>
 							</div>
-						</div>
+                        <?php endforeach;?>
 					</div>
 
 				</div>
