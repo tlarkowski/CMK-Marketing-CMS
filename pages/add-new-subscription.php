@@ -144,16 +144,28 @@
 				"Annual_Renewal" => $_POST['payment-due-date'],
 				"Notes" => $_POST['content-notes']
 	    );
-	    try {
+        echo '<script language="javascript">';
+        echo 'alert("' . 'array created' . '")';
+        echo '</script>';
+
+        try {
 	        addSubscription($array);
-	    } catch (Exception $e) {
+            echo '<script language="javascript">';
+            echo 'alert("' . 'add successful' . '")';
+            echo '</script>';
+
+        } catch (Exception $e) {
 	        echo '<script language="javascript">';
 	        echo 'alert("' . $e->getMessage() . '")';
 	        echo '</script>';
 	    }
 	}
+    echo '<script language="javascript">';
+    echo 'alert("' . 'not a valid string' . '")';
+    echo '</script>';
 
-	?>
+
+    ?>
 
 
 </body>
