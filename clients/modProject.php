@@ -65,12 +65,12 @@ function modProject($project)
  */
 function archiveProject($project)
 {
-    $data_conn = connection();
-    $data_conn->update("Client_Project", [
-        "Status" => "1"
-    ], [
-        "Project_ID" => $company['Project_ID']
-    ]);
+    // $data_conn = connection();
+    // $data_conn->update("Client_Project", [
+    //     "Status" => "1"
+    // ], [
+    //     "Project_ID" => $company['Project_ID']
+    // ]);
 
-    return $data_conn->id();
+    // return $data_conn->id();
 }
