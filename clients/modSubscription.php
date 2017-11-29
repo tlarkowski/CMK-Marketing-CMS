@@ -11,7 +11,6 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
 
-
 /** add new subscription info
  * @param $subscription
  * @return int|mixed "Id of add record"|
@@ -20,7 +19,7 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 function addSubscription($subscription)
 {
     $data_conn = connection();
-    $temp = search_subscription($subscription['Website_ID']);
+    $temp = search_subscriptionByName($subscription['Site_Name']);
 
     if (count($temp) == 0) {
         $data_conn->insert("Client_Website", [

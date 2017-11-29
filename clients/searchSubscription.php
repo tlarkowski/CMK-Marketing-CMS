@@ -28,6 +28,16 @@ function search_subscription($subscription_ID)
     ]);
     return $data;
 }
+function search_subscriptionByName($subscription_name)
+{
+    $data_conn = connection();
+    $data = $data_conn->select("Client_Website", "*", [
+        "Site_Name" => $subscription_name,
+        "Status" => "1"
+    ]);
+    return $data;
+}
+
 
 function find_subscription_client($subscription)
 {

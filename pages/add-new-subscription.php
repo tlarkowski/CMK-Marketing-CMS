@@ -39,6 +39,8 @@
 <body>
 <?php include '../include/navbar.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+
 ?>
 
 
@@ -152,12 +154,15 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
 </form>
 
 <?php
-echo $_POST['website-name'];
+
+$company = search_company($_GET['client'])[0];
 if (isset($_POST['website-name'])) {
+
     $array = array(
         "Site_Name" => $_POST['website-name'],
         "Status" => "1",
         "Domain" => $_POST['domain-name'],
+        "Company_ID" => $company['Company_ID'],
         "GoLive_Date" => $_POST['go-live-date'],
         "Project_Start" => $_POST['start-date'],
         "Hours_Tracked" => $_POST['tracked-hours'],
@@ -168,16 +173,8 @@ if (isset($_POST['website-name'])) {
         "Annual_Renewal" => $_POST['payment-due-date'],
         "Notes" => $_POST['content-notes']
     );
-    echo '<script language="javascript">';
-    echo 'alert("' . 'array created' . '")';
-    echo '</script>';
-
     try {
         addSubscription($array);
-        echo '<script language="javascript">';
-        echo 'alert("' . 'add successful' . '")';
-        echo '</script>';
-
     } catch (Exception $e) {
         echo '<script language="javascript">';
         echo 'alert("' . $e->getMessage() . '")';
