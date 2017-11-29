@@ -129,7 +129,7 @@
 	<?php
 	require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
 
-	if (isset($_POST['Website_ID'])) {
+	if (isset($_POST['website-name'])) {
 	    $array = array(
 				"Site_Name" => $_POST['website-name'],
 				"Status" => "1",
