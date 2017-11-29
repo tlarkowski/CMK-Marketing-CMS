@@ -4,7 +4,7 @@
  * User: chin39
  * Date: 2017/11/11
  * Time: 15:59
- * @param $company
+ * @param $project
  */
 date_default_timezone_set("EST");
 include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
@@ -18,22 +18,22 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 function addProject($project)
 {
     $data_conn = connection();
-    $temp = search_company($company['Companyname']);
+    $temp = search_project($project['projectname']);
 
     if (count($temp) == 0) {
-        $data_conn->insert("Client_Company", [
-            "Companyname" => $company['Companyname'],
-            "Status" => "1",
-            "Contactname" => $company['Contactname'],
-            "Description" => $company['Description'],
-            "Phone" => $company['Phone'],
-            "Reg_Date" => date('Y-m-d H:i:s'),
-            "Email" => $company['Email'],
-            "Image_URL" => $company['Image_URL']
+        $data_conn->insert("Client_Project", [
+          "Company_ID" => $project["Company_ID"],
+          "ProjectName" => $project['ProjectName'],
+          "Basecamp_URL" => $project['Basecamp_URL'],
+          "Start_Date" => $project['Start_Date'],
+          "End_Date" => $project['End_Date'],
+          "Description" => $project['Description'],
+          "Notes" => $project['Notes'],
+          "Status" => "1"
         ]);
         return $data_conn->id();
     }
-    throw new Exception("Company Exist");
+    throw new Exception("project Exist");
 }
 
 
@@ -44,16 +44,17 @@ function addProject($project)
 function modProject($project)
 {
     $data_conn = connection();
-    $data_conn->update("Client_Company", [
-        "Companyname" => $company['Companyname'],
-        "Status" => "1",
-        "Contactname" => $company['Contactname'],
-        "Description" => $company['Description'],
-        "Phone" => $company['Phone'],
-        "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL']
+    $data_conn->update("Client_Project", [
+        "Company_ID" => $project["Company_ID"],
+        "ProjectName" => $project['ProjectName'],
+        "Basecamp_URL" => $project['Basecamp_URL'],
+        "Start_Date" => $project['Start_Date'],
+        "End_Date" => $project['End_Date'],
+        "Description" => $project['Description'],
+        "Notes" => $project['Notes'],
+        "Status" => "1"
     ], [
-        "Company_ID" => $company['Company_ID']
+        "project_ID" => $project['project_ID']
     ]);
 
     return $data_conn->id();
@@ -69,7 +70,7 @@ function archiveProject($project)
     // $data_conn->update("Client_Project", [
     //     "Status" => "1"
     // ], [
-    //     "Project_ID" => $company['Project_ID']
+    //     "Project_ID" => $project['Project_ID']
     // ]);
 
     // return $data_conn->id();
