@@ -125,6 +125,37 @@
 			</div>
 		</div>
 	</form>
+
+	<?php
+	require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
+
+	if (isset($_POST['Website_ID'])) {
+	    $array = array(
+				"Site_Name" => $_POST['website-name'],
+				"Status" => "1",
+				"Domain" => $_POST['domain-name'],
+				"GoLive_Date" => $_POST['go-live-date'],
+				"Project_Start" => $_POST['start-date'],
+				"Hours_Tracked" => $_POST['tracked-hours'],
+				"Hours_Planned" => $_POST['planned-hours'],
+				"Type" => $_POST['web-type'],
+				"Pay" => $_POST['cost'],
+				"Host_Location" => $_POST['hosted-loc'],
+				"Annual_Renewal" => $_POST['payment-due-date'],
+				"Notes" => $_POST['content-notes']
+	    );
+	    try {
+	        addSubscription($array);
+	    } catch (Exception $e) {
+	        echo '<script language="javascript">';
+	        echo 'alert("' . $e->getMessage() . '")';
+	        echo '</script>';
+	    }
+	}
+
+	?>
+
+
 </body>
 
 </html>
