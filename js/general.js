@@ -11,9 +11,6 @@ function archiveClient(company_ID) {
 	$.ajax({
 		type: "POST",
 		url: "/clients/modCompany.php",
-		data: {action: "archive", ID: company_ID},
-		success: function(html) {
-			alert(html);
-		}
+		data: {"action": "archive", "ID": company_ID}
 	});
 }

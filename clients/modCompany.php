@@ -64,9 +64,10 @@ function modCompany($company)
  * @param $company
  * @return int|mixed|"ID of Archived record"
  */
-function archiveCompany($company_ID)
+if(isset($_POST["action"]) && $_POST["action"] == "archive_client") 
 {
     $data_conn = connection();
+    $company_ID = $_POST["ID"];
 
     $data_conn->update("Client_Company", [
         "Status" => "0"

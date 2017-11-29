@@ -67,7 +67,7 @@ function search_company_project($company)
 
 function company_project_count($company)
 {
-    $data = search_company_subscription($company);
+    $data = search_company_project($company);
     return count($data);
 }
 

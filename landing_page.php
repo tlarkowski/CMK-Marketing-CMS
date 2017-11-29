@@ -14,10 +14,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Client Management Homepage</title>
-
-    <!-- Personal CSS -->
-    <link rel="stylesheet" href="/css/landing_page.css">
-
     <?php include './include/header-files.php';?>
 </head>
 
