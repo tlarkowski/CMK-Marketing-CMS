@@ -47,7 +47,7 @@
 		$renewal_time = $renewal_time->format('Y-m-d');
 	?>
 
-	<form>
+	<form name="form" action="" method="post">
 		<div class="container">
 			<div class="row">
 				<!-- Left Column -->
@@ -140,6 +140,12 @@
 			</div>
 		</div>
 	</form>
+
+<?php
+
+
+?>
+
 </body>
 
 </html>

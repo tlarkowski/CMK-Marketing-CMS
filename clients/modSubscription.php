@@ -22,14 +22,14 @@ function addSubscription($subscription)
 
     if (count($temp) == 0) {
         $data_conn->insert("Client_Company", [
-            "Companyname" => $company['Companyname'],
+            "Companyname" => $subscription['Companyname'],
             "Status" => "1",
-            "Contactname" => $company['Contactname'],
-            "Description" => $company['Description'],
-            "Phone" => $company['Phone'],
+            "Contactname" => $subscription['Contactname'],
+            "Description" => $subscription['Description'],
+            "Phone" => $subscription['Phone'],
             "Reg_Date" => date('Y-m-d H:i:s'),
-            "Email" => $company['Email'],
-            "Image_URL" => $company['Image_URL']
+            "Email" => $subscription['Email'],
+            "Image_URL" => $subscription['Image_URL']
         ]);
         return $data_conn->id();
     }
