@@ -10,6 +10,8 @@ date_default_timezone_set("EST");
 include_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
 include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 
+
+
 /** add new subscription info
  * @param $subscription
  * @return int|mixed "Id of add record"|
@@ -18,22 +20,27 @@ include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
 function addSubscription($subscription)
 {
     $data_conn = connection();
-    $temp = search_company($subscription['Companyname']);
+    $temp = search_subscription($subscription['Website_ID']);
 
     if (count($temp) == 0) {
-        $data_conn->insert("Client_Company", [
-            "Companyname" => $subscription['Companyname'],
+        $data_conn->insert("Client_Website", [
+            "Company_ID" => $subscription['Company_ID'],
+            "Site_Name" => $subscription['Site_Name'],
             "Status" => "1",
-            "Contactname" => $subscription['Contactname'],
-            "Description" => $subscription['Description'],
-            "Phone" => $subscription['Phone'],
-            "Reg_Date" => date('Y-m-d H:i:s'),
-            "Email" => $subscription['Email'],
-            "Image_URL" => $subscription['Image_URL']
+            "Domain" => $subscription['Domain'],
+            "GoLive_Date" => $subscription['GoLive_Date'],
+            "Project_Start" => $subscription['Project_Start'],
+            "Hours_Tracked" => $subscription['Hours_Tracked'],
+            "Hours_Planned" => $subscription['Hours_Planned'],
+            "Type" => $subscription['Type'],
+            "Pay" => $subscription['Pay'],
+            "Host_Location" => $subscription['Host_Location'],
+            "Annual_Renewal" => $subscription['Annual_Renewal'],
+            "Notes" => $subscription['Notes']
         ]);
         return $data_conn->id();
     }
-    throw new Exception("Company Exist");
+    throw new Exception("Subscription Exist");
 }
 
 
@@ -44,16 +51,22 @@ function addSubscription($subscription)
 function modSubscription($subscription)
 {
     $data_conn = connection();
-    $data_conn->update("Client_Company", [
-        "Companyname" => $company['Companyname'],
+    $data_conn->update("Client_Website", [
+        "Company_ID" => $subscription['Company_ID'],
+        "Site_Name" => $subscription['Site_Name'],
         "Status" => "1",
-        "Contactname" => $company['Contactname'],
-        "Description" => $company['Description'],
-        "Phone" => $company['Phone'],
-        "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL']
+        "Domain" => $subscription['Domain'],
+        "GoLive_Date" => $subscription['GoLive_Date'],
+        "Project_Start" => $subscription['Project_Start'],
+        "Hours_Tracked" => $subscription['Hours_Tracked'],
+        "Hours_Planned" => $subscription['Hours_Planned'],
+        "Type" => $subscription['Type'],
+        "Pay" => $subscription['Pay'],
+        "Host_Location" => $subscription['Host_Location'],
+        "Annual_Renewal" => $subscription['Annual_Renewal'],
+        "Notes" => $subscription['Notes']
     ], [
-        "Company_ID" => $company['Company_ID']
+        "Website_ID" => $subscription['Website_ID']
     ]);
 
     return $data_conn->id();
