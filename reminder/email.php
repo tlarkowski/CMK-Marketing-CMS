@@ -18,21 +18,20 @@ use PHPMailer\PHPMailer\Exception;
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {
     //Server settings
-    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    $mail->SMTPDebug = 1;                                 // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'mail.cmkmarketing.com';  // Specify main and backup SMTP servers
+    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'cmapp';                 // SMTP username
+    $mail->Username = 'cmappcmkmarketing@gmail.com';                 // SMTP username
     $mail->Password = 'mitr2017';                           // SMTP password
-    $mail->SMTPSecure = false;
-    $mail->SMTPAutoTLS = false;
-    $mail->SMTPDebug = 2;
-//    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = 26;                                    // TCP port to connect to
+//    $mail->SMTPSecure = false;
+//    $mail->SMTPAutoTLS = false;
+    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 587;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('cmapp@cmkmarketing.com', 'Reminder System');
-    $mail->addAddress('chinqrw@gmail.com', 'Ruowen Qin');     // Add a recipient
+    $mail->setFrom('cmappcmkmarketing@gmail.com', 'Reminder System');
+    $mail->addAddress('tusa@cmkmarketing.com', 'Tusa');     // Add a recipient
 
     //Attachments
 //    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
