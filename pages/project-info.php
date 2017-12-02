@@ -51,7 +51,7 @@
 
 				<a href="/pages/edit-project-info.php?project=<?php echo $_GET['project'];?>" type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</a>
 
-				<button type="button" onclick="archiveClient(<?php echo $project['Project_ID'];?>);" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Project Information</button>
+				<button type="button" onclick="archiveProject(<?php echo $project['Project_ID'];?>);" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Project Information</button>
 			</div>
 
 			<!-- Right Column -->

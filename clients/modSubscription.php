@@ -74,17 +74,15 @@ function modSubscription($subscription)
 }
 
 /** archive subscription info
- * @param $subscription
- * @return int|mixed|"ID of Archived record"
  */
-function archiveSubscription($subscription)
+if(isset($_POST["action"]) && $_POST["action"] == "archive_subscription") 
 {
-    // $data_conn = connection();
-    // $data_conn->update("Client_Website", [
-    //     "Status" => "1"
-    // ], [
-    //     "Website_ID" => $subscription['Website_ID']
-    // ]);
+    $data_conn = connection();
+    $website_ID = $_POST["ID"];
 
-    // return $data_conn->id();
+    $data_conn->update("Client_Website", [
+        "Status" => "0"
+    ], [
+        "Website_ID" => $website_ID
+    ]);
 }

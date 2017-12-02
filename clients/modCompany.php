@@ -61,8 +61,6 @@ function modCompany($company)
 
 
 /** archive company info and propagate the archive across all of its projects and subscriptions
- * @param $company
- * @return int|mixed|"ID of Archived record"
  */
 if(isset($_POST["action"]) && $_POST["action"] == "archive_client") 
 {
@@ -84,6 +82,4 @@ if(isset($_POST["action"]) && $_POST["action"] == "archive_client")
     ], [
         "Company_ID" => $company_ID
     ]);
-
-    return $data_conn->id();
 }

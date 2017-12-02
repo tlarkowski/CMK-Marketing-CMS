@@ -61,17 +61,15 @@ function modProject($project)
 }
 
 /** archive project info
- * @param $project
- * @return int|mixed|"ID of Archived record"
  */
-function archiveProject($project)
+if(isset($_POST["action"]) && $_POST["action"] == "archive_project") 
 {
-    // $data_conn = connection();
-    // $data_conn->update("Client_Project", [
-    //     "Status" => "1"
-    // ], [
-    //     "Project_ID" => $project['Project_ID']
-    // ]);
+    $data_conn = connection();
+    $project_ID = $_POST["ID"];
 
-    // return $data_conn->id();
+    $data_conn->update("Client_Project", [
+        "Status" => "0"
+    ], [
+        "Project_ID" => $project_ID
+    ]);
 }
