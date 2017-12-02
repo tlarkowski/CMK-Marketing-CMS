@@ -79,13 +79,10 @@ if(isset($_POST["action"]) && $_POST["action"] == "archive_subscription")
 {
     $data_conn = connection();
     $website_ID = $_POST["ID"];
-    $company_name = $POST["Company"];
 
     $data_conn->update("Client_Website", [
         "Status" => "0"
     ], [
         "Website_ID" => $website_ID
     ]);
-
-    echo "<script>window.location.href = '/pages/client-info.php?client='" . $company_name . ";</script>";
 }

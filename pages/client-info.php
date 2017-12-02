@@ -51,7 +51,30 @@
 
                 <a href="/pages/edit-client-info.php?client=<?php echo $_GET['client'];?>" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</a>
 
-                <button type="button" onclick="archiveClient(<?php echo $company['Company_ID'];?>);" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</button>
+                <!-- Archiving Button + Modal Confirmation -->
+                <button type="button" data-toggle="modal" data-target="#exampleModal" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Archive Confirmation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                            Are you sure you want to archive this client? If you do, any related projects and subscriptions will be archived as well - and so not accessible via this application.
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary red-button" onclick="archiveClient(<?php echo $company['Company_ID'];?>);">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Right Column -->

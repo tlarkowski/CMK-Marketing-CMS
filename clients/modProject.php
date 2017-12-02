@@ -66,13 +66,10 @@ if(isset($_POST["action"]) && $_POST["action"] == "archive_project")
 {
     $data_conn = connection();
     $project_ID = $_POST["ID"];
-    $company_name = $POST["Company"];
 
     $data_conn->update("Client_Project", [
         "Status" => "0"
     ], [
         "Project_ID" => $project_ID
     ]);
-    
-    echo "<script>window.location.href = '/pages/client-info.php?client='" . $company_name . ";</script>";
 }
