@@ -55,13 +55,13 @@
                 </a>
     
                 <!-- Archiving Button + Modal Confirmation -->
-                <button type="button" data-toggle="modal" data-target="#exampleModal" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information</button>
+                <button type="button" data-toggle="modal" data-target="#archive-sub" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information</button>
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="archive-sub" tabindex="-1" role="dialog" aria-labelledby="archive-sub-label" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Archive Confirmation</h5>
+                                <h5 class="modal-title" id="archive-sub-label">Archive Confirmation</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -73,7 +73,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary red-button" onclick="archiveSubscription(<?php echo $subscription['Website_ID'];?>, '<?php echo $client_name;?>');">Confirm</button>
+                                <button type="button" class="btn btn-primary green-button" onclick="archiveSubscription(<?php echo $subscription['Website_ID'];?>, '<?php echo $client_name;?>');">Confirm</button>
                             </div>
                         </div>
                     </div>
