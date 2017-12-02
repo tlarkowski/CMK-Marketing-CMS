@@ -65,14 +65,33 @@ button:hover {
 	margin-bottom: 50px;
 }
 
-a.dropdown-toggle {
+button.dropdown-toggle {
 	padding: 0;
 	text-align: left;
 	color: inherit;
+	background-color: transparent;
+	border: 1px;
+	box-shadow: none;
 }
 
-a.dropdown-toggle:focus {
+button.dropdown-toggle:hover, .show>.btn-secondary.dropdown-toggle {
+	background-color: transparent;
+	color: inherit;
 	box-shadow: none;
+}
+
+button.dropdown-toggle:active, .btn-secondary:not([disabled]):not(.disabled).active, .btn-secondary:not([disabled]):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+	color: inherit;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+	box-shadow: none;
+}
+
+.dropdown-toggle::after {
+	margin-left: 1.6em;
 }
 
 .category-list .col {

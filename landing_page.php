@@ -54,18 +54,16 @@
                         <div class="col col-5">Planning URL</div>
                         <div class="col col-2">Client</div>
                         <div class="col col-2 dropdown-elem">
-                            <div class="dropdown show">
-                                <a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Due in: 2 Weeks
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">2 Weeks</a>
-                                    <a class="dropdown-item" href="#">1 Month</a>
-                                    <a class="dropdown-item" href="#">3 Months</a>
-                                    <a class="dropdown-item" href="#">6 Months</a>
-                                    <a class="dropdown-item" href="#">1 Year</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Due in: 2 Weeks
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>
+                                    <button class="dropdown-item" type="button" value="1 month">1 Month</button>
+                                    <button class="dropdown-item" type="button" value="3 month">3 Months</button>
+                                    <button class="dropdown-item" type="button" value="6 month">6 Months</button>
+                                    <button class="dropdown-item" type="button" value="all">All Projects</button>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +84,7 @@
                         echo '<div class="col col-5">' . $project['Basecamp_URL'] . '</div>';
 
                         $client = all_project_client_info($project)[0];
-                        $time = new DateTime($client['Reg_Date']);
+                        $time = new DateTime($project['End_Date']);
 
 
                         echo '<div class="col col-2">' . $client['Companyname'] . '</div>';
@@ -121,18 +119,16 @@
                         <div class="col col-3">Hosted Location</div>
                         <div class="col col-2">Client</div>
                         <div class="col col-2 dropdown-elem">
-                            <div class="dropdown show">
-                                <a class="btn btn-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Due in: 2 Weeks
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">2 Weeks</a>
-                                    <a class="dropdown-item" href="#">1 Month</a>
-                                    <a class="dropdown-item" href="#">3 Months</a>
-                                    <a class="dropdown-item" href="#">6 Months</a>
-                                    <a class="dropdown-item" href="#">1 Year</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Due in: 2 Weeks
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>
+                                    <button class="dropdown-item" type="button" value="1 month">1 Month</button>
+                                    <button class="dropdown-item" type="button" value="3 month">3 Months</button>
+                                    <button class="dropdown-item" type="button" value="6 month">6 Months</button>
+                                    <button class="dropdown-item" type="button" value="all">All Subscriptions</button>
                                 </div>
                             </div>
                         </div>
@@ -143,6 +139,7 @@
                     <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
                     $all_subscriptions = all_subscriptions();
+                    project_due(3);
 
                     foreach ($all_subscriptions as $subscription) {
                         echo '<a href="' . "/pages/subscription-info.php?subscription=" .

@@ -101,7 +101,13 @@
 									?>
 								</div>
 								<div class="col-6">
-									<button type="button" class="btn btn-primary btn-lg btn-block red-button due-date-button"><small class="due-date-btn"><strong>Upcoming Deadline</strong></small></button>
+									<? if ($condition): ?>
+										<button type="button" class="btn btn-primary btn-lg btn-block red-button due-date-button"><small class="due-date-btn"><strong>Upcoming Deadline</strong></small></button>
+
+									<? else: ?>
+										<p>Paid</p>
+
+									<? endif; ?>
 								</div>
 							</div>
 						</div>

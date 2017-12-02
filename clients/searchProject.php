@@ -14,8 +14,27 @@ function all_projects()
 {
     $data_conn = connection();
     $data = $data_conn->select("Client_Project", "*", [
-        "Status" => "1"
+        "Status" => "1",
+        "ORDER" => ["End_Date", "ProjectName"]
     ]);
+    return $data;
+}
+
+/*$timespan should be recorded in x units*/
+function project_due($timespan)
+{
+    $data_conn = connection();
+    $timespan = "1 month";
+
+    $two_weeks_ago = date("Y-m-d H:i:s", strtotime($timespan));
+    echo $two_weeks_ago;
+
+    $data = $data_conn->select("Client_Project", "*", [
+        "Status" => "1",
+        "ORDER" => ["End_Date", "ProjectName"],
+        "End_Date[>=]" => $two_weeks_ago
+    ]);
+
     return $data;
 }
 
@@ -58,21 +77,5 @@ function all_project_client_info($project)
         "Company_ID" => $project['Company_ID'],
         "Status" => "1"
     ]);
-    return $data;
-}
-
-function search_project_two_weeks_within()
-{
-    $data_conn = connection();
-
-    $two_weeks_ago = date("Y-m-d H:i:s", strtotime("-14 day"));
-//    $two_weeks_ago = date("Y-m-d H:i:s", strtotime("-1 month"));
-//    $two_weeks_ago = date("Y-m-d H:i:s", strtotime("-1 week"));
-//    echo $two_weeks_ago = date("Y-m-d H:i:s", strtotime("-2 day -1 week"));
-
-    $data = $data_conn->select("Client_Project", "*", [
-        "End_Date[>=]" => $two_weeks_ago
-    ]);
-
     return $data;
 }

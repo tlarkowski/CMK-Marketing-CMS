@@ -13,7 +13,8 @@ function all_subscriptions()
 {
     $data_conn = connection();
     $data = $data_conn->select("Client_Website", "*", [
-        "Status" => "1"
+        "Status" => "1",
+        "ORDER" => ["Annual_Renewal", "Domain", "Site_Name"]
     ]);
     return $data;
 }
@@ -24,7 +25,8 @@ function search_subscription($subscription_ID)
     $data_conn = connection();
     $data = $data_conn->select("Client_Website", "*", [
         "Website_ID" => $subscription_ID,
-        "Status" => "1"
+        "Status" => "1",
+        "ORDER" => ["Annual_Renewal", "Domain", "Site_Name"]
     ]);
     return $data;
 }
