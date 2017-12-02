@@ -41,15 +41,28 @@ function archiveProject(project_ID, company_name) {
 }
 
 // Setting Project Completion
-function setComplete(subscription_ID) {
-    $.ajax({
-        type: "POST",
-        url: "/clients/modProject.php",
-        data: {"action": "", "ID": subscription_ID},
-        success: function () {
-            document.location.reload();
-        }
-    });
+function setComplete(project_ID) {
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/clients/modProject.php",
+    //     data: {"action": "set-complete", "ID": project_ID},
+    //     success: function () {
+    //         document.location.reload();
+    //     }
+    // });
+    console.log("complete works");
+}
+
+function setIncomplete(project_ID) {
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/clients/modProject.php",
+    //     data: {"action": "set-incomplete", "ID": project_ID},
+    //     success: function () {
+    //         document.location.reload();
+    //     }
+    // });
+    console.log("incomplete works");
 }
 
 

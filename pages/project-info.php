@@ -160,7 +160,7 @@ $client_name = find_project_client($project)[0];
                                                     <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                     </button>
                                                     <button type="button" class="btn btn-primary green-button"
-                                                            onclick="">
+                                                            onclick="setComplete(<?php echo $project['Project_ID'];?>);">
                                                         Confirm
                                                     </button>
                                                 </div>
@@ -199,7 +199,7 @@ $client_name = find_project_client($project)[0];
                                                                 <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                                 </button>
                                                                 <button type="button" class="btn btn-primary green-button"
-                                                                        onclick="">
+                                                                        onclick="setIncomplete(<?php echo $project['Project_ID'];?>);">
                                                                     Confirm
                                                                 </button>
                                                             </div>
