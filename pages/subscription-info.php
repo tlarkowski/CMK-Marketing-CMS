@@ -162,14 +162,14 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="set-complete-label">Confirm Completion</h5>
+                                                        <h5 class="modal-title" id="set-complete-label">Confirm Invoice</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
 
                                                     <div class="modal-body">
-                                                        Are you sure you want to set this project to complete? By doing so, the due date will automatically be updated by 1 year and will have reminders sent out accordingly. Alternatively, if this is not a recurring project, it would be better to archive it once setting it to complete.
+                                                        Are you sure this company has been invoiced? The due date will automatically be updated by 1 year and will have reminders sent out accordingly.
                                                     </div>
 
                                                     <div class="modal-footer">
