@@ -67,3 +67,26 @@ function setIncomplete(project_ID) {
 
 
 // Setting Subscription to Paid
+function setInvoice(subscription_ID) {
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/clients/modSubscription.php",
+    //     data: {"action": "set-invoice", "ID": subscription_ID},
+    //     success: function () {
+    //         document.location.reload();
+    //     }
+    // });
+    console.log("invoicing works");
+}
+
+function resetInvoice(website_ID) {
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/clients/modSubscription.php",
+    //     data: {"action": "reset-invoice", "ID": website_ID},
+    //     success: function () {
+    //         document.location.reload();
+    //     }
+    // });
+    console.log("reset invoicing works");
+}
