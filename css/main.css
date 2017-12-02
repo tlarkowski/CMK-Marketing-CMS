@@ -146,6 +146,25 @@ button.dropdown-toggle:active, .btn-secondary:not([disabled]):not(.disabled).act
 	-webkit-appearance: unset !important;
 }
 
+.modal-header {
+	background-color: #00A5C7;
+	color: #ffffff;
+	border-bottom: 0;
+}
+
+.close {
+	color: #ffffff;
+	text-shadow: 0 1px 0 #000000;
+}
+
+.close:focus, .close:hover {
+	color: #ffffff;
+}
+
+.modal-footer {
+	border-top: 0;
+}
+
 .blue-button {
 	color: #ffffff !important;
 	background-color: #4CC0D7 !important;

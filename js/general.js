@@ -14,33 +14,27 @@ function archiveClient(company_ID) {
 		data: {"action": "archive_client", "ID": company_ID},
 		success: function() {
 			console.log("success");
-			/* inject */window.location.href = "/";
+			window.location.href = "/";
 		}
 	});
 }
 
-function archiveSubscription(subscription_ID) {
-	// redirect to /pages/client-info.php?client=<?php echo $client_name; ?>
+function archiveSubscription(subscription_ID, company_name) {
 	$.ajax({
 		type: "POST",
 		url: "/clients/modSubscription.php",
-		data: {"action": "archive_subscription", "ID": subscription_ID},
-		success: function() {
-			console.log("success");
-			/* inject */window.location.href = "/";
-		}
+		data: {"action": "archive_subscription", "ID": subscription_ID, "Company": company_name}
 	});
 }
 
-function archiveProject(project_ID) {
-	// redirect to /pages/client-info.php?client=<?php echo $client_name;?>
+function archiveProject(project_ID, company_name) {
 	$.ajax({
 		type: "POST",
 		url: "/clients/modProject.php",
-		data: {"action": "archive_project", "ID": project_ID},
-		success: function() {
-			console.log("success");
-			/* inject */window.location.href = "/";
+		data: {"action": "archive_project", "ID": project_ID, "Company": company_name},
+		success: function(company_name) {
+			console.log(company_name);
+			window.location.href = "/pages/client-info.php?client=/" + company_name;
 		}
 	});
 }
