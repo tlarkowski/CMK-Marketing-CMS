@@ -60,10 +60,19 @@ function modProject($project)
     return $data_conn->id();
 }
 
+function modCompleteStatusByID($project_ID)
+{
+    $data_conn = connection();
+    $data_conn->update("Client_Project", [
+        "Complete" => "1"
+    ], [
+        "Project_ID" => $project_ID
+    ]);
+}
+
 /** archive project info
  */
-if(isset($_POST["action"]) && $_POST["action"] == "archive_project") 
-{
+if (isset($_POST["action"]) && $_POST["action"] == "archive_project") {
     $data_conn = connection();
     $project_ID = $_POST["ID"];
 
@@ -72,4 +81,11 @@ if(isset($_POST["action"]) && $_POST["action"] == "archive_project")
     ], [
         "Project_ID" => $project_ID
     ]);
+}
+
+
+if (isset($_POST["action"]) && $_POST["action"] == "archive_project") {
+    $data_conn = connection();
+    $project_ID = $_POST["ID"];
+    modCompleteStatusByID($project_ID);
 }
