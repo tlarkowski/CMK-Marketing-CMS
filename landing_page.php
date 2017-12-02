@@ -24,27 +24,27 @@
 <?php include 'include/navbar.php'; ?>
 
 <?php if (!isset($_POST['search'])): ?>
-<div class="container my-4">
-    <div class="row" id="main-search">
-        <div class="col-md-3">
-            <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New
-                Client</a>
-        </div>
-        <form method="post" action="">
-            <div class="col-md-9">
-                <div class="input-group stylish-input-group">
+    <div class="container my-4">
+        <div class="row" id="main-search">
+            <div class="col-md-3">
+                <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New
+                    Client</a>
+            </div>
+            <form method="post" action="">
+                <div class="col-md-9">
+                    <div class="input-group stylish-input-group">
     					<span class="input-group-addon">
     						<button id="search" type="submit">
     							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
     						</button>
     					</span>
-                    <input id="SearchClients" name="search" type="text" class="form-control"
-                           placeholder="Search Clients">
+                        <input id="SearchClients" name="search" type="text" class="form-control"
+                               placeholder="Search Clients">
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
 <div class="container my-4">
     <div class="row">
@@ -52,6 +52,14 @@
 
             <!-- Project List -->
             <div class="category-list" id="project-category">
+
+                <?php
+                if (isset($_POST['project'])) {
+                    $time_period = $_POST['project'];
+                } else {
+                    $time_period = "All project";
+                }
+                ?>
 
                 <div class="category-header">
                     <div class="row">
@@ -62,15 +70,17 @@
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        value="2 Week">
-                                    Due in: <span id="project-span">2 Weeks</span>
+                                        value="<?php echo $time_period; ?>">
+                                    Due in: <span id="project-span"><?php echo $time_period; ?></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>
-                                    <button class="dropdown-item" type="button" value="1 month">1 Month</button>
-                                    <button class="dropdown-item" type="button" value="3 month">3 Months</button>
-                                    <button class="dropdown-item" type="button" value="6 month">6 Months</button>
-                                    <button class="dropdown-item" type="button" value="all">All Projects</button>
+                                    <form method="post" action="">
+                                        <input class="dropdown-item" name="project" type="submit" value="2 Weeks">
+                                        <input class="dropdown-item" name="project" type="submit" value="1 month">
+                                        <input class="dropdown-item" name="project" type="submit" value="3 month">
+                                        <input class="dropdown-item" name="project" type="submit" value="6 month">
+                                        <input class="dropdown-item" name="project" type="submit" value="All Projects">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -133,11 +143,14 @@
                                     Due in: <span id="subscription-span">2 Weeks</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>
-                                    <button class="dropdown-item" type="button" value="1 month">1 Month</button>
-                                    <button class="dropdown-item" type="button" value="3 month">3 Months</button>
-                                    <button class="dropdown-item" type="button" value="6 month">6 Months</button>
-                                    <button class="dropdown-item" type="button" value="all">All Subscriptions</button>
+                                    <form method="post" action="">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="2 week">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="1 month">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="3 month">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="6 month">
+                                        <input class="dropdown-item" name="subscription" type="submit"
+                                               value="All Projects">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -234,29 +247,23 @@
                     </a> -->
                 </div>
             </div>
-          <?php endif; ?>
+            <?php endif; ?>
 
         </div>
     </div>
 </div>
 
 <?php
-
 if (isset($_POST['search'])) {
-
     $company_info = $_POST['search'];
     $result = search_company_Like($company_info);
     $lengthofarray = sizeof($result);
-    if ($lengthofarray == 0){
-      echo 'Client not found';
-    }
-    else{
-
-
-
-    echo '<div class="container my-4">';
-    echo '<div class="category-list" id="client-category">';
-    echo '<div class="category-header">
+    if ($lengthofarray == 0) {
+        echo 'Client not found';
+    } else {
+        echo '<div class="container my-4">';
+        echo '<div class="category-list" id="client-category">';
+        echo '<div class="category-header">
         <div class="row">
             <div class="col col-3">Client</div>
             <div class="col col-2">Main Contact</div>
@@ -265,41 +272,34 @@ if (isset($_POST['search'])) {
             <div class="col col-2">Projects</div>
         </div>
     </div>';
-    echo '<div class="entry-wrapper">';
-    foreach($result as $item) {
-    // echo $item["Companyname"];
-    // echo $item["Contactname"];
-    // echo $item["Email"];
-    //
-    // // to know what's in $item
-    // echo '<pre>'; var_dump($item);
-
-
-    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
-
-        echo '<a href="' . "/pages/client-info.php?client=" .
-              $item["Companyname"]  . '"class="entry-link">';
-        echo '<div class="client-entry category-entry">';
-        echo '<div class="row">';
-        echo '<div class="col col-3">' .   $item["Companyname"]  . '</div>';
-        echo '<div class="col col-2">' .   $item["Companyname"]  . '</div>';
-        echo '<div class="col col-3">' .   $item["Email"] . '</div>';
-
-        $subscription_count = company_subscription_count($result);
-        $project_count = company_project_count($result);
-
-        echo '<div class="col col-2">' . $subscription_count . '</div>';
-        echo '<div class="col col-2">' . $project_count . '</div>';
-
+        echo '<div class="entry-wrapper">';
+        foreach ($result as $item) {
+            // echo $item["Companyname"];
+            // echo $item["Contactname"];
+            // echo $item["Email"];
+            //
+            // // to know what's in $item
+            // echo '<pre>'; var_dump($item);
+            require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+            echo '<a href="' . "/pages/client-info.php?client=" .
+                $item["Companyname"] . '"class="entry-link">';
+            echo '<div class="client-entry category-entry">';
+            echo '<div class="row">';
+            echo '<div class="col col-3">' . $item["Companyname"] . '</div>';
+            echo '<div class="col col-2">' . $item["Companyname"] . '</div>';
+            echo '<div class="col col-3">' . $item["Email"] . '</div>';
+            $subscription_count = company_subscription_count($result);
+            $project_count = company_project_count($result);
+            echo '<div class="col col-2">' . $subscription_count . '</div>';
+            echo '<div class="col col-2">' . $project_count . '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</a>';
+        }
         echo '</div>';
         echo '</div>';
-        echo '</a>';
-
-}
-echo '</div>';
-echo '</div>';
-echo '</div>';
-}
+        echo '</div>';
+    }
     // print_r($result);
 }
 ?>
