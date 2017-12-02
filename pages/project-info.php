@@ -119,17 +119,18 @@
 								<div class="col-3">
 									<?php
 				                        $end_time = new DateTime($project['End_Date']);
+				                        $today = new DateTime(date("Y-m-d H:i:s"));
+				                        $warning_date = clone $end_time;
+				                        $warning_date->modify("-1 month");
 
-										echo $end_time->format('M. d, Y');
+										echo $warning_date->format('M. d, Y');
 									?>
 								</div>
 								<div class="col-6">
-									<? if ($condition): ?>
+									<? if ($warning_date <= $today): ?>
 										<button type="button" class="btn btn-primary btn-lg btn-block red-button due-date-button"><small class="due-date-btn"><strong>Upcoming Deadline</strong></small></button>
-
 									<? else: ?>
 										<p>Paid</p>
-
 									<? endif; ?>
 								</div>
 							</div>
