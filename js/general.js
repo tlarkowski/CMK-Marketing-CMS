@@ -39,3 +39,18 @@ function archiveProject(project_ID, company_name) {
         }
     });
 }
+
+// Setting Project Completion
+function setComplete(subscription_ID) {
+    $.ajax({
+        type: "POST",
+        url: "/clients/modProject.php",
+        data: {"action": "", "ID": subscription_ID},
+        success: function () {
+            document.location.reload();
+        }
+    });
+}
+
+
+// Setting Subscription to Paid

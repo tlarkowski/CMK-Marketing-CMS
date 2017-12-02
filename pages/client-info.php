@@ -70,7 +70,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary red-button" onclick="archiveClient(<?php echo $company['Company_ID'];?>);">Confirm</button>
+                                <button type="button" class="btn btn-primary green-button" onclick="archiveClient(<?php echo $company['Company_ID'];?>);">Confirm</button>
                             </div>
                         </div>
                     </div>

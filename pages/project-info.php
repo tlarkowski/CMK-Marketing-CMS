@@ -58,8 +58,7 @@ $client_name = find_project_client($project)[0];
                     class="btn btn-primary btn-lg btn-block red-button">Archive Project Information
             </button>
 
-            <div class="modal fade" id="archive-project" tabindex="-1" role="dialog" aria-labelledby="archive-project-label"
-                 aria-hidden="true">
+            <div class="modal fade" id="archive-project" tabindex="-1" role="dialog" aria-labelledby="archive-project-label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -77,7 +76,7 @@ $client_name = find_project_client($project)[0];
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                             </button>
-                            <button type="button" class="btn btn-primary red-button"
+                            <button type="button" class="btn btn-primary green-button"
                                     onclick="archiveProject(<?php echo $project['Project_ID']; ?>, '<?php echo $client_name; ?>');">
                                 Confirm
                             </button>
@@ -154,13 +153,13 @@ $client_name = find_project_client($project)[0];
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    This is working, yes?
+                                                    Are you sure you want to set this project to complete? By doing so, the due date will automatically be updated by 1 year and will have reminders sent out accordingly. Alternatively, if this is not a recurring project, it would be better to archive it once setting it to complete.
                                                 </div>
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                     </button>
-                                                    <button type="button" class="btn btn-primary red-button"
+                                                    <button type="button" class="btn btn-primary green-button"
                                                             onclick="">
                                                         Confirm
                                                     </button>
