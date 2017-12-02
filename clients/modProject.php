@@ -84,7 +84,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "archive_project") {
 }
 
 
-if (isset($_POST["action"]) && $_POST["action"] == "archive_project") {
+if (isset($_POST["action"]) && $_POST["action"] == "complete_project") {
     $data_conn = connection();
     $project_ID = $_POST["ID"];
     modCompleteStatusByID($project_ID);

@@ -73,10 +73,20 @@ function modSubscription($subscription)
     return $data_conn->id();
 }
 
+function paySubscription($subscription_ID)
+{
+    $data_conn = connection();
+    $data_conn->update("Client_Project", [
+        "Pay" => "1"
+    ], [
+        "Website_ID" => $subscription_ID
+    ]);
+
+}
+
 /** archive subscription info
  */
-if(isset($_POST["action"]) && $_POST["action"] == "archive_subscription") 
-{
+if (isset($_POST["action"]) && $_POST["action"] == "archive_subscription") {
     $data_conn = connection();
     $website_ID = $_POST["ID"];
 
@@ -85,4 +95,10 @@ if(isset($_POST["action"]) && $_POST["action"] == "archive_subscription")
     ], [
         "Website_ID" => $website_ID
     ]);
+}
+
+if (isset($_POST["action"]) && $_POST["action"] == "pay_subscription") {
+    $data_conn = connection();
+    $project_ID = $_POST["ID"];
+    modCompleteStatusByID($project_ID);
 }
