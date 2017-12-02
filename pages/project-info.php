@@ -170,12 +170,12 @@ $client_name = find_project_client($project)[0];
                                 <?php else: ?>
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-8">
+                                            <div class="col-8 small-padding">
                                                 <p class="btn btn-primary btn-lg btn-block gray-button due-date-button no-hover">
                                                     <small class="due-date-btn">Completed</small>
                                                 </p>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-4 small-padding">
                                                 <!-- Confirmation Modal for Setting Project Incomplete -->
                                                 <button type="button" data-toggle="modal" data-target="#set-incomplete" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
                                                     <small class="due-date-btn">Reset</small>
@@ -192,13 +192,13 @@ $client_name = find_project_client($project)[0];
                                                             </div>
 
                                                             <div class="modal-body">
-                                                                This is working, yes?
+                                                                Are you sure you want to reset the completion status of this project? The due date will be decreased by 1 year, and the appropriate reminders will be sent out accordingly.
                                                             </div>
 
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                                 </button>
-                                                                <button type="button" class="btn btn-primary red-button"
+                                                                <button type="button" class="btn btn-primary green-button"
                                                                         onclick="">
                                                                     Confirm
                                                                 </button>

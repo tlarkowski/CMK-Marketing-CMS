@@ -55,7 +55,7 @@
                         <div class="col col-2">Client</div>
                         <div class="col col-2 dropdown-elem">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="2 Week">
                                 Due in: <span id="project-span">2 Weeks</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -120,7 +120,7 @@
                         <div class="col col-2">Client</div>
                         <div class="col col-2 dropdown-elem">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="2 week">
                                 Due in: <span id="subscription-span">2 Weeks</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">

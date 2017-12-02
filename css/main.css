@@ -294,3 +294,8 @@ div.sidebar div.sidebar-content {
 .no-hover:focus, .no-hover:active {
 	box-shadow: none !important;
 }
+
+.small-padding {
+	padding-left: 5px;
+	padding-right: 5px;
+}
