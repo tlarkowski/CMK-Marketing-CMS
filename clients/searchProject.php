@@ -20,7 +20,7 @@ function all_projects()
     return $data;
 }
 
-/*$timespan should be recorded in x units*/
+/*$timespan is sent through as a form of "# time-unit"*/
 function project_due($timespan)
 {
     $data_conn = connection();

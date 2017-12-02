@@ -138,9 +138,9 @@
                 <div class="entry-wrapper">
                     <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
-                    $all_subscriptions = all_subscriptions();
+                    $upcoming_subscriptions = subscription_due("2 week");
 
-                    foreach ($all_subscriptions as $subscription) {
+                    foreach ($upcoming_subscriptions as $subscription) {
                         echo '<a href="' . "/pages/subscription-info.php?subscription=" .
                             $subscription['Website_ID'] . '"class="entry-link">';
                         echo '<div class="subscription-entry category-entry">';

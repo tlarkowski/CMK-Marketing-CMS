@@ -82,7 +82,7 @@
 
 					<!-- Notes on Subscription -->
 					<div class="sidebar">
-						<h4 class="sidebar-header">Notes on Subscription</h4>
+						<h4 class="sidebar-header">Notes on Project</h4>
 
 						<div class="sidebar-content">
 							<textarea class="form-control" name="content-notes" id="content-notes" placeholder="Current Note Text" rows="3"></textarea>
