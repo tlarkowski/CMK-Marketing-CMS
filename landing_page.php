@@ -238,19 +238,56 @@
 </div>
 
 <?php
+echo '<div class="container my-4">';
+echo '<div class="category-list" id="client-category">';
+echo '<div class="category-header">
+    <div class="row">
+        <div class="col col-3">Client</div>
+        <div class="col col-2">Main Contact</div>
+        <div class="col col-3">Contact Email</div>
+        <div class="col col-2">Subscriptions</div>
+        <div class="col col-2">Projects</div>
+    </div>
+</div>';
+echo '<div class="entry-wrapper">';
 if (isset($_POST['search'])) {
 
     $company_info = $_POST['search'];
-    echo $company_info;
     $result = search_company_Like($company_info);
     foreach($result as $item) {
-    echo $item["Companyname"];
-    echo $item["Contactname"];
-    echo $item["Email"];
+    // echo $item["Companyname"];
+    // echo $item["Contactname"];
+    // echo $item["Email"];
+    //
+    // // to know what's in $item
+    // echo '<pre>'; var_dump($item);
 
-    // to know what's in $item
-    echo '<pre>'; var_dump($item);
-  }
+
+    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+
+        echo '<a href="' . "/pages/client-info.php?client=" .
+              $item["Companyname"]  . '"class="entry-link">';
+        echo '<div class="client-entry category-entry">';
+        echo '<div class="row">';
+        echo '<div class="col col-3">' .   $item["Companyname"]  . '</div>';
+        echo '<div class="col col-2">' .   $item["Companyname"]  . '</div>';
+        echo '<div class="col col-3">' .   $item["Email"] . '</div>';
+
+        $subscription_count = company_subscription_count($result);
+        $project_count = company_project_count($result);
+
+        echo '<div class="col col-2">' . $subscription_count . '</div>';
+        echo '<div class="col col-2">' . $project_count . '</div>';
+
+        echo '</div>';
+        echo '</div>';
+        echo '</a>';
+
+}
+echo '</div>';
+echo '</div>';
+echo '</div>';
+
     // print_r($result);
 }
 ?>
