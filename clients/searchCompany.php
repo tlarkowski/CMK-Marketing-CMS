@@ -45,7 +45,8 @@ function search_company_subscription($company)
     $data_conn = connection();
     $data = $data_conn->select("Client_Website", "*", [
         "Company_ID" => $company['Company_ID'],
-        "Status" => "1"
+        "Status" => "1",
+        "ORDER" => ["Annual_Renewal", "Domain", "Site_Name"]
     ]);
     return $data;
 }
@@ -61,7 +62,8 @@ function search_company_project($company)
     $data_conn = connection();
     $data = $data_conn->select("Client_Project", "*", [
         "Company_ID" => $company['Company_ID'],
-        "Status" => "1"
+        "Status" => "1",
+        "ORDER" => ["End_Date", "ProjectName"]
     ]);
     return $data;
 }

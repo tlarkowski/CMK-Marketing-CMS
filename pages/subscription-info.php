@@ -54,10 +54,7 @@
                    class="btn btn-primary btn-lg btn-block blue-button">Edit Subscription Information
                 </a>
     
-                <a href="/pages/client-info.php?client=<?php echo $client_name; ?>"
-                   onclick="<?php archiveSubscription($subscription); ?>"
-                   class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information
-                </a>
+                <button type="button" onclick="archiveClient(<?php echo $subscription['Website_ID'];?>);" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Subscription Information</button>
             </div>
     
             <!-- Right Column -->

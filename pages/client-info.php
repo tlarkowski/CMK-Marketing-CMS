@@ -51,7 +51,7 @@
 
                 <a href="/pages/edit-client-info.php?client=<?php echo $_GET['client'];?>" class="btn btn-primary btn-lg btn-block blue-button">Edit Client Information</a>
 
-                <a href="/" onclick="archiveClient(<?php echo $company['Company_ID'];?>);" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</a>
+                <button type="button" onclick="archiveClient(<?php echo $company['Company_ID'];?>);" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Client Information</button>
             </div>
 
             <!-- Right Column -->

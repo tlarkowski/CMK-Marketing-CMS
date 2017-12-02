@@ -16,6 +16,7 @@ function archiveClient(company_ID) {
 }
 
 function archiveSubscription(subscription_ID) {
+	// redirect to /pages/client-info.php?client=<?php echo $client_name; ?>
 	$.ajax({
 		type: "POST",
 		url: "/clients/modSubscription.php",
@@ -24,6 +25,7 @@ function archiveSubscription(subscription_ID) {
 }
 
 function archiveProject(project_ID) {
+	// redirect to /pages/client-info.php?client=<?php echo $client_name;?>
 	$.ajax({
 		type: "POST",
 		url: "/clients/modProject.php",
