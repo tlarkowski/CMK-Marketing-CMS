@@ -274,6 +274,7 @@ div.sidebar div.sidebar-content {
 
 .sidebar-content small.due-date-btn {
 	letter-spacing: 2px;
+	font-weight: 500;
 }
 
 .btn-group-lg > .btn, .due-date-button {
@@ -283,4 +284,13 @@ div.sidebar div.sidebar-content {
 
 .sidebar-content #subscription-info .row, .sidebar-content #project-info .row {
 	margin-bottom: 20px;
+}
+
+.no-hover:hover {
+	background-color: #9ea1a3 !important;
+	border: 1px solid #9ea1a3 !important;
+}
+
+.no-hover:focus, .no-hover:active {
+	box-shadow: none !important;
 }

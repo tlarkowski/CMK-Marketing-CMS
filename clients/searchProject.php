@@ -20,13 +20,11 @@ function all_projects()
     return $data;
 }
 
-/*$timespan is sent through as a form of "# time-unit"*/
+/*$timespan is sent through as a form of "# time-unit" (eg. "2 week")*/
 function project_due($timespan)
 {
     $data_conn = connection();
     $today = date("Y-m-d H:i:s");
-    $timespan = "1 month";
-
     $timespan = date("Y-m-d H:i:s", strtotime($timespan));
 
     $data = $data_conn->select("Client_Project", "*", [

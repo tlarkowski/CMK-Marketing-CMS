@@ -54,16 +54,16 @@ $client_name = find_project_client($project)[0];
                class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</a>
 
             <!-- Archiving Button + Modal Confirmation -->
-            <button type="button" data-toggle="modal" data-target="#exampleModal" id="archive-btn"
+            <button type="button" data-toggle="modal" data-target="#archive-project" id="archive-btn"
                     class="btn btn-primary btn-lg btn-block red-button">Archive Project Information
             </button>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="archive-project" tabindex="-1" role="dialog" aria-labelledby="archive-project-label"
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Archive Confirmation</h5>
+                            <h5 class="modal-title" id="archive-project-label">Archive Confirmation</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -131,19 +131,85 @@ $client_name = find_project_client($project)[0];
                                 $end_time = new DateTime($project['End_Date']);
                                 $today = new DateTime(date("Y-m-d H:i:s"));
                                 $warning_date = clone $end_time;
-                                $warning_date->modify("-1 month");
+                                $warning_date->modify("-1 day");
 
-                                echo $warning_date->format('M. d, Y');
+                                echo $end_time->format('M. d, Y');
                                 ?>
                             </div>
                             <div class="col-6">
                                 <?php if ($warning_date <= $today): ?>
-                                    <button type="button"
-                                            class="btn btn-primary btn-lg btn-block red-button due-date-button">
-                                        <small class="due-date-btn"><strong>Upcoming Deadline</strong></small>
+                                    <!-- Confirmation Modal for Setting Project Complete/Archiving -->
+                                    <button type="button" data-toggle="modal" data-target="#set-complete" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
+                                        <small class="due-date-btn">Upcoming Deadline</small>
                                     </button>
+
+                                    <div class="modal fade" id="set-complete" tabindex="-1" role="dialog" aria-labelledby="set-complete-label" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="set-complete-label">Confirm Completion</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    This is working, yes?
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary red-button"
+                                                            onclick="">
+                                                        Confirm
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php else: ?>
-                                    <p>Paid</p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <p class="btn btn-primary btn-lg btn-block gray-button due-date-button no-hover">
+                                                    <small class="due-date-btn">Completed</small>
+                                                </p>
+                                            </div>
+                                            <div class="col-4">
+                                                <!-- Confirmation Modal for Setting Project Incomplete -->
+                                                <button type="button" data-toggle="modal" data-target="#set-incomplete" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
+                                                    <small class="due-date-btn">Reset</small>
+                                                </button>
+
+                                                <div class="modal fade" id="set-incomplete" tabindex="-1" role="dialog" aria-labelledby="set-incomplete-label" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="set-incomplete-label">Confirm Reset</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="modal-body">
+                                                                This is working, yes?
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
+                                                                </button>
+                                                                <button type="button" class="btn btn-primary red-button"
+                                                                        onclick="">
+                                                                    Confirm
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php endif; ?>
                             </div>
                         </div>
