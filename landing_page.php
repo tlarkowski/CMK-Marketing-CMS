@@ -56,7 +56,7 @@
                         <div class="col col-2 dropdown-elem">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Due in: 2 Weeks
+                                Due in: <span id="project-span">2 Weeks</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>
@@ -121,7 +121,7 @@
                         <div class="col col-2 dropdown-elem">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Due in: 2 Weeks
+                                Due in: <span id="subscription-span">2 Weeks</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>

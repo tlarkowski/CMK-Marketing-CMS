@@ -26,13 +26,12 @@ function project_due($timespan)
     $data_conn = connection();
     $timespan = "1 month";
 
-    $two_weeks_ago = date("Y-m-d H:i:s", strtotime($timespan));
-    echo $two_weeks_ago;
+    $timespan = date("Y-m-d H:i:s", strtotime($timespan));
 
     $data = $data_conn->select("Client_Project", "*", [
         "Status" => "1",
         "ORDER" => ["End_Date", "ProjectName"],
-        "End_Date[>=]" => $two_weeks_ago
+        "End_Date[<=]" => $timespan
     ]);
 
     return $data;
