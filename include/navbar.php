@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 	<div class="container">
-		<p class="nav-link" style="margin: 0;color:#ffffff;">Welcome <?php echo $_SESSION['user']['FirstName'] ?> !</p>
+		<a class="nav-link" style="margin: 0;color:#ffffff;" href="../landing_page.php">Welcome <?php echo $_SESSION['user']['FirstName'] ?> !</a>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -19,7 +19,7 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="../landing_page.php">All Clients</a>
+					<a class="nav-link" href="../landing_page.php">Dashboard</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/pages/users.php">Admin</a>
