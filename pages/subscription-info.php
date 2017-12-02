@@ -145,14 +145,87 @@
                                 <div class="col-3">Renewal Date</div>
                                 <div class="col-3"><?php
                                     $renewal_time = new DateTime($subscription['Annual_Renewal']);
-    
+                                    $today = new DateTime(date("Y-m-d H:i:s"));
+                                    $warning_date = clone $renewal_time;
+                                    $warning_date->modify("-1 month");
+
                                     echo $renewal_time->format('M. d, Y');
                                     ?></div>
                                 <div class="col-6">
-                                    <button type="button"
-                                            class="btn btn-primary btn-lg btn-block red-button due-date-button">
-                                        <small class="due-date-btn"><strong>Payment Due</strong></small>
-                                    </button>
+                                    <?php if ($warning_date <= $today && $today <= $renewal_time && $subscription['Pay'] == '0'): ?>
+                                        <!-- Confirmation Modal for Setting Project Complete/Archiving -->
+                                        <button type="button" data-toggle="modal" data-target="#set-complete" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
+                                            <small class="due-date-btn">Payment Due</small>
+                                        </button>
+
+                                        <div class="modal fade" id="set-complete" tabindex="-1" role="dialog" aria-labelledby="set-complete-label" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="set-complete-label">Confirm Completion</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        Are you sure you want to set this project to complete? By doing so, the due date will automatically be updated by 1 year and will have reminders sent out accordingly. Alternatively, if this is not a recurring project, it would be better to archive it once setting it to complete.
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary green-button"
+                                                                onclick="setComplete(<?php echo $project['Project_ID'];?>);">
+                                                            Confirm
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-8 small-padding">
+                                                    <p class="btn btn-primary btn-lg btn-block gray-button due-date-button no-hover">
+                                                        <small class="due-date-btn">Invoiced</small>
+                                                    </p>
+                                                </div>
+                                                <div class="col-4 small-padding">
+                                                    <!-- Confirmation Modal for Setting Project Incomplete -->
+                                                    <button type="button" data-toggle="modal" data-target="#set-incomplete" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
+                                                        <small class="due-date-btn">Reset</small>
+                                                    </button>
+
+                                                    <div class="modal fade" id="set-incomplete" tabindex="-1" role="dialog" aria-labelledby="set-incomplete-label" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="set-incomplete-label">Confirm Reset</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    Are you sure you want to reset the completion status of this project? The due date will be decreased by 1 year, and the appropriate reminders will be sent out accordingly.
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary green-button"
+                                                                            onclick="setIncomplete(<?php echo $project['Project_ID'];?>);">
+                                                                        Confirm
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
