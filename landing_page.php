@@ -14,7 +14,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Client Management Homepage</title>
-    <?php include './include/header-files.php';?>
+    <?php include './include/header-files.php';
+    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+    ?>
 </head>
 
 <!-- Page Content -->
@@ -27,17 +29,19 @@
             <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New
                 Client</a>
         </div>
-
-        <div class="col-md-9">
-            <div class="input-group stylish-input-group">
+        <form method="post" action="">
+            <div class="col-md-9">
+                <div class="input-group stylish-input-group">
     					<span class="input-group-addon">
-    						<button type="submit">
+    						<button id="search" type="submit">
     							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
     						</button>
     					</span>
-                <input type="text" class="form-control" placeholder="Search Clients">
+                    <input id="SearchClients" name="search" type="text" class="form-control"
+                           placeholder="Search Clients">
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -55,8 +59,10 @@
                         <div class="col col-2">Client</div>
                         <div class="col col-2 dropdown-elem">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="2 Week">
-                                Due in: <span id="project-span">2 Weeks</span>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        value="2 Week">
+                                    Due in: <span id="project-span">2 Weeks</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>
@@ -120,8 +126,10 @@
                         <div class="col col-2">Client</div>
                         <div class="col col-2 dropdown-elem">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="2 week">
-                                Due in: <span id="subscription-span">2 Weeks</span>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        value="2 week">
+                                    Due in: <span id="subscription-span">2 Weeks</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     <button class="dropdown-item" type="button" value="2 week">2 Weeks</button>
@@ -228,6 +236,15 @@
         </div>
     </div>
 </div>
+
+<?php
+if (isset($_POST['search'])) {
+
+    $company_info = $_POST['search'];
+    echo $company_info;
+    search_company_Like($company_info);
+}
+?>
 </body>
 
 </html>

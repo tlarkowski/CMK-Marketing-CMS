@@ -22,7 +22,7 @@ try {
         $username = $_POST['username'];
         // check database record
         if (login($username, $password)) {
-            header("location:landing_page.php");
+            header('Location: landing_page.php');
         } else {
             echo "login fail";
         }
