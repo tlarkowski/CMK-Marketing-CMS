@@ -73,9 +73,9 @@
                 <div class="entry-wrapper">
                     <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
-                    $all_projects = all_projects();
+                    $upcoming_projects = project_due("2 week");
 
-                    foreach ($all_projects as $project) {
+                    foreach ($upcoming_projects as $project) {
                         echo '<a href="' . "/pages/project-info.php?project=" .
                             $project['Project_ID'] . '"class="entry-link">';
                         echo '<div class="project-entry category-entry">';
@@ -139,7 +139,6 @@
                     <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
                     $all_subscriptions = all_subscriptions();
-                    project_due(3);
 
                     foreach ($all_subscriptions as $subscription) {
                         echo '<a href="' . "/pages/subscription-info.php?subscription=" .
