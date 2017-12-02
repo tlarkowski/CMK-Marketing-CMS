@@ -10,13 +10,14 @@
  */
 
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/resources/vendor/autoload.php";
+require_once __DIR__ . "/../resources/vendor/autoload.php";
+require_once __DIR__ . "/../clients/searchUser.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 
-function sendMail($mail_Address, $recipient, $subjects, $content)
+function sendMail($content)
 {
     $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
     try {
@@ -32,9 +33,14 @@ function sendMail($mail_Address, $recipient, $subjects, $content)
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
 
-        //Recipients
+
         $mail->setFrom('cmappcmkmarketing@gmail.com', 'Reminder System');
-        $mail->addAddress($mail_Address, $recipient);     // Add a recipient
+
+        $all_user = all_users();
+        foreach ($all_user as $user) {
+            $mail->addAddress($user['Email_Address'], $user['FirstName'] . $user['LastName']);     // Add a recipient
+        }
+        //Recipients
 
         //Attachments
 //    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments

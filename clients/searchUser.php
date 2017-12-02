@@ -6,7 +6,7 @@
  * Time: 11:01
  */
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
+require_once __DIR__ . "/../db/conn.php";
 
 /* Return all users in database */
 function all_users()
