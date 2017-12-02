@@ -242,7 +242,16 @@ if (isset($_POST['search'])) {
 
     $company_info = $_POST['search'];
     echo $company_info;
-    search_company_Like($company_info);
+    $result = search_company_Like($company_info);
+    foreach($result as $item) {
+    echo $item["Companyname"];
+    echo $item["Contactname"];
+    echo $item["Email"];
+
+    // to know what's in $item
+    echo '<pre>'; var_dump($item);
+  }
+    // print_r($result);
 }
 ?>
 </body>
