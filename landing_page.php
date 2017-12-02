@@ -23,6 +23,7 @@
 <body>
 <?php include 'include/navbar.php'; ?>
 
+<?php if (!isset($_POST['search'])): ?>
 <div class="container my-4">
     <div class="row" id="main-search">
         <div class="col-md-3">
@@ -233,24 +234,27 @@
                     </a> -->
                 </div>
             </div>
+          <?php endif; ?>
+
         </div>
     </div>
 </div>
 
 <?php
-echo '<div class="container my-4">';
-echo '<div class="category-list" id="client-category">';
-echo '<div class="category-header">
-    <div class="row">
-        <div class="col col-3">Client</div>
-        <div class="col col-2">Main Contact</div>
-        <div class="col col-3">Contact Email</div>
-        <div class="col col-2">Subscriptions</div>
-        <div class="col col-2">Projects</div>
-    </div>
-</div>';
-echo '<div class="entry-wrapper">';
+
 if (isset($_POST['search'])) {
+  echo '<div class="container my-4">';
+  echo '<div class="category-list" id="client-category">';
+  echo '<div class="category-header">
+      <div class="row">
+          <div class="col col-3">Client</div>
+          <div class="col col-2">Main Contact</div>
+          <div class="col col-3">Contact Email</div>
+          <div class="col col-2">Subscriptions</div>
+          <div class="col col-2">Projects</div>
+      </div>
+  </div>';
+  echo '<div class="entry-wrapper">';
 
     $company_info = $_POST['search'];
     $result = search_company_Like($company_info);
@@ -272,6 +276,10 @@ if (isset($_POST['search'])) {
         echo '<div class="col col-3">' .   $item["Companyname"]  . '</div>';
         echo '<div class="col col-2">' .   $item["Companyname"]  . '</div>';
         echo '<div class="col col-3">' .   $item["Email"] . '</div>';
+
+        $subscription_count = company_subscription_count($result);
+        $project_count = company_project_count($result);
+
         echo '<div class="col col-2">' . $subscription_count . '</div>';
         echo '<div class="col col-2">' . $project_count . '</div>';
 
