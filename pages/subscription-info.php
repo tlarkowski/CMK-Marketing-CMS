@@ -154,29 +154,29 @@
                                 <div class="col-6">
                                     <?php if ($warning_date <= $today && $today <= $renewal_time && $subscription['Pay'] == '0'): ?>
                                         <!-- Confirmation Modal for Setting Project Complete/Archiving -->
-                                        <button type="button" data-toggle="modal" data-target="#set-complete" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
+                                        <button type="button" data-toggle="modal" data-target="#set-invoiced" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
                                             <small class="due-date-btn">Payment Due</small>
                                         </button>
 
-                                        <div class="modal fade" id="set-complete" tabindex="-1" role="dialog" aria-labelledby="set-complete-label" aria-hidden="true">
+                                        <div class="modal fade" id="set-invoiced" tabindex="-1" role="dialog" aria-labelledby="set-invoiced-label" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="set-complete-label">Confirm Invoice</h5>
+                                                        <h5 class="modal-title" id="set-invoiced-label">Confirm Company Invoice</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
 
                                                     <div class="modal-body">
-                                                        Are you sure this company has been invoiced? The due date will automatically be updated by 1 year and will have reminders sent out accordingly.
+                                                        Are you sure this company has been invoiced? The renewal date will automatically be updated by 1 year and will have reminders sent out accordingly.
                                                     </div>
 
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                         </button>
                                                         <button type="button" class="btn btn-primary green-button"
-                                                                onclick="setComplete(<?php echo $project['Project_ID'];?>);">
+                                                                onclick="setInvoice(<?php echo $subscription['Website_ID'];?>);">
                                                             Confirm
                                                         </button>
                                                     </div>
@@ -201,21 +201,21 @@
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="set-incomplete-label">Confirm Reset</h5>
+                                                                    <h5 class="modal-title" id="set-incomplete-label">Confirm Subscription Reset</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
 
                                                                 <div class="modal-body">
-                                                                    Are you sure you want to reset the completion status of this project? The due date will be decreased by 1 year, and the appropriate reminders will be sent out accordingly.
+                                                                    Are you sure you want to reset the invoice status of this subscription? The renewal date will be decreased by 1 year, and the appropriate reminders will be sent out accordingly.
                                                                 </div>
 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                                     </button>
                                                                     <button type="button" class="btn btn-primary green-button"
-                                                                            onclick="setIncomplete(<?php echo $project['Project_ID'];?>);">
+                                                                            onclick="resetInvoice(<?php echo $subscription['Website_ID'];?>);">
                                                                         Confirm
                                                                     </button>
                                                                 </div>

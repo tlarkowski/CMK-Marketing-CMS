@@ -44,11 +44,16 @@ button:hover {
 }
 
 .stylish-input-group .form-control{
-	border-left:0; 
-	box-shadow:0 0 0; 
-	border-color:#ccc;
+	border-left: 0; 
+	box-shadow: 0 0 0; 
+	border-color: #cccccc;
+	width: 47rem;
 	border-top-right-radius: 25px;
 	border-bottom-right-radius: 25px;
+}
+
+.col-md-9 {
+	max-width: 100%;
 }
 
 .stylish-input-group button{
