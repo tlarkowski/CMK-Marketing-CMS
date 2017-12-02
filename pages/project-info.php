@@ -11,146 +11,159 @@
 
 <!-- Header Info -->
 <head>
-	<meta charset="UTF-8">
-	<title>CMS Project Information</title>
-    <?php include '../include/header-files.php';?>
+    <meta charset="UTF-8">
+    <title>CMS Project Information</title>
+    <?php include '../include/header-files.php'; ?>
 </head>
 
 
 <!-- Page Content -->
 <body>
-	<?php 
-		include '../include/navbar.php';
-		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
-		require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modProject.php";
+<?php
+include '../include/navbar.php';
+require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modProject.php";
 
-		$project = $_GET['project']; // get from param
-		$project = search_project($project)[0];
-		$client_name = find_project_client($project)[0];
-	?>
+$project = $_GET['project']; // get from param
+$project = search_project($project)[0];
+$client_name = find_project_client($project)[0];
+?>
 
-	<!-- Project Content -->
-	<div class="container">
-		<div class="row">
-			<!-- Left Column -->
-			<div id="left-column" class="col-md-5 my-4">
-				<div class="card mb-4">
-					<div class="card-body">
-						<h4 class="card-title" style="margin-bottom:0;"><?php echo $project['ProjectName'];?></h4>
-					</div>
+<!-- Project Content -->
+<div class="container">
+    <div class="row">
+        <!-- Left Column -->
+        <div id="left-column" class="col-md-5 my-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title" style="margin-bottom:0;"><?php echo $project['ProjectName']; ?></h4>
+                </div>
 
-					<img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
+                <img class="card-img-top" src="/img/no-image.jpg" alt="Company Image" width="100%" height="auto">
 
-					<div class="card-body">
-						<h4 class="card-title">Description</h4>
-						<p class="card-text"><?php echo $project['Description'];?></p>
-					</div>
-				</div>
+                <div class="card-body">
+                    <h4 class="card-title">Description</h4>
+                    <p class="card-text"><?php echo $project['Description']; ?></p>
+                </div>
+            </div>
 
-				<a href="/pages/client-info.php?client=<?php echo $client_name;?>" class="btn btn-primary btn-lg btn-block green-button">Back to Client Page</a>
+            <a href="/pages/client-info.php?client=<?php echo $client_name; ?>"
+               class="btn btn-primary btn-lg btn-block green-button">Back to Client Page</a>
 
-				<a href="/pages/edit-project-info.php?project=<?php echo $_GET['project'];?>" type="button" class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</a>
+            <a href="/pages/edit-project-info.php?project=<?php echo $_GET['project']; ?>" type="button"
+               class="btn btn-primary btn-lg btn-block blue-button">Edit Project Information</a>
 
-				<!-- Archiving Button + Modal Confirmation -->
-				<button type="button" data-toggle="modal" data-target="#exampleModal" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button">Archive Project Information</button>
+            <!-- Archiving Button + Modal Confirmation -->
+            <button type="button" data-toggle="modal" data-target="#exampleModal" id="archive-btn"
+                    class="btn btn-primary btn-lg btn-block red-button">Archive Project Information
+            </button>
 
-				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Archive Confirmation</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Archive Confirmation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
-							<div class="modal-body">
-							Are you sure you want to archive this project? It won't be accessible from this application once you do.
-							</div>
+                        <div class="modal-body">
+                            Are you sure you want to archive this project? It won't be accessible from this application
+                            once you do.
+                        </div>
 
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary red-button" onclick="archiveProject(<?php echo $project['Project_ID'];?>, '<?php echo $client_name;?>');">Confirm</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
+                            </button>
+                            <button type="button" class="btn btn-primary red-button"
+                                    onclick="archiveProject(<?php echo $project['Project_ID']; ?>, '<?php echo $client_name; ?>');">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			<!-- Right Column -->
-			<div id="right-column" class="col-md-7 my-4">
+        <!-- Right Column -->
+        <div id="right-column" class="col-md-7 my-4">
 
-				<!-- Project Info -->
-				<div class="sidebar">
-					<h4 class="sidebar-header">Project Info</h4>
+            <!-- Project Info -->
+            <div class="sidebar">
+                <h4 class="sidebar-header">Project Info</h4>
 
-					<div class="sidebar-content">
-						<div id="project-info" class="container">
-							<div class="row">
-								<div class="col-3">Tracking Location</div>
-								<div class="col-9">
-									<?php
-										echo '<a href="' . $project['Basecamp_URL'] . '" target="_blank">' . $project['Basecamp_URL'] . '</a>';
-									?>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-3">Start Date</div>
-								<div class="col-9">
-									<?php
-				                        $start_time = new DateTime($project['Start_Date']);
+                <div class="sidebar-content">
+                    <div id="project-info" class="container">
+                        <div class="row">
+                            <div class="col-3">Tracking Location</div>
+                            <div class="col-9">
+                                <?php
+                                echo '<a href="' . $project['Basecamp_URL'] . '" target="_blank">' . $project['Basecamp_URL'] . '</a>';
+                                ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">Start Date</div>
+                            <div class="col-9">
+                                <?php
+                                $start_time = new DateTime($project['Start_Date']);
 
-										echo $start_time->format('M. d, Y');
-									?>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                                echo $start_time->format('M. d, Y');
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-				<!-- Due Date Status -->
-				<div class="sidebar">
-					<h4 class="sidebar-header">Due Date Status</h4>
+            <!-- Due Date Status -->
+            <div class="sidebar">
+                <h4 class="sidebar-header">Due Date Status</h4>
 
-					<div class="sidebar-content">
-						<div id="renewal-status" class="container">
-							<div class="row">
-								<div class="col-3">Finish Date</div>
-								<div class="col-3">
-									<?php
-				                        $end_time = new DateTime($project['End_Date']);
-				                        $today = new DateTime(date("Y-m-d H:i:s"));
-				                        $warning_date = clone $end_time;
-				                        $warning_date->modify("-1 month");
+                <div class="sidebar-content">
+                    <div id="renewal-status" class="container">
+                        <div class="row">
+                            <div class="col-3">Finish Date</div>
+                            <div class="col-3">
+                                <?php
+                                $end_time = new DateTime($project['End_Date']);
+                                $today = new DateTime(date("Y-m-d H:i:s"));
+                                $warning_date = clone $end_time;
+                                $warning_date->modify("-1 month");
 
-										echo $warning_date->format('M. d, Y');
-									?>
-								</div>
-								<div class="col-6">
-									<? if ($warning_date <= $today): ?>
-										<button type="button" class="btn btn-primary btn-lg btn-block red-button due-date-button"><small class="due-date-btn"><strong>Upcoming Deadline</strong></small></button>
-									<? else: ?>
-										<p>Paid</p>
-									<? endif; ?>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                                echo $warning_date->format('M. d, Y');
+                                ?>
+                            </div>
+                            <div class="col-6">
+                                <?php if ($warning_date <= $today): ?>
+                                    <button type="button"
+                                            class="btn btn-primary btn-lg btn-block red-button due-date-button">
+                                        <small class="due-date-btn"><strong>Upcoming Deadline</strong></small>
+                                    </button>
+                                <?php else: ?>
+                                    <p>Paid</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-				<!-- Notes on Project -->
-				<div class="sidebar">
-					<h4 class="sidebar-header">Notes on Project</h4>
+            <!-- Notes on Project -->
+            <div class="sidebar">
+                <h4 class="sidebar-header">Notes on Project</h4>
 
-					<div class="sidebar-content">
-						<p id="content-notes"><?php echo $project['Notes'];?></p>
-					</div>
-				</div>
+                <div class="sidebar-content">
+                    <p id="content-notes"><?php echo $project['Notes']; ?></p>
+                </div>
+            </div>
 
-			</div>
-		</div>
-	</div>
-	<!-- End Project Content -->
+        </div>
+    </div>
+</div>
+<!-- End Project Content -->
 </body>
 
 </html>
