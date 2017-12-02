@@ -243,21 +243,29 @@
 <?php
 
 if (isset($_POST['search'])) {
-  echo '<div class="container my-4">';
-  echo '<div class="category-list" id="client-category">';
-  echo '<div class="category-header">
-      <div class="row">
-          <div class="col col-3">Client</div>
-          <div class="col col-2">Main Contact</div>
-          <div class="col col-3">Contact Email</div>
-          <div class="col col-2">Subscriptions</div>
-          <div class="col col-2">Projects</div>
-      </div>
-  </div>';
-  echo '<div class="entry-wrapper">';
 
     $company_info = $_POST['search'];
     $result = search_company_Like($company_info);
+    $lengthofarray = sizeof($result);
+    if ($lengthofarray == 0){
+      echo 'Client not found';
+    }
+    else{
+
+
+
+    echo '<div class="container my-4">';
+    echo '<div class="category-list" id="client-category">';
+    echo '<div class="category-header">
+        <div class="row">
+            <div class="col col-3">Client</div>
+            <div class="col col-2">Main Contact</div>
+            <div class="col col-3">Contact Email</div>
+            <div class="col col-2">Subscriptions</div>
+            <div class="col col-2">Projects</div>
+        </div>
+    </div>';
+    echo '<div class="entry-wrapper">';
     foreach($result as $item) {
     // echo $item["Companyname"];
     // echo $item["Contactname"];
@@ -291,7 +299,7 @@ if (isset($_POST['search'])) {
 echo '</div>';
 echo '</div>';
 echo '</div>';
-
+}
     // print_r($result);
 }
 ?>
