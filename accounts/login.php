@@ -32,13 +32,11 @@ function login($username, $password)
         session_start();
     }
     $_SESSION['user'] = $data[0];
-    echo $_SESSION['user'];
     $data_con->update("CMK_User", [
         "Last_Login_Time" => date('Y-m-d H:i:s')
     ], [
         "User_ID" => $data[0]['User_ID']
     ]);
-    echo $_SESSION['user']["Username"];
     return true;
 }
 
