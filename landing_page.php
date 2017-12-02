@@ -14,7 +14,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Client Management Homepage</title>
-    <?php include './include/header-files.php';?>
+    <?php include './include/header-files.php';
+    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";
+?>
 </head>
 
 <!-- Page Content -->
@@ -27,17 +29,18 @@
             <a class="btn btn-primary btn-block green-button search-btn" href="pages/add-new-client.php">Add New
                 Client</a>
         </div>
-
+      <form method="post" action="">
         <div class="col-md-9">
             <div class="input-group stylish-input-group">
     					<span class="input-group-addon">
-    						<button type="submit">
-    							<img alt="Search" src="/img/icons/search.png" width="24" height="24">
+    						<button id ="submitclients" type="submit">
+    							<img alt="Search" src="/img/icons/search.png" width="24" height="24" onclick="searchCompany('<?php echo 'hello';?>');">
     						</button>
     					</span>
-                <input type="text" class="form-control" placeholder="Search Clients">
+                <input id="SearchClients" type="text" class="form-control" placeholder="Search Clients">
             </div>
         </div>
+      </form>
     </div>
 </div>
 

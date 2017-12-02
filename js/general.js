@@ -39,3 +39,15 @@ function archiveProject(project_ID, company_name) {
         }
     });
 }
+//search function
+function searchCompany(searchquery)
+{
+  $.ajax({
+      type: "POST",
+      url: "/clients/searchCompany.php",
+      data :{"action": "search_company_like", "name": searchquery},
+      success:function (data) {
+        alert(data);
+      }
+    });
+}
