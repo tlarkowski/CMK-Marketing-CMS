@@ -56,11 +56,11 @@
 							<div id="project-info" class="editing" class="container">
 								<div class="row">
 									<div class="col-3">Tracking Location</div>
-									<div class="col-9"><input type="text" class="form-control" name="tracking-loc" id="tracking-loc" placeholder="Enter Tracking URL" required ></div>
+									<div class="col-9"><input type="text" class="form-control" name="tracking-loc" id="tracking-loc" placeholder="Enter Tracking URL"></div>
 								</div>
 								<div class="row">
 									<div class="col-3">Start Date</div>
-									<div class="col-9"><input type="date" class="form-control" name="start-date" id="start-date" required></div>
+									<div class="col-9"><input type="date" class="form-control" name="start-date" id="start-date"></div>
 								</div>
 							</div>
 						</div>

@@ -68,8 +68,7 @@
                                 <div class="row">
                                     <div class="col-3">Hosted Location</div>
                                     <div class="col-9"><input type="text" class="form-control" id="hosted-loc"
-                                                              name="hosted-loc" placeholder="Enter Hosted Location"
-                                                              required></div>
+                                                              name="hosted-loc" placeholder="Enter Hosted Location"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-3">Cost</div>
@@ -79,27 +78,27 @@
                                 <div class="row">
                                     <div class="col-3">Go Live Date</div>
                                     <div class="col-9"><input type="date" class="form-control" id="go-live-date"
-                                                              name="go-live-date" required></div>
+                                                              name="go-live-date"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-3">Start Date</div>
                                     <div class="col-9"><input type="date" class="form-control" id="start-date"
-                                                              name="start-date" required></div>
+                                                              name="start-date"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-3">Website Type</div>
                                     <div class="col-9"><input type="text" class="form-control" id="web-type" name="web-type"
-                                                              placeholder="Enter Website Type" required></div>
+                                                              placeholder="Enter Website Type"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-3">Hours Planned</div>
                                     <div class="col-9"><input type="number" class="form-control" id="planned-hours"
-                                                              name="planned-hours" required></div>
+                                                              name="planned-hours"></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-3">Hours Tracked</div>
                                     <div class="col-9"><input type="number" class="form-control" id="tracked-hours"
-                                                              name="tracked-hours" required></div>
+                                                              name="tracked-hours"></div>
                                 </div>
                             </div>
                         </div>

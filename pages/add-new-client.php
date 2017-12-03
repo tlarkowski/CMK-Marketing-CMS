@@ -61,7 +61,7 @@
                             <li class="client-phone list-group-item">
                                 <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
                                 <input type="phone" class="form-control" name="contact-number" id="contact-number"
-                                       placeholder="Enter Phone Number (digits only)" required>
+                                       placeholder="Enter Phone Number (digits only)">
                             </li>
                             <li class="client-email list-group-item">
                                 <img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
