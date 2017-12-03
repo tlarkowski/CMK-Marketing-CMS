@@ -145,14 +145,14 @@
                                 <div class="col-3">Renewal Date</div>
                                 <div class="col-3"><?php
                                     $renewal_time = new DateTime($subscription['Annual_Renewal']);
-                                    $today = new DateTime(date("Y-m-d H:i:s"));
-                                    $warning_date = clone $renewal_time;
-                                    $warning_date->modify("-1 month");
+                                    // $today = new DateTime(date("Y-m-d H:i:s"));
+                                    // $warning_date = clone $renewal_time;
+                                    // $warning_date->modify("-1 month");
 
                                     echo $renewal_time->format('M. d, Y');
                                     ?></div>
                                 <div class="col-6">
-                                    <?php if ($warning_date <= $today && $today <= $renewal_time && $subscription['Pay'] == '0'): ?>
+                                    <?php if ($subscription['Pay'] == '0'): ?>
                                         <!-- Confirmation Modal for Setting Project Complete/Archiving -->
                                         <button type="button" data-toggle="modal" data-target="#set-invoiced" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
                                             <small class="due-date-btn">Payment Due</small>
@@ -176,7 +176,7 @@
                                                         <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                         </button>
                                                         <button type="button" class="btn btn-primary green-button"
-                                                                onclick="setInvoice(<?php echo $subscription['Website_ID'];?>);">
+                                                                onclick="setInvoice(<?php echo $subscription['Website_ID'];?>, '<?php echo $subscription['Annual_Renewal'];?>');">
                                                             Confirm
                                                         </button>
                                                     </div>
@@ -215,7 +215,7 @@
                                                                     <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                                     </button>
                                                                     <button type="button" class="btn btn-primary green-button"
-                                                                            onclick="resetInvoice(<?php echo $subscription['Website_ID'];?>);">
+                                                                            onclick="resetInvoice(<?php echo $subscription['Website_ID'];?>, '<?php echo $subscription['Annual_Renewal'];?>');">
                                                                         Confirm
                                                                     </button>
                                                                 </div>

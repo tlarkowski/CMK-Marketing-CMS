@@ -41,52 +41,48 @@ function archiveProject(project_ID, company_name) {
 }
 
 // Setting Project Completion
-function setComplete(project_ID) {
-    // $.ajax({
-    //     type: "POST",
-    //     url: "/clients/modProject.php",
-    //     data: {"action": "set-complete", "ID": project_ID},
-    //     success: function () {
-    //         document.location.reload();
-    //     }
-    // });
-    console.log("complete works");
+function setComplete(project_ID, due_date) {
+    $.ajax({
+        type: "POST",
+        url: "/clients/modProject.php",
+        data: {"action": "set-complete", "ID": project_ID, "Due": due_date},
+        success: function () {
+            document.location.reload();
+        }
+    });
 }
 
-function setIncomplete(project_ID) {
-    // $.ajax({
-    //     type: "POST",
-    //     url: "/clients/modProject.php",
-    //     data: {"action": "set-incomplete", "ID": project_ID},
-    //     success: function () {
-    //         document.location.reload();
-    //     }
-    // });
-    console.log("incomplete works");
+function setIncomplete(project_ID, due_date) {
+    $.ajax({
+        type: "POST",
+        url: "/clients/modProject.php",
+        data: {"action": "set-incomplete", "ID": project_ID, "Due": due_date},
+        success: function () {
+            document.location.reload();
+        }
+    });
 }
 
 
 // Setting Subscription to Paid
-function setInvoice(subscription_ID) {
-    // $.ajax({
-    //     type: "POST",
-    //     url: "/clients/modSubscription.php",
-    //     data: {"action": "set-invoice", "ID": subscription_ID},
-    //     success: function () {
-    //         document.location.reload();
-    //     }
-    // });
-    console.log("invoicing works");
+function setInvoice(website_ID, due_date) {
+    $.ajax({
+        type: "POST",
+        url: "/clients/modSubscription.php",
+        data: {"action": "set-invoice", "ID": website_ID, "Invoice": due_date},
+        success: function () {
+            document.location.reload();
+        }
+    });
 }
 
-function resetInvoice(website_ID) {
-    // $.ajax({
-    //     type: "POST",
-    //     url: "/clients/modSubscription.php",
-    //     data: {"action": "reset-invoice", "ID": website_ID},
-    //     success: function () {
-    //         document.location.reload();
-    //     }
-    // });
-    console.log("reset invoicing works");
+function resetInvoice(website_ID, due_date) {
+    $.ajax({
+        type: "POST",
+        url: "/clients/modSubscription.php",
+        data: {"action": "reset-invoice", "ID": website_ID, "Invoice": due_date},
+        success: function () {
+            document.location.reload();
+        }
+    });
 }

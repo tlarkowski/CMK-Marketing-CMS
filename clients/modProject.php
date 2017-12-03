@@ -60,11 +60,27 @@ function modProject($project)
     return $data_conn->id();
 }
 
-function modCompleteStatusByID($project_ID)
+function setComplete($project_ID, $due_date)
 {
     $data_conn = connection();
+    // $due_date->add(new DateInterval('P1Y'));
+
     $data_conn->update("Client_Project", [
-        "Complete" => "1"
+        "Complete" => "1",
+        "End_Date" => $due_date
+    ], [
+        "Project_ID" => $project_ID
+    ]);
+}
+
+function setIncomplete($project_ID, $due_date)
+{
+    $data_conn = connection();
+    // $due_date->sub(new DateInterval('P1Y'));
+
+    $data_conn->update("Client_Project", [
+        "Complete" => "0",
+        "End_Date" => $due_date
     ], [
         "Project_ID" => $project_ID
     ]);
@@ -83,9 +99,19 @@ if (isset($_POST["action"]) && $_POST["action"] == "archive_project") {
     ]);
 }
 
-
-if (isset($_POST["action"]) && $_POST["action"] == "complete_project") {
+// Set Project to Complete or Incomplete
+if (isset($_POST["action"]) && $_POST["action"] == "set-complete") {
     $data_conn = connection();
     $project_ID = $_POST["ID"];
-    modCompleteStatusByID($project_ID);
+    $due_date = new DateTime($_POST["Due"]);
+
+    setComplete($project_ID, $due_date);
+}
+
+if (isset($_POST["action"]) && $_POST["action"] == "set-incomplete") {
+    $data_conn = connection();
+    $project_ID = $_POST["ID"];
+    $due_date = new DateTime($_POST["Due"]);
+
+    setIncomplete($project_ID, $due_date);
 }

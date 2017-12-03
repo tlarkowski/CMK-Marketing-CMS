@@ -54,10 +54,12 @@
             <div class="category-list" id="project-category">
 
                 <?php
+                $p_time_period;
+
                 if (isset($_POST['project'])) {
-                    $time_period = $_POST['project'];
+                    $p_time_period = $_POST['project'];
                 } else {
-                    $time_period = "All project";
+                    $p_time_period = "All Projects";
                 }
                 ?>
 
@@ -70,15 +72,15 @@
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        value="<?php echo $time_period; ?>">
-                                    Due in: <span id="project-span"><?php echo $time_period; ?></span>
+                                        value="<?php echo $p_time_period; ?>">
+                                    Due in: <span id="project-span"><?php echo $p_time_period; ?></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     <form method="post" action="">
                                         <input class="dropdown-item" name="project" type="submit" value="2 Weeks">
-                                        <input class="dropdown-item" name="project" type="submit" value="1 month">
-                                        <input class="dropdown-item" name="project" type="submit" value="3 month">
-                                        <input class="dropdown-item" name="project" type="submit" value="6 month">
+                                        <input class="dropdown-item" name="project" type="submit" value="1 Month">
+                                        <input class="dropdown-item" name="project" type="submit" value="3 Months">
+                                        <input class="dropdown-item" name="project" type="submit" value="6 Months">
                                         <input class="dropdown-item" name="project" type="submit" value="All Projects">
                                     </form>
                                 </div>
@@ -90,7 +92,14 @@
                 <div class="entry-wrapper">
                     <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchProject.php";
-                    $upcoming_projects = project_due("2 week");
+                    $upcoming_projects; // initializing variable
+
+                    if ($p_time_period != "All Projects") {
+                        $upcoming_projects = project_due($p_time_period);
+                    }
+                    else {
+                        $upcoming_projects = all_projects();
+                    }
 
                     foreach ($upcoming_projects as $project) {
                         echo '<a href="' . "/pages/project-info.php?project=" .
@@ -129,6 +138,16 @@
             <!-- Subscriptions List -->
             <div class="category-list" id="subscription-category">
 
+                <?php
+                $s_time_period;
+
+                if (isset($_POST['subscription'])) {
+                    $s_time_period = $_POST['subscription'];
+                } else {
+                    $s_time_period = "All Subscr.";
+                }
+                ?>
+
                 <div class="category-header">
                     <div class="row">
                         <div class="col col-3">Website</div>
@@ -139,17 +158,16 @@
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        value="2 week">
-                                    Due in: <span id="subscription-span">2 Weeks</span>
+                                        value="<?php echo $s_time_period; ?>">
+                                    Due in: <span id="subscription-span"><?php echo $s_time_period; ?></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     <form method="post" action="">
-                                        <input class="dropdown-item" name="subscription" type="submit" value="2 week">
-                                        <input class="dropdown-item" name="subscription" type="submit" value="1 month">
-                                        <input class="dropdown-item" name="subscription" type="submit" value="3 month">
-                                        <input class="dropdown-item" name="subscription" type="submit" value="6 month">
-                                        <input class="dropdown-item" name="subscription" type="submit"
-                                               value="All Projects">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="2 Weeks">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="1 Month">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="3 Months">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="6 Months">
+                                        <input class="dropdown-item" name="subscription" type="submit" value="All Subscr.">
                                     </form>
                                 </div>
                             </div>
@@ -160,7 +178,14 @@
                 <div class="entry-wrapper">
                     <?php
                     require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
-                    $upcoming_subscriptions = subscription_due("2 week");
+                    $upcoming_subscriptions; // initializing variable
+
+                    if ($s_time_period != "All Subscr.") {
+                        $upcoming_subscriptions = subscription_due($s_time_period);
+                    }
+                    else {
+                        $upcoming_subscriptions = all_subscriptions();
+                    }
 
                     foreach ($upcoming_subscriptions as $subscription) {
                         echo '<a href="' . "/pages/subscription-info.php?subscription=" .

@@ -128,15 +128,12 @@ $client_name = find_project_client($project)[0];
                             <div class="col-3">
                                 <?php
                                 $end_time = new DateTime($project['End_Date']);
-                                $today = new DateTime(date("Y-m-d H:i:s"));
-                                $warning_date = clone $end_time;
-                                $warning_date->modify("-1 month");
 
                                 echo $end_time->format('M. d, Y');
                                 ?>
                             </div>
                             <div class="col-6">
-                                <?php if ($warning_date <= $today && $today <= $end_time && $project['Complete'] == '0'): ?>
+                                <?php if ($project['Complete'] == '0'): ?>
                                     <!-- Confirmation Modal for Setting Project Complete/Archiving -->
                                     <button type="button" data-toggle="modal" data-target="#set-complete" id="archive-btn" class="btn btn-primary btn-lg btn-block red-button due-date-button">
                                         <small class="due-date-btn">Upcoming Deadline</small>
@@ -160,7 +157,7 @@ $client_name = find_project_client($project)[0];
                                                     <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                     </button>
                                                     <button type="button" class="btn btn-primary green-button"
-                                                            onclick="setComplete(<?php echo $project['Project_ID'];?>);">
+                                                            onclick="setComplete(<?php echo $project['Project_ID'];?>, '<?php echo $project['End_Date'];?>');">
                                                         Confirm
                                                     </button>
                                                 </div>
@@ -199,7 +196,7 @@ $client_name = find_project_client($project)[0];
                                                                 <button type="button" class="btn btn-secondary gray-button" data-dismiss="modal">Close
                                                                 </button>
                                                                 <button type="button" class="btn btn-primary green-button"
-                                                                        onclick="setIncomplete(<?php echo $project['Project_ID'];?>);">
+                                                                        onclick="setIncomplete(<?php echo $project['Project_ID'];?>, '<?php echo $project['End_Date'];?>');">
                                                                     Confirm
                                                                 </button>
                                                             </div>

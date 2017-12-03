@@ -73,15 +73,30 @@ function modSubscription($subscription)
     return $data_conn->id();
 }
 
-function paySubscription($subscription_ID)
+function setInvoice($website_ID, $due_date)
 {
     $data_conn = connection();
-    $data_conn->update("Client_Project", [
-        "Pay" => "1"
-    ], [
-        "Website_ID" => $subscription_ID
-    ]);
+    //$due_date->sub(new DateInterval('P1Y'));
 
+    $data_conn->update("Client_Website", [
+        "Pay" => "1",
+        "Annual_Renewal" => $due_date
+    ], [
+        "Website_ID" => $website_ID
+    ]);
+}
+
+function resetInvoice($website_ID, $due_date)
+{
+    $data_conn = connection();
+    //$due_date->sub(new DateInterval('P1Y'));
+
+    $data_conn->update("Client_Website", [
+        "Pay" => "0",
+        "Annual_Renewal" => $due_date
+    ], [
+        "Website_ID" => $website_ID
+    ]);
 }
 
 /** archive subscription info
@@ -97,8 +112,20 @@ if (isset($_POST["action"]) && $_POST["action"] == "archive_subscription") {
     ]);
 }
 
-if (isset($_POST["action"]) && $_POST["action"] == "pay_subscription") {
+// Set Project to Complete or Incomplete
+if (isset($_POST["action"]) && $_POST["action"] == "set-invoice") {
     $data_conn = connection();
-    $project_ID = $_POST["ID"];
-    modCompleteStatusByID($project_ID);
+    $website_ID = $_POST["ID"];
+    $due_date = new DateTime($_POST["Invoice"]);
+
+    setInvoice($website_ID, $due_date);
 }
+
+if (isset($_POST["action"]) && $_POST["action"] == "reset-invoice") {
+    $data_conn = connection();
+    $website_ID = $_POST["ID"];
+    $due_date = new DateTime($_POST["Invoice"]);
+
+    resetInvoice($website_ID, $due_date);
+}
+   
