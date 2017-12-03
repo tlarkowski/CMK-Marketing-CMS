@@ -313,10 +313,10 @@ if (isset($_POST['search'])) {
             echo '<div class="col col-3">' . $item["Companyname"] . '</div>';
             echo '<div class="col col-2">' . $item["Companyname"] . '</div>';
             echo '<div class="col col-3">' . $item["Email"] . '</div>';
-            $subscription_count = company_subscription_count($result);
-            $project_count = company_project_count($result);
-            echo '<div class="col col-2">' . $subscription_count . '</div>';
-            echo '<div class="col col-2">' . $project_count . '</div>';
+            // $subscription_count = company_subscription_count($result);
+            // $project_count = company_project_count($result);
+            // echo '<div class="col col-2">' . $subscription_count . '</div>';
+            // echo '<div class="col col-2">' . $project_count . '</div>';
             echo '</div>';
             echo '</div>';
             echo '</a>';
