@@ -128,4 +128,8 @@ if (isset($_POST["action"]) && $_POST["action"] == "reset-invoice") {
 
     resetInvoice($website_ID, $due_date);
 }
-   
+
+
+$today = date('Y-m-d H:i:s');
+$lastyear = date('Y-m-d H:i:s', strtotime("-1 year", strtotime($today)));
+echo $lastyear;
