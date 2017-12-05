@@ -76,11 +76,11 @@ function modSubscription($subscription)
 function setInvoice($website_ID, $due_date)
 {
     $data_conn = connection();
-    //$due_date->sub(new DateInterval('P1Y'));
+	$next_year = date('Y-m-d H:i:s', strtotime("1 year", strtotime($due_date)));
 
     $data_conn->update("Client_Website", [
         "Pay" => "1",
-        "Annual_Renewal" => $due_date
+        "Annual_Renewal" => $next_year
     ], [
         "Website_ID" => $website_ID
     ]);
@@ -89,11 +89,11 @@ function setInvoice($website_ID, $due_date)
 function resetInvoice($website_ID, $due_date)
 {
     $data_conn = connection();
-    //$due_date->sub(new DateInterval('P1Y'));
+	$reset_year = date('Y-m-d H:i:s', strtotime("-1 year", strtotime($due_date)));
 
     $data_conn->update("Client_Website", [
         "Pay" => "0",
-        "Annual_Renewal" => $due_date
+        "Annual_Renewal" => $reset_year
     ], [
         "Website_ID" => $website_ID
     ]);
@@ -116,7 +116,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "archive_subscription") {
 if (isset($_POST["action"]) && $_POST["action"] == "set-invoice") {
     $data_conn = connection();
     $website_ID = $_POST["ID"];
-    $due_date = new DateTime($_POST["Invoice"]);
+    $due_date = date($_POST["Invoice"]);
 
     setInvoice($website_ID, $due_date);
 }
@@ -124,12 +124,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "set-invoice") {
 if (isset($_POST["action"]) && $_POST["action"] == "reset-invoice") {
     $data_conn = connection();
     $website_ID = $_POST["ID"];
-    $due_date = new DateTime($_POST["Invoice"]);
+    $due_date = date($_POST["Invoice"]);
 
     resetInvoice($website_ID, $due_date);
 }
-
-
-$today = date('Y-m-d H:i:s');
-$lastyear = date('Y-m-d H:i:s', strtotime("-1 year", strtotime($today)));
-echo $lastyear;

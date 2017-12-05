@@ -63,11 +63,11 @@ function modProject($project)
 function setComplete($project_ID, $due_date)
 {
     $data_conn = connection();
-    // $due_date->add(new DateInterval('P1Y'));
+	$next_year = date('Y-m-d H:i:s', strtotime("1 year", strtotime($due_date)));
 
     $data_conn->update("Client_Project", [
         "Complete" => "1",
-        "End_Date" => $due_date
+        "End_Date" => $next_year
     ], [
         "Project_ID" => $project_ID
     ]);
@@ -76,11 +76,11 @@ function setComplete($project_ID, $due_date)
 function setIncomplete($project_ID, $due_date)
 {
     $data_conn = connection();
-    // $due_date->sub(new DateInterval('P1Y'));
+	$reset_year = date('Y-m-d H:i:s', strtotime("-1 year", strtotime($due_date)));
 
     $data_conn->update("Client_Project", [
         "Complete" => "0",
-        "End_Date" => $due_date
+        "End_Date" => $reset_year
     ], [
         "Project_ID" => $project_ID
     ]);
@@ -103,7 +103,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "archive_project") {
 if (isset($_POST["action"]) && $_POST["action"] == "set-complete") {
     $data_conn = connection();
     $project_ID = $_POST["ID"];
-    $due_date = new DateTime($_POST["Due"]);
+    $due_date = date($_POST["Due"]);
 
     setComplete($project_ID, $due_date);
 }
@@ -111,7 +111,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "set-complete") {
 if (isset($_POST["action"]) && $_POST["action"] == "set-incomplete") {
     $data_conn = connection();
     $project_ID = $_POST["ID"];
-    $due_date = new DateTime($_POST["Due"]);
+    $due_date = date($_POST["Due"]);
 
     setIncomplete($project_ID, $due_date);
 }

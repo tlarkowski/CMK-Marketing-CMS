@@ -20,28 +20,28 @@
 <!-- Page Content -->
 <body>
 <?php
-include '../include/navbar.php';
-require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
+    include '../include/navbar.php';
+    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchSubscription.php";
+    require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modSubscription.php";
 
-$subscription = $_GET['subscription']; // get from param
-$subscription = search_subscription($subscription)[0];
+    $subscription = $_GET['subscription']; // get from param
+    $subscription = search_subscription($subscription)[0];
 
-$go_live_time = new DateTime($subscription['GoLive_Date']);
-$go_live_time = $go_live_time->format('Y-m-d');
+    $go_live_time = new DateTime($subscription['GoLive_Date']);
+    $go_live_time = $go_live_time->format('Y-m-d');
 
-$start_time = new DateTime($subscription['Project_Start']);
-$start_time = $start_time->format('Y-m-d');
+    $start_time = new DateTime($subscription['Project_Start']);
+    $start_time = $start_time->format('Y-m-d');
 
-$renewal_time = new DateTime($subscription['Annual_Renewal']);
-$renewal_time = $renewal_time->format('Y-m-d');
+    $renewal_time = new DateTime($subscription['Annual_Renewal']);
+    $renewal_time = $renewal_time->format('Y-m-d');
 ?>
 
 <form id="edit-form" name="form" action="" method="post">
     <div class="container">
         <div class="row">
             <!-- Left Column -->
-            <div id="left-column" class="col-md-5 my-4">
+            <div id="left-column" class="col-md-4 my-4">
                 <div class="card mb-4">
                     <div class="card-body">
                         <input type="text" class="form-control" id="website-name" name="website-name"
@@ -62,7 +62,7 @@ $renewal_time = $renewal_time->format('Y-m-d');
             </div>
 
             <!-- Right Column -->
-            <div id="right-column" class="col-md-7 my-4">
+            <div id="right-column" class="col-md-8 my-4">
 
                 <!-- Subscription Info -->
                 <div class="sidebar">

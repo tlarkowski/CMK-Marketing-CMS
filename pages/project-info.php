@@ -33,7 +33,7 @@ $client_name = find_project_client($project)[0];
 <div class="container">
     <div class="row">
         <!-- Left Column -->
-        <div id="left-column" class="col-md-5 my-4">
+        <div id="left-column" class="col-md-4 my-4">
             <div class="card mb-4">
                 <div class="card-body">
                     <h4 class="card-title" style="margin-bottom:0;"><?php echo $project['ProjectName']; ?></h4>
@@ -43,7 +43,7 @@ $client_name = find_project_client($project)[0];
 
                 <div class="card-body">
                     <h4 class="card-title">Description</h4>
-                    <p class="card-text"><?php echo $project['Description']; ?></p>
+                    <p class="card-text"><?php echo nl2br($project['Description'], false);?></p>
                 </div>
             </div>
 
@@ -87,7 +87,7 @@ $client_name = find_project_client($project)[0];
         </div>
 
         <!-- Right Column -->
-        <div id="right-column" class="col-md-7 my-4">
+        <div id="right-column" class="col-md-8 my-4">
 
             <!-- Project Info -->
             <div class="sidebar">
@@ -218,10 +218,9 @@ $client_name = find_project_client($project)[0];
                 <h4 class="sidebar-header">Notes on Project</h4>
 
                 <div class="sidebar-content">
-                    <p id="content-notes"><?php echo $project['Notes']; ?></p>
+                    <p id="content-notes"><?php echo nl2br($project['Notes'], false); ?></p>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

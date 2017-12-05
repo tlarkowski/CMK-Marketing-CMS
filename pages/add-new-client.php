@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <!-- Left Column -->
-            <div id="left-column" class="col-md-5 my-4">
+            <div id="left-column" class="col-md-4 my-4">
                 <div class="card mb-4">
                     <div class="card-body">
                         <input type="text" name="company-name" class="form-control" id="company-name"
@@ -46,7 +46,7 @@
 
 
             <!-- Right Column -->
-            <div id="right-column" class="col-md-7 my-4">
+            <div id="right-column" class="col-md-8 my-4">
                 <!-- Main Contact Info -->
                 <div class="sidebar">
                     <h4 class="sidebar-header">Main Contact Info</h4>

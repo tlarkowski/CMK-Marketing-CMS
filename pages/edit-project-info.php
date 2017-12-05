@@ -37,7 +37,7 @@ $finish_time = $finish_time->format('Y-m-d');
     <div class="container">
         <div class="row">
             <!-- Left Column -->
-            <div id="left-column" class="col-md-5 my-4">
+            <div id="left-column" class="col-md-4 my-4">
                 <div class="card mb-4">
                     <div class="card-body">
                         <input type="text" class="form-control" id="project-name" name="project-name"
@@ -57,7 +57,7 @@ $finish_time = $finish_time->format('Y-m-d');
             </div>
 
             <!-- Right Column -->
-            <div id="right-column" class="col-md-7 my-4">
+            <div id="right-column" class="col-md-8 my-4">
 
                 <!-- Project Info -->
                 <div class="sidebar">

@@ -33,7 +33,7 @@
     <div class="container">
         <div class="row">
             <!-- Left Column -->
-            <div id="left-column" class="col-md-5 my-4">
+            <div id="left-column" class="col-md-4 my-4">
                 <div class="card mb-4">
                     <div class="card-body">
                         <h4 class="card-title" style="margin-bottom:0;"><?php echo $subscription['Site_Name']; ?></h4>
@@ -43,7 +43,7 @@
     
                     <div class="card-body">
                         <h4 class="card-title">Description</h4>
-                        <p class="card-text"><?php echo $subscription['Description']; ?></p>
+                        <p class="card-text"><?php echo nl2br($subscription['Description'], false); ?></p>
                     </div>
                 </div>
     
@@ -81,7 +81,7 @@
             </div>
     
             <!-- Right Column -->
-            <div id="right-column" class="col-md-7 my-4">
+            <div id="right-column" class="col-md-8 my-4">
     
                 <!-- Subscription Info -->
                 <div class="sidebar">
@@ -237,10 +237,9 @@
                     <h4 class="sidebar-header">Notes on Subscription</h4>
     
                     <div class="sidebar-content">
-                        <p id="content-notes"><?php echo $subscription['Notes']; ?></p>
+                        <p id="content-notes"><?php echo nl2br($subscription['Notes'], false); ?></p>
                     </div>
                 </div>
-    
             </div>
         </div>
     </div>
