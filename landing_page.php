@@ -59,7 +59,7 @@
                 if (isset($_POST['project'])) {
                     $p_time_period = $_POST['project'];
                 } else {
-                    $p_time_period = "All Projects";
+                    $p_time_period = "2 Weeks";
                 }
                 ?>
 
@@ -144,7 +144,7 @@
                 if (isset($_POST['subscription'])) {
                     $s_time_period = $_POST['subscription'];
                 } else {
-                    $s_time_period = "All Subscr.";
+                    $s_time_period = "2 Weeks";
                 }
                 ?>
 
