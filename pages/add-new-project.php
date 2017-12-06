@@ -66,7 +66,7 @@
 						</div>
 					</div>
 
-					<!-- Renewal Status -->
+					<!-- Due Date Status -->
 					<div class="sidebar">
 						<h4 class="sidebar-header">Due Date Status</h4>
 
@@ -74,13 +74,13 @@
 							<div id="renewal-status" class="container editing">
 								<div class="row">
 									<div class="col-3">Finish Date</div>
-									<div class="col-9"><input type="date" class="form-control" name="finish-date" id="finish-date" required></div>
+									<div class="col-9"><input type="date" class="form-control" name="finish-date" min="<?php echo date("Y-m-d");?>" id="finish-date" required></div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- Notes on Subscription -->
+					<!-- Notes on Project -->
 					<div class="sidebar">
 						<h4 class="sidebar-header">Notes on Project</h4>
 

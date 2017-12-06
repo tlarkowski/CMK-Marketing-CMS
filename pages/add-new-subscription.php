@@ -112,8 +112,7 @@
                             <div id="renewal-status" class="container editing">
                                 <div class="row">
                                     <div class="col-3">Renewal Date</div>
-                                    <div class="col-9"><input type="date" class="form-control" id="payment-due-date"
-                                                              name="payment-due-date" required></div>
+                                    <div class="col-9"><input type="date" class="form-control" id="payment-due-date"  min="<?php echo date("Y-m-d");?>" name="payment-due-date" required></div>
                                 </div>
                             </div>
                         </div>
