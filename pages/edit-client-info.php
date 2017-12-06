@@ -96,7 +96,7 @@
             );
             try {
                 modCompany($array);
-                echo "<script>window.location.href='/pages/client-info.php?client=" . filter_var($_POST['company-name'], FILTER_SANITIZE_STRING) . "'</script>";
+                echo "<script>window.location.href='/pages/client-info.php?client=" . $company["Company_ID"] . "'</script>";
             } catch (Exception $e) {
                 echo '<script language="javascript">';
                 echo 'alert("' . $e->getMessage() . '")';
