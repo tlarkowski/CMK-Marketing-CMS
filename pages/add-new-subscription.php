@@ -136,18 +136,18 @@
         $company = search_company($_GET['client'])[0];
         if (isset($_POST['website-name'])) {
             $array = array(
-                "Site_Name" => $_POST['website-name'],
-                "Domain" => $_POST['domain-name'],
+                "Site_Name" => filter_var($_POST['website-name'], FILTER_SANITIZE_STRING),
+                "Domain" => filter_var($_POST['domain-name'], FILTER_SANITIZE_URL),
                 "Company_ID" => $company['Company_ID'],
-                "GoLive_Date" => $_POST['go-live-date'],
-                "Project_Start" => $_POST['start-date'],
-                "Hours_Tracked" => $_POST['tracked-hours'],
-                "Hours_Planned" => $_POST['planned-hours'],
-                "Type" => $_POST['web-type'],
-                "Pay" => $_POST['cost'],
-                "Host_Location" => $_POST['hosted-loc'],
-                "Annual_Renewal" => $_POST['payment-due-date'],
-                "Notes" => $_POST['content-notes']
+                "GoLive_Date" => filter_var($_POST['go-live-date'], FILTER_UNSAFE_RAW),
+                "Project_Start" => filter_var($_POST['start-date'], FILTER_UNSAFE_RAW),
+                "Hours_Tracked" => filter_var($_POST['tracked-hours'], FILTER_SANITIZE_NUMBER_INT),
+                "Hours_Planned" => filter_var($_POST['planned-hours'], FILTER_SANITIZE_NUMBER_INT),
+                "Type" => filter_var($_POST['web-type'], FILTER_SANITIZE_STRING),
+                "Pay" => filter_var($_POST['cost'], FILTER_SANITIZE_NUMBER_INT),
+                "Host_Location" => filter_var($_POST['hosted-loc'], FILTER_SANITIZE_STRING),
+                "Annual_Renewal" => filter_var($_POST['payment-due-date'], FILTER_UNSAFE_RAW),
+                "Notes" => filter_var($_POST['content-notes'], FILTER_SANITIZE_STRING)
             );
             try {
                 addSubscription($array);

@@ -45,14 +45,12 @@ function modProject($project)
 {
     $data_conn = connection();
     $data_conn->update("Client_Project", [
-        "Company_ID" => $project["Company_ID"],
         "ProjectName" => $project['ProjectName'],
         "Basecamp_URL" => $project['Basecamp_URL'],
         "Start_Date" => $project['Start_Date'],
         "End_Date" => $project['End_Date'],
         "Description" => $project['Description'],
-        "Notes" => $project['Notes'],
-        "Status" => "1"
+        "Notes" => $project['Notes']
     ], [
         "Project_ID" => $project['Project_ID']
     ]);

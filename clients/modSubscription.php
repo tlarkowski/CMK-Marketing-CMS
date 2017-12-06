@@ -57,12 +57,11 @@ function modSubscription($subscription)
         "Description" => $subscription['Description'],
         "Domain" => $subscription['Domain'],
         "GoLive_Date" => $subscription['GoLive_Date'],
-        "Project_Cost_Billed" => $subscription['Project_Cost_Billed'],
+        "Project_Cost_Billed" => $subscription['Pay'],
         "Project_Start" => $subscription['Project_Start'],
         "Hours_Tracked" => $subscription['Hours_Tracked'],
         "Hours_Planned" => $subscription['Hours_Planned'],
         "Type" => $subscription['Type'],
-        "Pay" => $subscription['Pay'],
         "Host_Location" => $subscription['Host_Location'],
         "Annual_Renewal" => $subscription['Annual_Renewal'],
         "Notes" => $subscription['Notes']

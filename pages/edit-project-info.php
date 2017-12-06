@@ -117,13 +117,12 @@ $project = search_project($_GET['project'])[0];
 if (isset($_POST['project-name'])) {
     $array = array(
         "Project_ID" => $project['Project_ID'],
-        "Company_ID" => $project['Company_ID'],
-        "ProjectName" => $_POST['project-name'],
-        "Description" => $_POST['project-description'],
-        "Basecamp_URL" => $_POST['tracking-loc'],
-        "Start_Date" => $_POST['start-date'],
-        "End_Date" => $_POST['finish-date'],
-        "Notes" => $_POST['content-notes']
+        "ProjectName" => filter_var($_POST['project-name'], FILTER_SANITIZE_STRING),
+        "Description" => filter_var($_POST['project-description'], FILTER_SANITIZE_STRING),
+        "Basecamp_URL" => filter_var($_POST['tracking-loc'], FILTER_SANITIZE_URL),
+        "Start_Date" => filter_var($_POST['start-date'], FILTER_UNSAFE_RAW),
+        "End_Date" => filter_var($_POST['finish-date'], FILTER_UNSAFE_RAW),
+        "Notes" => filter_var($_POST['content-notes'], FILTER_SANITIZE_STRING)
     );
     try {
         modProject($array);
