@@ -130,7 +130,6 @@ if (isset($_POST['project-name'])) {
         echo "<script>
                 window.location.href='/pages/project-info.php?project=$_GET[project]';
                 </script>";
-
     } catch (Exception $e) {
         echo '<script language="javascript">';
         echo 'alert("' . $e->getMessage() . '")';

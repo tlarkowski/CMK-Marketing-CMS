@@ -92,9 +92,8 @@
                             </li>
                             <li class="client-phone list-group-item">
                                 <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
-                                <span class="phone"><?php echo '(' . substr($company['Phone'], 0, 3) . ')-'
-                                        . substr($company['Phone'], 3, 3) .
-                                        '-' . substr($company['Phone'], 6, 3) ?></span>
+                                <span class="phone"><?php echo '(' . substr($company['Phone'], 0, 3) . ') '
+                                        . substr($company['Phone'], 3);?></span>
                             </li>
                             <li class="client-email list-group-item">
                                 <img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">

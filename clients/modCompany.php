@@ -29,7 +29,7 @@ function addCompany($company)
             "Phone" => $company['Phone'],
             "Reg_Date" => date('Y-m-d H:i:s'),
             "Email" => $company['Email'],
-            "Image_URL" => $company['Image_URL']
+            "Image_URL" => ""
         ]);
         return $data_conn->id();
     }
@@ -46,12 +46,11 @@ function modCompany($company)
     $data_conn = connection();
     $data_conn->update("Client_Company", [
         "Companyname" => $company['Companyname'],
-        "Status" => "1",
         "Contactname" => $company['Contactname'],
         "Description" => $company['Description'],
         "Phone" => $company['Phone'],
-        "Email" => $company['Email'],
-        "Image_URL" => $company['Image_URL']
+        "Email" => $company['Email']
+        // "Image_URL" => $company['Image_URL']
     ], [
         "Company_ID" => $company['Company_ID']
     ]);

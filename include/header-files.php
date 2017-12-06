@@ -21,6 +21,9 @@
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
 
+<!-- Masked Input JS -->
+<script src="/js/jquery.maskedinput.min.js" type="text/javascript"></script>
+
 <!-- Personal CSS -->
 <link rel="stylesheet" href="/css/main.css">
 

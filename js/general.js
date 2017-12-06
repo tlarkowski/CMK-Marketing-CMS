@@ -6,6 +6,11 @@
 	Brief Description: Handles any general functions for the entire application.
 */
 
+// Masking Function for Client Phone Number
+jQuery(function($){
+   $("#contact-number").mask("(999) 999-9999",{placeholder:""});
+});
+
 // Archiving Functions
 function archiveClient(company_ID) {
     $.ajax({

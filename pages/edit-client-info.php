@@ -66,7 +66,7 @@ $company = search_company($company)[0];
                             <li class="client-phone list-group-item">
                                 <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
                                 <input type="phone" class="form-control" id="contact-number"
-                                       placeholder="Enter Phone Number (digits only)" name="contact-number"
+                                       placeholder="Enter Phone Number" name="contact-number"
                                        value="<?php echo $company['Phone']; ?>">
                             </li>
                             <li class="client-email list-group-item">
@@ -87,19 +87,15 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
 if (isset($_POST['company-name'])) {
     $array = array(
         "Company_ID" => $company['Company_ID'],
-        "Companyname" => $_POST['company-name'],
-        "Status" => "1",
-        "Contactname" => $_POST['contact-name'],
-        "Description" => $_POST['company-description'],
-        "Email" => $_POST['contact-email'],
-        "Image_URL" => "Companyname.jpg",
-        "Phone" => $_POST['contact-number'],
+        "Companyname" => filter_var($_POST['company-name'], FILTER_SANITIZE_STRING),
+        "Contactname" => filter_var($_POST['contact-name'], FILTER_SANITIZE_STRING),
+        "Description" => filter_var($_POST['company-description'], FILTER_SANITIZE_STRING),
+        "Email" => filter_var($_POST['contact-email'], FILTER_SANITIZE_EMAIL),
+        "Phone" => filter_var($_POST['contact-number'], FILTER_SANITIZE_NUMBER_INT)
     );
     try {
         modCompany($array);
-        echo "<script>
-                window.location.href='/pages/client-info.php?client=$_GET[client]';
-                </script>";
+        echo "<script>window.location.href='/pages/client-info.php?client=" . filter_var($_POST['company-name'], FILTER_SANITIZE_STRING) . "'</script>";
     } catch (Exception $e) {
         echo '<script language="javascript">';
         echo 'alert("' . $e->getMessage() . '")';

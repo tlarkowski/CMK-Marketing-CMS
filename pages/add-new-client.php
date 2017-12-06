@@ -61,7 +61,7 @@
                             <li class="client-phone list-group-item">
                                 <img src="../img/icons/phone.png" alt="Phone Icon" width="24" height="24">
                                 <input type="phone" class="form-control" name="contact-number" id="contact-number"
-                                       placeholder="Enter Phone Number (digits only)">
+                                       placeholder="Enter Phone Number">
                             </li>
                             <li class="client-email list-group-item">
                                 <img src="../img/icons/mail.png" alt="Mail Icon" width="24" height="24">
@@ -79,13 +79,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/modCompany.php";
 
 if (isset($_POST['company-name'])) {
     $array = array(
-        "Companyname" => $_POST['company-name'],
-        "Status" => "1",
-        "Contactname" => $_POST['contact-name'],
-        "Description" => $_POST['company-description'],
-        "Email" => $_POST['contact-email'],
-        "Image_URL" => "Companyname.jpg",
-        "Phone" => $_POST['contact-number'],
+        "Companyname" => filter_var($_POST['company-name'], FILTER_SANITIZE_STRING),
+        "Contactname" => filter_var($_POST['contact-name'], FILTER_SANITIZE_STRING),
+        "Description" => filter_var($_POST['company-description'], FILTER_SANITIZE_STRING),
+        "Email" => filter_var($_POST['contact-email'], FILTER_SANITIZE_EMAIL),
+        "Phone" => filter_var($_POST['contact-number'], FILTER_SANITIZE_NUMBER_INT)
     );
     try {
         addCompany($array);
