@@ -26,7 +26,7 @@
 
       $subscription = $_GET['subscription']; // get from param
       $subscription = search_subscription($subscription)[0];
-      $client_name = find_subscription_client($subscription)[0];
+      $client_ID = $subscription['Company_ID'];
     ?>
 
     <!-- Subscription Content -->
@@ -47,7 +47,7 @@
                     </div>
                 </div>
     
-                <a href="/pages/client-info.php?client=<?php echo $client_name; ?>" type="button"
+                <a href="/pages/client-info.php?client=<?php echo $client_ID; ?>" type="button"
                    class="btn btn-primary btn-lg btn-block green-button">Back to Client Page</a>
     
                 <a href="/pages/edit-subscription-info.php?subscription=<?php echo $_GET['subscription']; ?>"

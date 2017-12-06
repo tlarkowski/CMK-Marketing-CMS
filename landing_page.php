@@ -242,7 +242,7 @@
 
                             foreach ($all_companies as $company) {
                                 echo '<a href="' . "/pages/client-info.php?client=" .
-                                    $company['Companyname'] . '"class="entry-link">';
+                                    $company['Company_ID'] . '"class="entry-link">';
                                 echo '<div class="client-entry category-entry">';
                                 echo '<div class="row">';
                                 echo '<div class="col col-3">' . $company['Companyname'] . '</div>';
@@ -309,11 +309,11 @@
                         <?php foreach ($result as $client):?>
                             <?php require_once $_SERVER["DOCUMENT_ROOT"] . "/clients/searchCompany.php";?>
 
-                            <a href="/pages/client-info.php?client=<?php echo $client['Companyname']?>" class="entry-link">
+                            <a href="/pages/client-info.php?client=<?php echo $client['Company_ID']?>" class="entry-link">
                                 <div class="client-entry category-entry">
                                     <div class="row">
                                         <div class="col col-3"><?php echo $client["Companyname"]?></div>
-                                        <div class="col col-2"><?php echo $client["Companyname"]?></div>
+                                        <div class="col col-2"><?php echo $client["Contactname"]?></div>
                                         <div class="col col-3"><?php echo $client["Email"]?></div>
 
                                         <?php 

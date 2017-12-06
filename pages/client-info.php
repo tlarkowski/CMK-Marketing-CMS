@@ -106,7 +106,7 @@
 
                 <!-- Subscriptions -->
                 <div id="subscriptions" class="sidebar">
-                    <a href="/pages/add-new-subscription.php?client=<?php echo $company['Companyname'] ?>" class="btn btn-primary add-subscription rounded-circle blue-button">
+                    <a href="/pages/add-new-subscription.php?client=<?php echo $company['Company_ID'] ?>" class="btn btn-primary add-subscription rounded-circle blue-button">
                         <strong>&#43;</strong></a>
 
                     <h4 class="sidebar-header">Subscriptions</h4>
@@ -130,7 +130,7 @@
 
                 <!-- Projects -->
                 <div id="projects" class="sidebar">
-                    <a href="/pages/add-new-project.php?client=<?php echo $company['Companyname'] ?>" class="btn btn-primary add-project rounded-circle blue-button">
+                    <a href="/pages/add-new-project.php?client=<?php echo $company['Company_ID'] ?>" class="btn btn-primary add-project rounded-circle blue-button">
                         <strong>&#43;</strong></a>
 
                     <h4 class="sidebar-header">Projects</h4>

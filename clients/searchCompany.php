@@ -30,11 +30,11 @@ function search_company_Like($name)
     return $data;
 }
 
-function search_company($name)
+function search_company($ID)
 {
     $data_conn = connection();
     $data = $data_conn->select("Client_Company", "*", [
-        "Companyname" => "$name",
+        "Company_ID" => $ID,
         "Status" => "1"
     ]);
     return $data;
