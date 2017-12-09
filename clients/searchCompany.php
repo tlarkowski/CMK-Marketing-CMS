@@ -73,5 +73,3 @@ function company_project_count($company)
     $data = search_company_project($company);
     return count($data);
 }
-
-?>
