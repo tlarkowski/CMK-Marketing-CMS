@@ -1,74 +1,92 @@
 <style>
 	body {
-		background-color: #f0f0f0;
+		background-color: #00A5C7;
 	}
 </style>
 
 <!--Section-->
 <table width="600" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="margin:30px auto 40px;display:block;padding:20px;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;">
 	<tr>
-		<td valign="top" width="400" align="left" style="border-bottom:13px solid #0178c8;padding-bottom:10px;">
-			<img src="http://wk.cmkmarketing.com/2017-Emails/7-G046-SalesForce/images/Wolters-Kluwer-Logo.png" alt="Wolters Kluwer" width="230" height="auto"/>
+		<td valign="top" width="90" align="left" style="border-bottom:8px solid #98BB53;padding-bottom:10px;">
+			<img src="http://cmapp.cmkmarketing.com/img/exclamation.png" alt="CMK Marketing" width="auto" height="40" style="margin-left:30px;margin-right:20px;"/>
 		</td>
-		<td width="200" style="width:150px;border-bottom:13px solid #69be25;padding-bottom:10px;">&nbsp;</td>
+		<td valign="center" width="480" align="center" style="border-bottom: 8px solid #98BB53;padding-bottom:10px;padding-right:30px;">
+			<p style="color:#333333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:25px; line-height:25px;margin:0;text-align:center;">Your CMS Reminder - Upcoming Due Dates!</p>
+		</td>
 	</tr>
+
 	<tr>
-		<td height="20" width="560" style="height:20px;width:560px;" colspan="2">&nbsp;</td>
-	</tr>
-	<tr>
-		<td valign="top" align="left" colspan="2" style="padding:10px;">
+		<td valign="top" align="left" width="560" style="padding:20px 10px;width:560px;border-bottom:8px solid #98BB53;" colspan="2">
 			<!-- Intro Text in Table -->
-			<table>
-				<tbody>
-					<tr>
-						<td style="padding-right:5px;">
-							<img src="http://wk.cmkmarketing.com/2017-Emails/7-G046-SalesForce/images/flipped-classroom.jpg" width="125" height="auto" alt="Flipped Classroom Vector"/>
-						</td>
-						<td>
-							<p style="color:#333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;margin:0 0 15px 0;text-align:left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit est eget justo tempor, et accumsan nisi volutpat. Phasellus commodo, dolor at ornare pulvinar, magna sapien sagittis purus, id ultrices enim dui non erat.</p>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<p style="color:#333333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;margin:0 0 15px 0;text-align:left;">
+				Hello {User: FirstName},
+				<br/><br/>
+				This is an automated message from your friendly customer management system! It's come to my attention that you have a few upcoming invoice/due dates. If any of the following have already been completed, head over to <a href="http://cmapp.cmkmarketing.com" style="" target="_blank">the application</a> and update the necessary information!
+			</p>
+
 			<br/>
 
-			<!-- Questionnair Text-->
-			<p style="color:#333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;margin:0 0 15px 0;text-align:left;"><strong>To help us better understand your needs, please respond to the questions below.</strong></p>
+			<!-- Due in a Week -->
+			<p style="color:#333333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;margin:0 0 15px 0;text-align:left;"><strong>Due in the Next Week:</strong></p>
+			<ul style="padding-left:30px;margin:0 0 15px 0;">
+				<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+					{Name of Company}
+					<ul style="margin:10px 0 0 0;">
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Subscription:</strong> {Name of Subscription}, {Due Date in 'M. d, Y' format}
+						</li>
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Project:</strong> {Name of Project}, {Due Date in 'M. d, Y' format}
+						</li>
+					</ul>
+				</li>
+				<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+					{Name of Company}
+					<ul style="margin:10px 0 0 0;">
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Subscription:</strong> {Name of Subscription}, {Due Date in 'M. d, Y' format}
+						</li>
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Project:</strong> {Name of Project}, {Due Date in 'M. d, Y' format}
+						</li>
+					</ul>
+				</li>
+			</ul>
 
-			<ol style="margin:0 0 15px 0;">
-				<li style="padding-bottom:5px;color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">What products are you currently using?</li>
-				<li style="padding-bottom:5px;color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">Are there any new instructors who need desk copies and/or instructor resources?</li>
-				<li style="padding-bottom:5px;color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">Do you have any student enrollment updates?</li>
-				<li style="padding-bottom:5px;color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">Are there any new course titles up for review?</li>
-				<li style="padding-bottom:5px;color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">What new adoptions have been recently added within the past six months?</li>
-			</ol>
-
-			<!-- Outro Text in Table -->
-			<table>
-				<tbody>
-					<tr>
-						<td style="padding-right:5px;">
-							<img src="http://wk.cmkmarketing.com/2017-Emails/7-G046-SalesForce/images/skills.jpg" width="125" height="auto" alt="Skills Vector"/>
-						</td>
-						<td>
-							<p style="color:#333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;margin:0 0 15px 0;text-align:left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit est eget justo tempor, et accumsan nisi volutpat. Phasellus commodo, dolor at ornare pulvinar, magna sapien sagittis purus, id ultrices enim dui non erat.</p>
-						</td>
-					</tr>
-				</tbody>
-			</table>
 			<br/>
 
-			<!-- Contact Info -->
-			<div style="width:250px;margin:0 auto;background-color:#f0f0f0;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;padding:10px;">
-				<span style="color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;text-align:left;">Lorem Ipsum, [position title]</span><br/><br/>
-				<span style="color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;text-align:left;">phone: </span><br/>
-				<span style="color:#333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;text-align:left;">email: </span>
-			</div>
+			<!-- Due in 2 Weeks -->
+			<p style="color:#333333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;margin:0 0 15px 0;text-align:left;"><strong>Due in the Next 2 Weeks:</strong></p>
+			<ul style="padding-left:30px;margin:0 0 15px 0;">
+				<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+					{Name of Company}
+					<ul style="margin:10px 0 0 0;">
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Subscription:</strong> {Name of Subscription}, {Due Date in 'M. d, Y' format}
+						</li>
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Project:</strong> {Name of Project}, {Due Date in 'M. d, Y' format}
+						</li>
+					</ul>
+				</li>
+				<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+					{Name of Company}
+					<ul style="margin:10px 0 0 0;">
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Subscription:</strong> {Name of Subscription}, {Due Date in 'M. d, Y' format}
+						</li>
+						<li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
+							<strong>Project:</strong> {Name of Project}, {Due Date in 'M. d, Y' format}
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<br/>
+
+			<!-- Ending Message -->
+			<p style="color:#333333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:13px; line-height:20px;margin:0;text-align:center;"><em>You will be sent additional emails on the subscriptions and/or projects listed here as necessary.</em></p>
 		</td>
 	</tr>
-	<tr>
-		<td height="20" width="560" style="height:20px;width:560px;border-bottom:13px solid #0178c8;" colspan="2">&nbsp;</td>
-	</tr>
-
 </table>
 <!-- End Section-->
