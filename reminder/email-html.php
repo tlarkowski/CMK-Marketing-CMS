@@ -1,136 +1,3 @@
-<?php
-	date_default_timezone_set("EST");
-
-	require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/auth.php";
-
-	require_once __DIR__ . "/email.php";
-	require_once __DIR__ . "/../clients/searchUser.php";
-	require_once __DIR__ . "/../clients/searchCompany.php";
-	require_once __DIR__ . "/../clients/searchSubscription.php";
-	require_once __DIR__ . "/../clients/searchProject.php";
-
-
-	function findClientsDueDay()
-	{
-	    $data_conn = connection();
-	    $today = date("Y-m-d H:i:s");
-	    $one_weeks = date("Y-m-d H:i:s", strtotime("+1 Weeks"));
-		//     = date('Y-m-d H:i:s', strtotime("1 year", strtotime("+1 Weeks")));
-	    $two_weeks = date("Y-m-d H:i:s", strtotime("+2 Weeks"));
-
-	    $all_one_weeks = $data_conn->select("Client_Website", "*", [
-	        "Pay" => "0",
-	        "Status" => "1",
-	        "Annual_Renewal[<>]" => [$today, $one_weeks]
-	    ]);
-
-	    $all_one_weeks_projects = $data_conn->select("Client_Project", "*", [
-	        "Status" => "1",
-	        "End_Date[<>]" => [$today, $one_weeks]
-	    ]);
-
-
-	    $all_two_weeks = $data_conn->select("Client_Website", "*", [
-	        "Pay" => "0",
-	        "Status" => "1",
-	        "Annual_Renewal[<>]" => [$one_weeks, $two_weeks]
-	    ]);
-
-	    $all_two_weeks_projects = $data_conn->select("Client_Project", "*", [
-	        "Status" => "1",
-	        "End_Date[<>]" => [$one_weeks, $two_weeks]
-	    ]);
-
-
-	    $one_week_clients = [];
-	    $one_week_subscriptions = [];
-	    $one_week_projects = [];
-	    foreach ($all_one_weeks as $subscription) {
-	        $client = all_subscription_client_info($subscription)[0];
-
-	        if (!in_array($client, $one_week_clients)) {
-	            array_push($one_week_clients, $client);
-	        }
-
-	        if (!array_key_exists($client['Company_ID'], $one_week_subscriptions)) {
-	            $one_week_subscriptions = [
-	                $client['Company_ID'] => [$subscription],
-	            ];
-	        } else {
-	            array_push($one_week_subscriptions[$client['Company_ID']], $subscription);
-	        }
-	    }
-
-	    foreach ($all_one_weeks_projects as $project) {
-	        $client = all_project_client_info($project)[0];
-
-	        if (!in_array($client, $one_week_clients)) {
-	            array_push($one_week_clients, $client);
-	        }
-	        if (!array_key_exists($client['Company_ID'], $one_week_projects)) {
-	            $one_week_projects = [
-	                $client['Company_ID'] => [$project],
-	            ];
-	        } else {
-	            array_push($one_week_projects[$client['Company_ID']], $project);
-	        }
-
-	    }
-
-	    $two_weeks_clients = [];
-	    $two_weeks_subscriptions = [];
-	    $two_weeks_projects = [];
-
-	    foreach ($all_two_weeks as $subscription) {
-	        $client = all_subscription_client_info($subscription)[0];
-
-	        if (!in_array($client, $two_weeks_clients)) {
-	            array_push($two_weeks_clients, $client);
-	        }
-
-	        if (!array_key_exists($client['Company_ID'], $two_weeks_subscriptions)) {
-	            $two_weeks_subscriptions = [
-	                $client['Company_ID'] => [$subscription],
-	            ];
-	        } else {
-	            array_push($two_weeks_subscriptions[$client['Company_ID']], $subscription);
-	        }
-	    }
-
-	    foreach ($all_two_weeks_projects as $project) {
-	        $client = all_project_client_info($project)[0];
-
-	        if (!in_array($client, $two_weeks_clients)) {
-	            array_push($two_weeks_clients, $client);
-	        }
-	        if (!array_key_exists($client['Company_ID'], $two_weeks_projects)) {
-	            $two_weeks_projects = [
-	                $client['Company_ID'] => [$project],
-	            ];
-	        } else {
-	            array_push($two_weeks_projects[$client['Company_ID']], $project);
-	        }
-	    }
-
-
-	    return array("one" => $one_week_clients, "one_sub" => $one_week_subscriptions, "one_pro" => $one_week_projects,
-	        "two" => $two_weeks_clients, "two_sub" => $two_weeks_subscriptions, "two_pro" => $two_weeks_projects);
-	}
-
-
-	$data = findClientsDueDay();
-	$user = $_SESSION['email'];
-
-
-	$one_week_clients = $data['one'];
-	$two_weeks_client = $data['two'];
-	$one_week_subscriptions = $data['one_sub'];
-	$two_weeks_subscriptions = $data['two_sub'];
-
-	$one_week_projects = $data['one_pro'];
-	$two_weeks_projects = $data['two_pro'];
-?>
-
 <style>
     body {
         background-color: #00A5C7;
@@ -157,7 +24,7 @@
             colspan="2">
             <!-- Intro Text in Table -->
             <p style="color:#333333; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px;margin:0 0 15px 0;text-align:left;">
-                <?php echo "Hi " . $user['LastName'] . ','; ?>
+                <?php echo "Hi " . $user['FirstName'] . ' ' . $user['LastName'] . ','; ?>
                 <br/><br/>
                 This is an automated message from your friendly customer management system! It's come to my attention
                 that you have a few upcoming invoice/due dates. If any of the following have already been completed,
@@ -178,7 +45,7 @@
 	                        <?php echo $client['Companyname'] ?>
 	                        
 	                        <ul style="margin:10px 0 0 0;">
-	                            <?php if (count($one_week_subscriptions) != 0) ?>
+	                            <?php if(count($one_week_subscriptions) != 0): ?>
 	                                <?php foreach($one_week_subscriptions[$client['Company_ID']] as $subscription): ?>
 	                                    <li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
 	                                        <strong>Subscription:</strong>
@@ -223,7 +90,7 @@
 	                        <?php echo $client['Companyname'] ?>
 	                        
 	                        <ul style="margin:10px 0 0 0;">
-	                            <?php if (count($two_weeks_subscriptions) != 0) ?>
+	                            <?php if(count($two_weeks_subscriptions) != 0): ?>
 	                                <?php foreach($two_weeks_subscriptions[$client['Company_ID']] as $subscription): ?>
 	                                    <li style="padding-bottom:5px;color:#333333;font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px;line-height:20px;text-align:left;">
 	                                        <strong>Subscription:</strong>
