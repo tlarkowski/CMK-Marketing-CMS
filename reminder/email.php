@@ -12,12 +12,13 @@
 
 require_once __DIR__ . "/../resources/vendor/autoload.php";
 require_once __DIR__ . "/../clients/searchUser.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/auth.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 
-function sendMail($content)
+function sendMail($content, $user)
 {
     $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
     try {
@@ -35,11 +36,7 @@ function sendMail($content)
 
 
         $mail->setFrom('cmappcmkmarketing@gmail.com', 'Reminder System');
-
-        $all_user = all_users();
-        foreach ($all_user as $user) {
-            $mail->addAddress($user['Email_Address'], $user['FirstName'] . $user['LastName']);     // Add a recipient
-        }
+        $mail->addAddress($user['Email_Address'], $user['FirstName'] . $user['LastName']);
         //Recipients
 
         //Attachments

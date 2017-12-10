@@ -9,6 +9,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/login.php";
 date_default_timezone_set("EST");
 
 
+//Strict using https
+//if ($_SERVER["SCRIPT_URI"] == "http://cmapp.cmkmarketing.com/index.php") {
+//    header('Location: https://cmapp.cmkmarketing.com/index.php');
+//}
+
 // Input: Username and Password
 // Output: Bool for whether successful and store the successful result to session
 //echo hash('sha256', 'test');

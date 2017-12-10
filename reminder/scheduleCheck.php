@@ -1,32 +1,22 @@
 <?php
 
+require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/auth.php";
+
 require_once __DIR__ . "/email.php";
-require_once __DIR__ . "/../clients/searchUser.php";
 
 
-function findClientsDueDay()
-{
-    $data_conn = connection();
-    $today = date("Y-m-d H:i:s");
-    $two_weeks = date('Y-m-d H:i:s', strtotime("1 year", strtotime("-2 Weeks")));
+//foreach ($arr as $k => $v) {
+//}
 
-    echo $two_weeks;
-    $data = $data_conn->select("Client_Website", "*", [
-        "Pay" => "0",
-        "Annual_Renewal[<>]" => [$today, $two_weeks]
-    ]);
+$all_user = all_users();
 
-    foreach ($data as $subscription) {
-        echo $subscription['Site_Name'] . "<br>";
-    }
-
+foreach ($all_user as $user) {
+//    echo $user['LastName'];
+    $_SESSION['email'] = $user;
+    $Vdata = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/reminder/email-html.php");
+//    $content = $Vdata;
 }
+echo $Vdata;
 
-findClientsDueDay();
-//
-//$content = "<p>Just a Test 2</p>";
-//$recipient = 'Test';
-//
-//$all_user = all_users();
-//
+
 //sendMail($content);
