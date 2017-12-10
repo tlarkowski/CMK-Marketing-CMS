@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/auth.php";
+require_once __DIR__ . "/../accounts/auth.php";
 require_once __DIR__ . "/email.php";
 require_once __DIR__ . "/../clients/searchUser.php";
 require_once __DIR__ . "/../clients/searchCompany.php";
@@ -118,7 +118,9 @@ function findClientsDueDay()
 }
 
 
+
 $data = findClientsDueDay();
+session_start();
 $user = $_SESSION['email'];
 
 
@@ -134,8 +136,13 @@ $all_user = all_users();
 
 foreach ($all_user as $user) {
     $_SESSION['email'] = $user;
+    ob_start();
     include($_SERVER["DOCUMENT_ROOT"] . "/reminder/email-html.php");
+
+//    $content = getfilec($_SERVER["DOCUMENT_ROOT"] . "/reminder/email-html.php", $data);
+    $echoed_content = ob_get_clean(); // gets content, discards buffer
+    sendMail($echoed_content, $user);
+    echo $echoed_content;
 }
 
 
-//sendMail($content);

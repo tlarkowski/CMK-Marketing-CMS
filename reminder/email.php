@@ -12,7 +12,7 @@
 
 require_once __DIR__ . "/../resources/vendor/autoload.php";
 require_once __DIR__ . "/../clients/searchUser.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/auth.php";
+require_once __DIR__ . "/../accounts/auth.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -57,12 +57,3 @@ function sendMail($content, $user)
 
 }
 
-function mailCreateSubscription($user_ID, $subscription_ID, $company_ID, $project_ID)
-{
-
-}
-
-function mailCreateProject($user_ID, $subscription_ID, $company_ID, $project_ID)
-{
-
-}

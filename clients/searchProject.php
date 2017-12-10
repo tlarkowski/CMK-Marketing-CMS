@@ -7,7 +7,7 @@
  */
 date_default_timezone_set("EST");
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
+require_once __DIR__ . "/../db/conn.php";
 
 /* Return all projects in database */
 function all_projects()

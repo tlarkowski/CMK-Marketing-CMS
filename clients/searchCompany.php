@@ -6,7 +6,7 @@
  * Time: 13:04
  */
 
-include_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
+include_once __DIR__ . "/../db/conn.php";
 
 /* Return all companies in database */
 function all_companies()

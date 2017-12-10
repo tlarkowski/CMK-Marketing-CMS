@@ -6,7 +6,7 @@
  * Time: 16:17
  */
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/accounts/login.php";
+require_once __DIR__ . "/../accounts/login.php";
 
 
 if (!auth_check()) {

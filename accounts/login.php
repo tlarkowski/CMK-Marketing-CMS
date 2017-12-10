@@ -5,7 +5,7 @@
  * Date: 2017/11/8
  * Time: 14:38
  */
-require_once $_SERVER["DOCUMENT_ROOT"] . "/db/conn.php";
+require_once __DIR__  . "/../db/conn.php";
 
 date_default_timezone_set("EST");
 
