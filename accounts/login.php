@@ -5,7 +5,7 @@
  * Date: 2017/11/8
  * Time: 14:38
  */
-require_once __DIR__  . "/../db/conn.php";
+require_once __DIR__ . "/../db/conn.php";
 
 date_default_timezone_set("EST");
 
@@ -76,6 +76,10 @@ function logout()
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    unset ($_SESSION['user']);
+    $_SESSION = array();
+    if (isset($_COOKIE[session_name()])) {
+        setcookie(session_name(), '', time() - 42000, '/');
+    }
+    session_destroy();
     header('Location: /index.php');
 }
