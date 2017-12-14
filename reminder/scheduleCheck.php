@@ -16,6 +16,7 @@ function findClientsDueDay()
     $one_weeks = date("Y-m-d H:i:s", strtotime("+1 Weeks"));
 	//     = date('Y-m-d H:i:s', strtotime("1 year", strtotime("+1 Weeks")));
     $two_weeks = date("Y-m-d H:i:s", strtotime("+2 Weeks"));
+    $six_weeks = date("Y-m-d H:i:s", strtotime("+6 Weeks"));
 
     $all_one_weeks = $data_conn->select("Client_Website", "*", [
         "Pay" => "0",
@@ -39,6 +40,14 @@ function findClientsDueDay()
         "Status" => "1",
         "End_Date[<>]" => [$one_weeks, $two_weeks]
     ]);
+
+    // select this for the next year renewal
+    $all_six_weeks_projects = $data_conn->select("Client_Project", "*", [
+        "Status" => "1",
+        "Pay" => "1",
+        "End_Date[>]" => $six_weeks
+    ]);
+
 
 
     $one_week_clients = [];
